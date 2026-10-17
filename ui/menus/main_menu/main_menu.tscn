@@ -1,48 +1,128 @@
 [gd_scene format=3 uid="uid://dh808cqj70n3l"]
 
-[ext_resource type="PackedScene" uid="uid://i0n7cjiw24yl" path="res://ui/settings/audio_settings/audio_settings.tscn" id="2_6s8a2"]
+[ext_resource type="Script" uid="uid://cs2rmwo84yfv0" path="res://ui/menus/main_menu/exit_button.gd" id="3_igis3"]
 [ext_resource type="Script" uid="uid://bltl6imnc8x2t" path="res://ui/menus/main_menu/play_button.gd" id="3_ioe73"]
+[ext_resource type="Script" uid="uid://2htt7bkeytt7" path="res://ui/better_button/better_button.gd" id="3_j3h1s"]
 [ext_resource type="Script" uid="uid://c3kdhco0ibbsu" path="res://ui/menus/main_menu/reset_button.gd" id="4_txwgg"]
 [ext_resource type="Script" uid="uid://cvah0thg6gaj1" path="res://ui/menus/main_menu/reset_dialog.gd" id="5_j3h1s"]
 
 [node name="MainMenu" type="CanvasLayer" unique_id=1082861136]
 
-[node name="Title" type="RichTextLabel" parent="." unique_id=355611257]
-offset_right = 640.0
-offset_bottom = 128.0
-theme_override_font_sizes/normal_font_size = 48
-theme_override_font_sizes/bold_font_size = 48
-theme_override_font_sizes/bold_italics_font_size = 48
-theme_override_font_sizes/italics_font_size = 48
-theme_override_font_sizes/mono_font_size = 48
-text = "THE Game"
-horizontal_alignment = 1
+[node name="Title" type="Control" parent="." unique_id=920980253]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="Title" unique_id=2018098910]
+layout_mode = 0
+offset_right = 144.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 32
+text = "Qu|-\\ntu"
+horizontal_alignment = 2
 vertical_alignment = 2
 justification_flags = 162
+metadata/_edit_lock_ = true
 
-[node name="AudioSettings" parent="." unique_id=280711572 instance=ExtResource("2_6s8a2")]
+[node name="Title2" type="Label" parent="Title" unique_id=1161899958]
+layout_mode = 0
+offset_left = 136.0
+offset_top = -8.0
+offset_right = 200.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 64
+text = "M"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 162
+metadata/_edit_lock_ = true
+
+[node name="Title3" type="Label" parent="Title" unique_id=2049227623]
+layout_mode = 0
 offset_left = 192.0
-offset_top = 192.0
-offset_right = -192.0
-offset_bottom = -44.0
+offset_top = 24.0
+offset_right = 264.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 32
+text = "irror"
+justification_flags = 162
+metadata/_edit_lock_ = true
 
 [node name="PlayButton" type="Button" parent="." unique_id=1330982424]
-offset_left = 216.0
-offset_top = 144.0
-offset_right = 304.0
-offset_bottom = 184.0
-text = "Play"
+offset_left = 48.0
+offset_top = 88.0
+offset_right = 136.0
+offset_bottom = 119.0
+disabled = true
+text = "Start"
 script = ExtResource("3_ioe73")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
+metadata/_edit_lock_ = true
+
+[node name="ContinueButton" type="Button" parent="." unique_id=968128234]
+offset_left = 48.0
+offset_top = 128.0
+offset_right = 136.0
+offset_bottom = 159.0
+disabled = true
+text = "Continue"
+script = ExtResource("3_ioe73")
+metadata/_custom_type_script = "uid://2htt7bkeytt7"
+metadata/_edit_lock_ = true
+
+[node name="LevelsButton" type="Button" parent="." unique_id=1444052129]
+offset_left = 48.0
+offset_top = 168.0
+offset_right = 136.0
+offset_bottom = 199.0
+text = "Levels"
+script = ExtResource("3_j3h1s")
+metadata/_custom_type_script = "uid://2htt7bkeytt7"
+metadata/_edit_lock_ = true
+
+[node name="OptionsButton" type="Button" parent="." unique_id=200434981]
+offset_left = 48.0
+offset_top = 208.0
+offset_right = 136.0
+offset_bottom = 239.0
+disabled = true
+text = "Options"
+script = ExtResource("3_j3h1s")
+metadata/_custom_type_script = "uid://2htt7bkeytt7"
+metadata/_edit_lock_ = true
+
+[node name="ExtrasButton" type="Button" parent="." unique_id=530488836]
+offset_left = 48.0
+offset_top = 248.0
+offset_right = 136.0
+offset_bottom = 279.0
+disabled = true
+text = "Extras"
+script = ExtResource("3_j3h1s")
+metadata/_custom_type_script = "uid://2htt7bkeytt7"
+metadata/_edit_lock_ = true
+
+[node name="ExitButton" type="Button" parent="." unique_id=1714792241]
+offset_left = 48.0
+offset_top = 288.0
+offset_right = 136.0
+offset_bottom = 319.0
+text = "Exit"
+script = ExtResource("3_igis3")
+metadata/_custom_type_script = "uid://2htt7bkeytt7"
+metadata/_edit_lock_ = true
 
 [node name="ResetButton" type="Button" parent="." unique_id=266406353]
-offset_left = 336.0
-offset_top = 144.0
-offset_right = 400.0
-offset_bottom = 184.0
+offset_left = 504.0
+offset_top = 312.0
+offset_right = 632.0
+offset_bottom = 352.0
+disabled = true
 text = "Reset progress"
 script = ExtResource("4_txwgg")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
+metadata/_edit_lock_ = true
 
 [node name="ResetDialog" type="ConfirmationDialog" parent="ResetButton" unique_id=1030727301]
 initial_position = 1

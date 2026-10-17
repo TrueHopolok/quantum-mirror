@@ -1,15 +1,30 @@
 [gd_scene format=3 uid="uid://mlfopegdrvw6"]
 
-[ext_resource type="Script" uid="uid://cau4hs0c4s1p8" path="res://scenes/audio/ambient_audio_player/ambient_audio_player.gd" id="8_rnaij"]
-[ext_resource type="PackedScene" uid="uid://cav0jmryusucx" path="res://ui/menus/pause_menu/pause_menu.tscn" id="9_h3xc6"]
+[ext_resource type="Script" uid="uid://bkhgdwnew3pi5" path="res://scenes/player/quantum_state/quatum_state.gd" id="2_j8ivh"]
+[ext_resource type="PackedScene" uid="uid://mqufp14bsu2u" path="res://scenes/player/player.tscn" id="3_nd71p"]
+
+[sub_resource type="Resource" id="Resource_g7g4h"]
+script = ExtResource("2_j8ivh")
+metadata/_custom_type_script = "uid://bkhgdwnew3pi5"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_of532"]
+size = Vector2(256, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7g4h"]
+size = Vector2(22, 80)
 
 [node name="TestScene" type="Node2D" unique_id=988521978]
 
-[node name="AmbientAudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1179099831]
-bus = &"SFX_panning"
-script = ExtResource("8_rnaij")
-_enable_bus_panning = true
-metadata/_custom_type_script = "uid://cau4hs0c4s1p8"
+[node name="Player" parent="." unique_id=1516222024 instance=ExtResource("3_nd71p")]
+_state = SubResource("Resource_g7g4h")
 
-[node name="PauseMenu" parent="." unique_id=840180984 instance=ExtResource("9_h3xc6")]
-visible = false
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1226060622]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=619332678]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=355861329]
+shape = SubResource("RectangleShape2D_of532")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=211677756]
+position = Vector2(75, 0)
+shape = SubResource("RectangleShape2D_g7g4h")
