@@ -22,6 +22,23 @@ func _to_string() -> String:
 	return output
 
 
+## Checks whether or not gate operation
+## will have any effect on player's state.
+func check_gate(op: Gate) -> bool:
+	match op:
+		Gate.X:
+			if split:
+				return false
+		Gate.H:
+			pass
+		Gate.Z:
+			if !split:
+				return false
+		_:
+			return false
+	return true
+
+
 ## Applies gate operation and returns
 ## whether or not operation it succeeded.
 func apply_gate(op: Gate) -> bool:

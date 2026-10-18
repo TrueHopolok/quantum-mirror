@@ -24,6 +24,7 @@ shape = SubResource("RectangleShape2D_xwedq")
 [node name="SpawnArea" type="Area2D" parent="." unique_id=1174723865]
 unique_name_in_owner = true
 collision_layer = 0
+monitorable = false
 script = ExtResource("3_wnf01")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea" unique_id=960428080]

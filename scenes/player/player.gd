@@ -30,11 +30,44 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	for input: StringName in INPUT_MAP:
-		if !event.is_action_pressed(input) && event.is_echo():
+		if !event.is_action_pressed(input) || event.is_echo():
 			continue
 		Callable(self, INPUT_MAP[input]).call()
 
 
-## Does nothing for now, but will do everything
-func handle() -> void:
+func handle_gate_x() -> void:
+	if !_state.check_gate(QuantumState.Gate.X):
+		return
+
+	# From |1> to |0>
+	if _state.inverse:
+		if !_lower_pchar.can_mirror():
+			print("blocked")
+			return
+		_upper_pchar.enable_self(_lower_pchar)
+		_lower_pchar.disable_self()
+
+	# From |0> to |1>
+	else:
+		if !_upper_pchar.can_mirror():
+			print("blocked")
+			return
+		_lower_pchar.enable_self(_upper_pchar)
+		_upper_pchar.disable_self()
+
+	_state.apply_gate(QuantumState.Gate.X)
+
+
+func handle_gate_z() -> void:
 	pass
+
+
+func handle_gate_h() -> void:
+	pass
+
+
+func handle_inverse() -> void:
+	if _state.split:
+		handle_gate_z()
+	else:
+		handle_gate_x()

@@ -130,7 +130,11 @@ func pos_mirror() -> Vector2:
 ##
 ## After that enables itself to handle player's input as usual.
 func enable_self(mirror: Pchar) -> void:
-	velocity = mirror.velocity
+	global_position = mirror.pos_mirror()
+	velocity = Vector2(mirror.velocity.x, -mirror.velocity.y)  # -y, since up dir -1
+	_jump_buffer_remaining = mirror._jump_buffer_remaining
+	_coyote_buffer_remaining = mirror._coyote_buffer_remaining
+	_allow_jump_cutoff = mirror._allow_jump_cutoff
 
 	process_mode = Node.PROCESS_MODE_INHERIT
 	visible = true
