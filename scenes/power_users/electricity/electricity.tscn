@@ -3,10 +3,18 @@
 [ext_resource type="Script" uid="uid://bu5ylyhgsd04r" path="res://scenes/power_users/electricity/electricity.gd" id="1_eb78k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_of532"]
+size = Vector2(16, 16)
 
 [node name="Electricity" type="Node2D" unique_id=2134792172]
 script = ExtResource("1_eb78k")
 cost = 0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=226706215]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(1, 0.56078434, 0, 1)
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=1939908872]
 unique_name_in_owner = true
@@ -17,3 +25,4 @@ monitorable = false
 [node name="DetectionCollider" type="CollisionShape2D" parent="DetectionArea" unique_id=247555252]
 unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_of532")
+debug_color = Color(0.61777836, 0.53590983, 0, 0.41960785)
