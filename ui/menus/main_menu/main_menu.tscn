@@ -5,14 +5,17 @@
 [ext_resource type="Script" uid="uid://2htt7bkeytt7" path="res://ui/better_button/better_button.gd" id="3_j3h1s"]
 [ext_resource type="Script" uid="uid://c3kdhco0ibbsu" path="res://ui/menus/main_menu/reset_button.gd" id="4_txwgg"]
 [ext_resource type="Script" uid="uid://cvah0thg6gaj1" path="res://ui/menus/main_menu/reset_dialog.gd" id="5_j3h1s"]
+[ext_resource type="Script" uid="uid://sjh5mgxlqh08" path="res://ui/menus/main_menu/version_label.gd" id="6_igis3"]
 
 [node name="MainMenu" type="CanvasLayer" unique_id=1082861136]
 
 [node name="Title" type="Control" parent="." unique_id=920980253]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 48.0
 
 [node name="Title" type="Label" parent="Title" unique_id=2018098910]
 layout_mode = 0
@@ -27,10 +30,10 @@ metadata/_edit_lock_ = true
 
 [node name="Title2" type="Label" parent="Title" unique_id=1161899958]
 layout_mode = 0
-offset_left = 136.0
+offset_left = 160.0
 offset_top = -8.0
-offset_right = 200.0
-offset_bottom = 80.0
+offset_right = 224.0
+offset_bottom = 104.0
 theme_override_font_sizes/font_size = 64
 text = "M"
 horizontal_alignment = 1
@@ -40,10 +43,10 @@ metadata/_edit_lock_ = true
 
 [node name="Title3" type="Label" parent="Title" unique_id=2049227623]
 layout_mode = 0
-offset_left = 192.0
+offset_left = 216.0
 offset_top = 24.0
-offset_right = 264.0
-offset_bottom = 72.0
+offset_right = 320.0
+offset_bottom = 80.0
 theme_override_font_sizes/font_size = 32
 text = "irror"
 justification_flags = 162
@@ -51,81 +54,85 @@ metadata/_edit_lock_ = true
 
 [node name="PlayButton" type="Button" parent="." unique_id=1330982424]
 offset_left = 48.0
-offset_top = 88.0
+offset_top = 96.0
 offset_right = 136.0
-offset_bottom = 119.0
+offset_bottom = 120.0
 disabled = true
 text = "Start"
 script = ExtResource("3_ioe73")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
-metadata/_edit_lock_ = true
 
 [node name="ContinueButton" type="Button" parent="." unique_id=968128234]
 offset_left = 48.0
-offset_top = 128.0
+offset_top = 136.0
 offset_right = 136.0
-offset_bottom = 159.0
+offset_bottom = 160.0
 disabled = true
 text = "Continue"
 script = ExtResource("3_ioe73")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
-metadata/_edit_lock_ = true
 
 [node name="LevelsButton" type="Button" parent="." unique_id=1444052129]
 offset_left = 48.0
-offset_top = 168.0
+offset_top = 176.0
 offset_right = 136.0
-offset_bottom = 199.0
+offset_bottom = 200.0
 text = "Levels"
 script = ExtResource("3_j3h1s")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
-metadata/_edit_lock_ = true
 
 [node name="OptionsButton" type="Button" parent="." unique_id=200434981]
 offset_left = 48.0
-offset_top = 208.0
+offset_top = 216.0
 offset_right = 136.0
-offset_bottom = 239.0
+offset_bottom = 240.0
 disabled = true
 text = "Options"
 script = ExtResource("3_j3h1s")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
-metadata/_edit_lock_ = true
 
 [node name="ExtrasButton" type="Button" parent="." unique_id=530488836]
 offset_left = 48.0
-offset_top = 248.0
+offset_top = 256.0
 offset_right = 136.0
-offset_bottom = 279.0
+offset_bottom = 280.0
 disabled = true
 text = "Extras"
 script = ExtResource("3_j3h1s")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
-metadata/_edit_lock_ = true
 
 [node name="ExitButton" type="Button" parent="." unique_id=1714792241]
 offset_left = 48.0
-offset_top = 288.0
+offset_top = 296.0
 offset_right = 136.0
-offset_bottom = 319.0
+offset_bottom = 320.0
 text = "Exit"
 script = ExtResource("3_igis3")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
-metadata/_edit_lock_ = true
 
 [node name="ResetButton" type="Button" parent="." unique_id=266406353]
-offset_left = 504.0
-offset_top = 312.0
-offset_right = 632.0
+offset_left = 536.0
+offset_top = 328.0
+offset_right = 624.0
 offset_bottom = 352.0
 disabled = true
 text = "Reset progress"
 script = ExtResource("4_txwgg")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
-metadata/_edit_lock_ = true
 
 [node name="ResetDialog" type="ConfirmationDialog" parent="ResetButton" unique_id=1030727301]
 initial_position = 1
 dialog_text = "Reset all progress?
 This action is irreversible."
 script = ExtResource("5_j3h1s")
+
+[node name="VersionLabel" type="RichTextLabel" parent="." unique_id=1917231296]
+offset_left = 8.0
+offset_top = 344.0
+offset_right = 72.0
+offset_bottom = 360.0
+theme_override_font_sizes/normal_font_size = 7
+theme_override_font_sizes/bold_font_size = 6
+bbcode_enabled = true
+text = "[b]v[/b] 1.0.0"
+script = ExtResource("6_igis3")
