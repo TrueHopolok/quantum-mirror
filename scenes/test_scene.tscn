@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cs7k41vjpbo6h" path="res://scenes/power_sources/plate/plate.tscn" id="5_qjeyg"]
 [ext_resource type="PackedScene" uid="uid://dejx2tunb02qr" path="res://scenes/power_users/door/door.tscn" id="6_3qnke"]
 [ext_resource type="PackedScene" uid="uid://dfodq44bpfjk6" path="res://scenes/power_users/surveillance/surveillance.tscn" id="6_wtsjf"]
+[ext_resource type="PackedScene" uid="uid://cbb8wv7ns37rn" path="res://scenes/power_users/electricity/electricity.tscn" id="7_wtsjf"]
 
 [sub_resource type="Resource" id="Resource_j8ivh"]
 script = ExtResource("2_j8ivh")
@@ -57,3 +58,6 @@ sources = [NodePath("../Lever"), NodePath("../Plate")]
 [node name="Surveillance" parent="." unique_id=1386675124 instance=ExtResource("6_wtsjf")]
 position = Vector2(0, -72)
 _watch_duration = 1.0
+
+[node name="Electricity" parent="." unique_id=2134792172 instance=ExtResource("7_wtsjf")]
+position = Vector2(75, -51)

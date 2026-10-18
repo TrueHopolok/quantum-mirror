@@ -6,6 +6,7 @@
 
 [node name="Electricity" type="Node2D" unique_id=2134792172]
 script = ExtResource("1_eb78k")
+cost = 0
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=1939908872]
 unique_name_in_owner = true

@@ -151,3 +151,8 @@ func handle_observation() -> void:
 	# From |-> or |+> to |0>
 	else:
 		_lower_pchar.disable_self()
+
+
+## Ignores observation and directly kills player
+func handle_death() -> void:
+	print("Player died :(")
