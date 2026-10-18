@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dobxml1lfripg"]
+
+[ext_resource type="Script" uid="uid://4rukcp5216xi" path="res://scenes/exit/exit_door/exit_door.gd" id="1_7nnig"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_of532"]
+radius = 24.0
+height = 64.0
+
+[node name="ExitDoor" type="Area2D" unique_id=610854403]
+script = ExtResource("1_7nnig")
+
+[node name="DetectionCollider" type="CollisionShape2D" parent="." unique_id=711924451]
+shape = SubResource("CapsuleShape2D_of532")

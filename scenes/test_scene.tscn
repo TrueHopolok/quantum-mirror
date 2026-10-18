@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dfodq44bpfjk6" path="res://scenes/power_users/surveillance/surveillance.tscn" id="6_wtsjf"]
 [ext_resource type="PackedScene" uid="uid://cbb8wv7ns37rn" path="res://scenes/power_users/electricity/electricity.tscn" id="7_wtsjf"]
 [ext_resource type="PackedScene" uid="uid://dvcrnhp8k02k1" path="res://scenes/collectables/gate/gate.tscn" id="8_rnaij"]
+[ext_resource type="PackedScene" uid="uid://dqudt7q0ha4d3" path="res://scenes/exit/exit.tscn" id="9_h3xc6"]
 
 [sub_resource type="Resource" id="Resource_j8ivh"]
 script = ExtResource("2_j8ivh")
@@ -66,3 +67,6 @@ position = Vector2(75, -51)
 [node name="Gate" parent="." unique_id=1015632753 instance=ExtResource("8_rnaij")]
 position = Vector2(0, -48)
 _value = 2
+
+[node name="Exit" parent="." unique_id=2020743013 instance=ExtResource("9_h3xc6")]
+position = Vector2(-168, 0)

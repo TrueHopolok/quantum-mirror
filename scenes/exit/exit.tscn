@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dqudt7q0ha4d3"]
+
+[ext_resource type="Script" uid="uid://ysd3qdvhp8q" path="res://scenes/exit/exit.gd" id="1_ymjir"]
+[ext_resource type="PackedScene" uid="uid://dobxml1lfripg" path="res://scenes/exit/exit_door/exit_door.tscn" id="2_wmb3t"]
+
+[node name="Exit" type="Node2D" unique_id=2020743013]
+script = ExtResource("1_ymjir")
+
+[node name="UpperDoor" parent="." unique_id=610854403 instance=ExtResource("2_wmb3t")]
+unique_name_in_owner = true
+position = Vector2(0, -40)
+
+[node name="LowerDoor" parent="." unique_id=2088361115 instance=ExtResource("2_wmb3t")]
+unique_name_in_owner = true
+position = Vector2(0, 40)
