@@ -31,7 +31,7 @@ func check_gate(op: Gate) -> bool:
 			if split:
 				return false
 		Gate.H:
-			pass
+			return true
 		Gate.Z:
 			if !split:
 				return false

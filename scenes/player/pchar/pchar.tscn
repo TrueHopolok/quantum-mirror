@@ -8,7 +8,7 @@
 size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_of532"]
-size = Vector2(16, 16)
+size = Vector2(15.8, 15.8)
 
 [node name="Pchar" type="CharacterBody2D" unique_id=1334760347]
 collision_layer = 3
@@ -24,7 +24,6 @@ shape = SubResource("RectangleShape2D_xwedq")
 [node name="SpawnArea" type="Area2D" parent="." unique_id=1174723865]
 unique_name_in_owner = true
 collision_layer = 0
-monitorable = false
 script = ExtResource("3_wnf01")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea" unique_id=960428080]

@@ -17,6 +17,7 @@ position = Vector2(0, 16)
 up_direction = Vector2(0, 1)
 
 [node name="Sprite2D" parent="LowerPchar" index="0" unique_id=2141593457]
+modulate = Color(0, 1, 0, 1)
 flip_v = true
 metadata/_edit_lock_ = true
 

@@ -64,7 +64,6 @@ func _unhandled_input(event: InputEvent) -> void:
 func handle_gate_x() -> void:
 	if !x_gate_infinite && x_gate_uses <= 0:
 		return
-	x_gate_uses -= 1
 
 	if !state.check_gate(QuantumState.Gate.X):
 		return
@@ -86,36 +85,28 @@ func handle_gate_x() -> void:
 		_upper_pchar.disable_self()
 
 	state.apply_gate(QuantumState.Gate.X)
+	x_gate_uses -= 1
 
 
 func handle_gate_z() -> void:
 	if !z_gate_infinite && z_gate_uses <= 0:
 		return
-	z_gate_uses -= 1
 
 	# Both checks and if okay, then applies
 	if !state.apply_gate(QuantumState.Gate.Z):
 		return
 
+	z_gate_uses -= 1
+
 
 func handle_gate_h() -> void:
 	if !h_gate_infinite && h_gate_uses <= 0:
 		return
-	h_gate_uses -= 1
 
-	# Both checks and if okay, then applies
-	if !state.apply_gate(QuantumState.Gate.H):
+	if !state.check_gate(QuantumState.Gate.H):
 		return
 
 	if state.split:
-		# From |1> to |->
-		if state.inverse:
-			_upper_pchar.enable_self(_lower_pchar)
-
-		# From |0> to |+>
-		else:
-			_lower_pchar.enable_self(_upper_pchar)
-	else:
 		# From |-> to |1>
 		if state.inverse:
 			_upper_pchar.disable_self()
@@ -123,6 +114,22 @@ func handle_gate_h() -> void:
 		# From |+> to |0>
 		else:
 			_lower_pchar.disable_self()
+
+	else:
+		# From |1> to |->
+		if state.inverse:
+			if !_lower_pchar.can_mirror():
+				return
+			_upper_pchar.enable_self(_lower_pchar)
+
+		# From |0> to |+>
+		else:
+			if !_upper_pchar.can_mirror():
+				return
+			_lower_pchar.enable_self(_upper_pchar)
+
+	state.apply_gate(QuantumState.Gate.H)
+	h_gate_uses -= 1
 
 
 func handle_inverse() -> void:
