@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cr0g21safoei6" path="res://scenes/player/pchar/pchar.tscn" id="1_8afob"]
 [ext_resource type="Script" uid="uid://daog10aqlcte1" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="Script" uid="uid://o881j2tuos2u" path="res://scenes/player/player_abilities_label.gd" id="3_gmlin"]
 
 [node name="Player" type="Node2D" unique_id=1516222024]
 script = ExtResource("1_dovo2")
@@ -21,5 +22,20 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" parent="LowerPchar" index="1" unique_id=1231837824]
 metadata/_edit_lock_ = true
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1869521700]
+unique_name_in_owner = true
+
+[node name="PlayerAbilitiesLabel" type="Label" parent="UI" unique_id=1028777212]
+offset_left = 8.0
+offset_top = 280.0
+offset_right = 56.0
+offset_bottom = 352.0
+text = "X: %d
+Z: %d
+H %d
+S = %s"
+vertical_alignment = 2
+script = ExtResource("3_gmlin")
 
 [editable path="LowerPchar"]

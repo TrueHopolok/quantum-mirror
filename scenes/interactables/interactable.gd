@@ -16,11 +16,6 @@ const INPUT_INTERACT: StringName = &"interact"
 var _available: bool = false
 
 
-func _ready() -> void:
-	hint_toggled.connect(func(a: bool) -> void: print("show" if a else "hide"))
-	interacted.connect(func() -> void: print("interacted"))
-
-
 func _physics_process(_delta: float) -> void:
 	var new_value: bool = false
 	for body: Node2D in get_overlapping_bodies():

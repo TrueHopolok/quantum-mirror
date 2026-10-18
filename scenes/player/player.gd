@@ -10,19 +10,38 @@ const INPUT_MAP: Dictionary[StringName, String] = {
 	&"quantum_inverse": "handle_inverse",
 }
 
-@export var _state: QuantumState
+@export var state: QuantumState
+
+@export_group("Gate Usages")
+@export_subgroup("X Gate", "x_gate")
+## How many X gate uses are left for player to use
+@export var x_gate_uses: int = 0
+## Allows infinite uses of the X gates, ignoring usage count
+@export var x_gate_infinite: bool = false
+
+@export_subgroup("Z Gate", "z_gate")
+## How many X gate uses are left for player to use
+@export var z_gate_uses: int = 0
+## Allows infinite uses of the X gates, ignoring usage count
+@export var z_gate_infinite: bool = false
+
+@export_subgroup("H Gate", "h_gate")
+## How many X gate uses are left for player to use
+@export var h_gate_uses: int = 0
+## Allows infinite uses of the X gates, ignoring usage count
+@export var h_gate_infinite: bool = false
 
 @onready var _upper_pchar: Pchar = %UpperPchar
 @onready var _lower_pchar: Pchar = %LowerPchar
 
 
 func _ready() -> void:
-	if !is_instance_valid(_state):
+	if !is_instance_valid(state):
 		printerr("Player._ready(): quantum state is nil")
-		_state = QuantumState.new()
+		state = QuantumState.new()
 
-	if !_state.split:
-		if _state.inverse:
+	if !state.split:
+		if state.inverse:
 			_upper_pchar.disable_self()
 		else:
 			_lower_pchar.disable_self()
@@ -43,11 +62,15 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func handle_gate_x() -> void:
-	if !_state.check_gate(QuantumState.Gate.X):
+	if !x_gate_infinite && x_gate_uses <= 0:
+		return
+	x_gate_uses -= 1
+
+	if !state.check_gate(QuantumState.Gate.X):
 		return
 
 	# From |1> to |0>
-	if _state.inverse:
+	if state.inverse:
 		# X gate into the wall check
 		if !_lower_pchar.can_mirror():
 			return
@@ -62,23 +85,31 @@ func handle_gate_x() -> void:
 		_lower_pchar.enable_self(_upper_pchar)
 		_upper_pchar.disable_self()
 
-	_state.apply_gate(QuantumState.Gate.X)
+	state.apply_gate(QuantumState.Gate.X)
 
 
 func handle_gate_z() -> void:
+	if !z_gate_infinite && z_gate_uses <= 0:
+		return
+	z_gate_uses -= 1
+
 	# Both checks and if okay, then applies
-	if !_state.apply_gate(QuantumState.Gate.Z):
+	if !state.apply_gate(QuantumState.Gate.Z):
 		return
 
 
 func handle_gate_h() -> void:
+	if !h_gate_infinite && h_gate_uses <= 0:
+		return
+	h_gate_uses -= 1
+
 	# Both checks and if okay, then applies
-	if !_state.apply_gate(QuantumState.Gate.H):
+	if !state.apply_gate(QuantumState.Gate.H):
 		return
 
-	if _state.split:
+	if state.split:
 		# From |1> to |->
-		if _state.inverse:
+		if state.inverse:
 			_upper_pchar.enable_self(_lower_pchar)
 
 		# From |0> to |+>
@@ -86,7 +117,7 @@ func handle_gate_h() -> void:
 			_lower_pchar.enable_self(_upper_pchar)
 	else:
 		# From |-> to |1>
-		if _state.inverse:
+		if state.inverse:
 			_upper_pchar.disable_self()
 
 		# From |+> to |0>
@@ -95,7 +126,7 @@ func handle_gate_h() -> void:
 
 
 func handle_inverse() -> void:
-	if _state.split:
+	if state.split:
 		handle_gate_z()
 	else:
 		handle_gate_x()
@@ -103,11 +134,11 @@ func handle_inverse() -> void:
 
 func handle_observation() -> void:
 	# Both checks and if okay, then applies
-	if !_state.apply_observation():
+	if !state.apply_observation():
 		return
 
 	# From |-> or |+> to |1>
-	if _state.inverse:
+	if state.inverse:
 		_upper_pchar.disable_self()
 
 	# From |-> or |+> to |0>
