@@ -51,7 +51,7 @@ position = Vector2(72, -64)
 position = Vector2(-48, -16)
 
 [node name="Door" parent="." unique_id=998366484 node_paths=PackedStringArray("sources") instance=ExtResource("6_3qnke")]
-position = Vector2(-112, -32)
+position = Vector2(-104, -32)
 sources = [NodePath("../Lever"), NodePath("../Plate")]
 
 [editable path="Interactable"]
