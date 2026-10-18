@@ -14,5 +14,5 @@ collision_layer = 0
 collision_mask = 2
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1697505486]
+[node name="DetectionCollider" type="CollisionShape2D" parent="DetectionArea" unique_id=1697505486]
 shape = SubResource("RectangleShape2D_of532")

@@ -8,9 +8,9 @@ size = Vector2(20, 48)
 [node name="Door" type="Node2D" unique_id=998366484]
 script = ExtResource("1_nyr28")
 
-[node name="DoorBody" type="StaticBody2D" parent="." unique_id=1800417426]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1800417426]
 collision_mask = 0
 
-[node name="DoorCollider" type="CollisionShape2D" parent="DoorBody" unique_id=1769877937]
+[node name="StaticCollider" type="CollisionShape2D" parent="StaticBody2D" unique_id=1769877937]
 unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_of532")

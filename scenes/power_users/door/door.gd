@@ -1,7 +1,7 @@
 class_name Door
 extends PowerUser
 
-@onready var _collider: CollisionShape2D = %DoorCollider
+@onready var _collider: CollisionShape2D = %StaticCollider
 
 
 func _ready() -> void:
