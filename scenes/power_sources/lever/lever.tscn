@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://7g3swqndfeuf"]
 
 [ext_resource type="PackedScene" uid="uid://dofmuja2jqgfk" path="res://scenes/interactables/interactable.tscn" id="1_rexya"]
-[ext_resource type="Script" uid="uid://cq5ucocfmty5p" path="res://scenes/interactables/power_sources/lever/lever.gd" id="1_t7hrb"]
+[ext_resource type="Script" uid="uid://cq5ucocfmty5p" path="res://scenes/power_sources/lever/lever.gd" id="1_t7hrb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wbbna"]
 radius = 16.0

@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://bkhgdwnew3pi5" path="res://scenes/player/quantum_state/quatum_state.gd" id="2_j8ivh"]
 [ext_resource type="PackedScene" uid="uid://dofmuja2jqgfk" path="res://scenes/interactables/interactable.tscn" id="3_7ddre"]
 [ext_resource type="PackedScene" uid="uid://mqufp14bsu2u" path="res://scenes/player/player.tscn" id="3_nd71p"]
-[ext_resource type="PackedScene" uid="uid://7g3swqndfeuf" path="res://scenes/interactables/power_sources/lever/lever.tscn" id="4_7ddre"]
-[ext_resource type="PackedScene" uid="uid://cs7k41vjpbo6h" path="res://scenes/interactables/power_sources/plate/plate.tscn" id="5_qjeyg"]
+[ext_resource type="PackedScene" uid="uid://7g3swqndfeuf" path="res://scenes/power_sources/lever/lever.tscn" id="4_7ddre"]
+[ext_resource type="PackedScene" uid="uid://cs7k41vjpbo6h" path="res://scenes/power_sources/plate/plate.tscn" id="5_qjeyg"]
+[ext_resource type="PackedScene" uid="uid://dejx2tunb02qr" path="res://scenes/power_users/door/door.tscn" id="6_3qnke"]
 
 [sub_resource type="Resource" id="Resource_j8ivh"]
 script = ExtResource("2_j8ivh")
@@ -48,5 +49,9 @@ position = Vector2(72, -64)
 
 [node name="Plate" parent="." unique_id=876996449 instance=ExtResource("5_qjeyg")]
 position = Vector2(-48, -16)
+
+[node name="Door" parent="." unique_id=998366484 node_paths=PackedStringArray("sources") instance=ExtResource("6_3qnke")]
+position = Vector2(-112, -32)
+sources = [NodePath("../Lever"), NodePath("../Plate")]
 
 [editable path="Interactable"]
