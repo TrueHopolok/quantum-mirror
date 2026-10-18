@@ -11,5 +11,5 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if !is_instance_of(body, Pchar):
 		return
-	monitoring = false
+	set_deferred(&"monitoring", false)
 	collected.emit()

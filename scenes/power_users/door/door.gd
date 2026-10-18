@@ -12,4 +12,4 @@ func _ready() -> void:
 
 
 func _update_state(open: bool) -> void:
-	_collider.disabled = open
+	_collider.set_deferred(&"disabled", open)
