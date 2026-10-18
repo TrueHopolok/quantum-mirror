@@ -1,6 +1,7 @@
 class_name QuantumState
 extends Resource
 
+signal gate_applied(op: Gate)
 signal observed
 
 enum Gate {
@@ -55,6 +56,7 @@ func apply_gate(op: Gate) -> bool:
 			inverse = !inverse
 		_:
 			return false
+	gate_applied.emit(op)
 	return true
 
 

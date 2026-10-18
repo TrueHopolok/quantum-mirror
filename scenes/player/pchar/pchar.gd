@@ -49,7 +49,9 @@ var _allow_jump_cutoff: bool = false  # NOTE: assumes that going up only possibl
 ## Handles only players jump, since moving horizontally
 ## can be handled inside [method self._physics_process].
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed(INPUT_JUMP) && !event.is_echo():
+	if event.is_echo():
+		return
+	if event.is_action_pressed(INPUT_JUMP):
 		_jump_buffer_remaining = JUMP_BUFFER_DURATION
 
 
