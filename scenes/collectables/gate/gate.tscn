@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dvcrnhp8k02k1"]
+
+[ext_resource type="PackedScene" uid="uid://bldjugy2hfqcl" path="res://scenes/collectables/collectable.tscn" id="1_5ajsh"]
+[ext_resource type="Script" uid="uid://eguti0v4l1yx" path="res://scenes/collectables/gate/gate.gd" id="2_v2vuh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ajsh"]
+
+[node name="Gate" unique_id=1015632753 instance=ExtResource("1_5ajsh")]
+script = ExtResource("2_v2vuh")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=508707347]
+shape = SubResource("CircleShape2D_5ajsh")

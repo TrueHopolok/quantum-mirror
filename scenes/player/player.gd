@@ -1,6 +1,8 @@
 class_name Player
 extends Node2D
 
+signal collected_gate(op: QuantumState.Gate)
+
 ## Input map that for each input action
 ## stores a method name, which will be executed on such input.
 const INPUT_MAP: Dictionary[StringName, String] = {
@@ -84,19 +86,19 @@ func handle_gate_x() -> void:
 		_lower_pchar.enable_self(_upper_pchar)
 		_upper_pchar.disable_self()
 
-	state.apply_gate(QuantumState.Gate.X)
 	x_gate_uses -= 1
+	state.apply_gate(QuantumState.Gate.X)
 
 
 func handle_gate_z() -> void:
 	if !z_gate_infinite && z_gate_uses <= 0:
 		return
 
-	# Both checks and if okay, then applies
-	if !state.apply_gate(QuantumState.Gate.Z):
+	if !state.check_gate(QuantumState.Gate.Z):
 		return
 
 	z_gate_uses -= 1
+	state.apply_gate(QuantumState.Gate.Z)
 
 
 func handle_gate_h() -> void:
@@ -128,8 +130,8 @@ func handle_gate_h() -> void:
 				return
 			_lower_pchar.enable_self(_upper_pchar)
 
-	state.apply_gate(QuantumState.Gate.H)
 	h_gate_uses -= 1
+	state.apply_gate(QuantumState.Gate.H)
 
 
 func handle_inverse() -> void:
@@ -156,3 +158,16 @@ func handle_observation() -> void:
 ## Ignores observation and directly kills player
 func handle_death() -> void:
 	print("Player died :(")
+
+
+func collect_gate(op: QuantumState.Gate) -> void:
+	match op:
+		QuantumState.Gate.X:
+			x_gate_uses += 1
+		QuantumState.Gate.Z:
+			z_gate_uses += 1
+		QuantumState.Gate.H:
+			h_gate_uses += 1
+		_:
+			printerr("collected gate with corrupted value")
+	collected_gate.emit(op)

@@ -8,7 +8,9 @@ func _ready() -> void:
 	owner.ready.connect(
 		func() -> void:
 			_player = %UI.get_parent() as Player
+			_player.collected_gate.connect(_on_gate_applied)
 			_player.state.gate_applied.connect(_on_gate_applied)
+			_player.state.observed.connect(_update_text)
 			_update_text()
 	)
 
