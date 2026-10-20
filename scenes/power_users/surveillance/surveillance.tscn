@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dfodq44bpfjk6"]
 
 [ext_resource type="Script" uid="uid://dt1qby5tgyqq8" path="res://scenes/power_users/surveillance/surveillance.gd" id="1_n1yx2"]
+[ext_resource type="Texture2D" uid="uid://ptd0sa7mmdpi" path="res://icon.png" id="2_e0ul5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqnoy"]
 size = Vector2(24, 24)
@@ -8,7 +9,7 @@ size = Vector2(24, 24)
 [node name="Surveillance" type="Node2D" unique_id=458764811]
 script = ExtResource("1_n1yx2")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1017360965]
+[node name="HeadSprite" type="ColorRect" parent="." unique_id=1017360965]
 offset_left = -4.0
 offset_top = -4.0
 offset_right = 4.0
@@ -20,10 +21,12 @@ collision_layer = 0
 collision_mask = 2
 monitorable = false
 
-[node name="ColorRect2" type="ColorRect" parent="DetectionArea" unique_id=1532781749]
-offset_right = 24.0
-offset_bottom = 24.0
-color = Color(1, 1, 0, 0.3137255)
+[node name="DetectionSprite" type="Sprite2D" parent="DetectionArea" unique_id=721175895]
+unique_name_in_owner = true
+modulate = Color(0.6119702, 0.32928175, 1.92523e-07, 0.5019608)
+position = Vector2(12, 12.000001)
+scale = Vector2(0.026785716, 0.026785716)
+texture = ExtResource("2_e0ul5")
 
 [node name="DetectionCollider" type="CollisionShape2D" parent="DetectionArea" unique_id=1281597379]
 unique_name_in_owner = true

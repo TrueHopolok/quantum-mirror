@@ -15,9 +15,9 @@ enum ExitRequirement {
 
 func _ready() -> void:
 	if _requirement == ExitRequirement.ONLY_LOW:
-		_upper_door.disable_collider()
+		_upper_door.disable_collider(true)
 	elif _requirement == ExitRequirement.ONLY_UP:
-		_lower_door.disable_collider()
+		_lower_door.disable_collider(true)
 
 
 func _physics_process(_delta: float) -> void:

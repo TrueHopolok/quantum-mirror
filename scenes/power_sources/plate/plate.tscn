@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://cb1rkku8x7g14" path="res://scenes/power_sources/plate/plate.gd" id="1_1vqw8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_of532"]
-size = Vector2(20, 10)
+size = Vector2(16, 8)
 
 [node name="Plate" type="Node2D" unique_id=876996449]
 script = ExtResource("1_1vqw8")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=871980836]
+[node name="PlateSprite" type="ColorRect" parent="." unique_id=871980836]
 offset_left = -8.0
 offset_top = -4.0
 offset_right = 8.0
@@ -17,9 +17,11 @@ color = Color(1, 0, 1, 1)
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=326362410]
 unique_name_in_owner = true
+position = Vector2(0, 4)
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 
 [node name="DetectionCollider" type="CollisionShape2D" parent="DetectionArea" unique_id=1697505486]
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_of532")

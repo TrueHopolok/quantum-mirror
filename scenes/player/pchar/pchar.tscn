@@ -5,17 +5,18 @@
 [ext_resource type="Script" uid="uid://cwlqtu4w4r8ql" path="res://scenes/player/pchar/spawn_area.gd" id="3_wnf01"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwedq"]
-size = Vector2(16, 16)
+size = Vector2(16, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_of532"]
-size = Vector2(15.8, 15.8)
+size = Vector2(15.8, 31.8)
 
 [node name="Pchar" type="CharacterBody2D" unique_id=1334760347]
 collision_layer = 3
 script = ExtResource("1_b0ynn")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2141593457]
-scale = Vector2(0.017857144, 0.017857144)
+position = Vector2(0, -2.3841858e-07)
+scale = Vector2(0.017857144, 0.035714287)
 texture = ExtResource("1_xwedq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1231837824]
@@ -27,5 +28,6 @@ collision_layer = 0
 script = ExtResource("3_wnf01")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea" unique_id=960428080]
+position = Vector2(0, -9.536743e-07)
 shape = SubResource("RectangleShape2D_of532")
 debug_color = Color(0, 0.69803923, 0.6, 0.41960785)

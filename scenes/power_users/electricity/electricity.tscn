@@ -9,7 +9,8 @@ size = Vector2(16, 16)
 script = ExtResource("1_eb78k")
 cost = 0
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=226706215]
+[node name="ElectricitySprite" type="ColorRect" parent="." unique_id=226706215]
+unique_name_in_owner = true
 offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0

@@ -3,12 +3,13 @@
 [ext_resource type="Script" uid="uid://ddugguucgjpx6" path="res://scenes/power_users/door/door.gd" id="1_nyr28"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_of532"]
-size = Vector2(20, 48)
+size = Vector2(16, 48)
 
 [node name="Door" type="Node2D" unique_id=998366484]
 script = ExtResource("1_nyr28")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1314994195]
+[node name="DoorSprite" type="ColorRect" parent="." unique_id=1314994195]
+unique_name_in_owner = true
 offset_left = -8.0
 offset_top = -24.0
 offset_right = 8.0
@@ -16,6 +17,7 @@ offset_bottom = 24.0
 color = Color(0, 1, 1, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1800417426]
+unique_name_in_owner = true
 collision_mask = 0
 
 [node name="StaticCollider" type="CollisionShape2D" parent="StaticBody2D" unique_id=1769877937]

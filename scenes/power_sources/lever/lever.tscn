@@ -10,7 +10,7 @@ height = 32.0
 [node name="Lever" type="Node2D" unique_id=395547070]
 script = ExtResource("1_t7hrb")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=2097745153]
+[node name="LeverSprite" type="ColorRect" parent="." unique_id=2097745153]
 offset_left = -4.0
 offset_top = -4.0
 offset_right = 4.0

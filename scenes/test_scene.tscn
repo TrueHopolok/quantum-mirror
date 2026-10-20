@@ -47,14 +47,14 @@ shape = SubResource("RectangleShape2D_g7g4h")
 position = Vector2(56, -24)
 
 [node name="Plate" parent="." unique_id=876996449 instance=ExtResource("5_qjeyg")]
-position = Vector2(-48, -16)
+position = Vector2(32, -8)
 
 [node name="Door" parent="." unique_id=998366484 node_paths=PackedStringArray("sources") instance=ExtResource("6_3qnke")]
-position = Vector2(-80, -16)
+position = Vector2(-72, -32)
 sources = [NodePath("../Lever"), NodePath("../Plate")]
 
 [node name="Door2" parent="." unique_id=804452148 node_paths=PackedStringArray("sources") instance=ExtResource("6_3qnke")]
-position = Vector2(-112, 16)
+position = Vector2(-88, 32)
 sources = [NodePath("../Lever"), NodePath("../Plate")]
 
 [node name="Surveillance" parent="." unique_id=1386675124 instance=ExtResource("6_wtsjf")]
@@ -65,8 +65,16 @@ _watch_duration = 1.0
 position = Vector2(75, -51)
 
 [node name="Gate" parent="." unique_id=1015632753 instance=ExtResource("8_rnaij")]
-position = Vector2(0, -48)
+position = Vector2(-48, -32)
 _value = 2
 
 [node name="Exit" parent="." unique_id=2020743013 instance=ExtResource("9_h3xc6")]
-position = Vector2(-168, 0)
+position = Vector2(-136, 0)
+
+[node name="UpperDoor" parent="Exit" index="0" unique_id=610854403]
+position = Vector2(0, -32)
+
+[node name="LowerDoor" parent="Exit" index="1" unique_id=2088361115]
+position = Vector2(0, 32)
+
+[editable path="Exit"]

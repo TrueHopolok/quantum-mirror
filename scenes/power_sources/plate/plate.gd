@@ -12,3 +12,4 @@ func _physics_process(_delta: float) -> void:
 			break
 	if new_value != powered:
 		toggle_power()
+		# TODO: add different sprite
