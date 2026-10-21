@@ -3,6 +3,13 @@ extends Node2D
 
 signal collected_gate(op: QuantumState.Gate)
 
+## Same input map as [constant INPUT_MAP],
+## but contains a debug inputs.
+const DEBUG_INPUT_MAP: Dictionary[StringName, String] = {
+	&"debug_quantum_observation": "handle_observation",
+	&"debug_quantum_infinity": "handle_infinity",
+}
+
 ## Input map that for each input action
 ## stores a method name, which will be executed on such input.
 const INPUT_MAP: Dictionary[StringName, String] = {
@@ -54,8 +61,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 
 	if OS.is_debug_build():
-		if event.is_action_pressed(&"debug_quantum_observation"):
-			handle_observation()
+		for input: StringName in DEBUG_INPUT_MAP:
+			if !event.is_action_pressed(input):
+				continue
+			Callable(self, DEBUG_INPUT_MAP[input]).call()
 
 	for input: StringName in INPUT_MAP:
 		if !event.is_action_pressed(input):
@@ -158,6 +167,13 @@ func handle_observation() -> void:
 ## Ignores observation and directly kills player
 func handle_death() -> void:
 	print("Player died :(")
+
+
+func handle_infinity() -> void:
+	x_gate_infinite = true
+	z_gate_infinite = true
+	h_gate_infinite = true
+	state.observed.emit()
 
 
 func collect_gate(op: QuantumState.Gate) -> void:

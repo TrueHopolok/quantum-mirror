@@ -62,6 +62,7 @@ position = Vector2(0, -72)
 _watch_duration = 1.0
 
 [node name="Electricity" parent="." unique_id=2134792172 instance=ExtResource("7_wtsjf")]
+z_index = 2
 position = Vector2(75, -51)
 
 [node name="Gate" parent="." unique_id=1015632753 instance=ExtResource("8_rnaij")]

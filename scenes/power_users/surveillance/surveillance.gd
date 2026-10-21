@@ -9,7 +9,7 @@ var _rotating_left: float = 0
 @onready var _watching_left: float = _watch_duration
 @onready var _area: Area2D = %DetectionArea
 @onready var _collider: CollisionShape2D = %DetectionCollider
-@onready var _detection_sprite: Sprite2D = %DetectionSprite
+@onready var _detection_sprite: ColorRect = %DetectionSprite
 
 
 func _physics_process(delta: float) -> void:
@@ -19,7 +19,6 @@ func _physics_process(delta: float) -> void:
 			if _rotating_left <= 0:
 				_watching_left = _watch_duration
 				_collider.position.x = -_collider.position.x
-				_detection_sprite.position.x = _collider.position.x
 				_collider.set_deferred(&"disabled", false)
 				_detection_sprite.show()
 				# TODO: set camera sprite to side value with flip_h if needed
