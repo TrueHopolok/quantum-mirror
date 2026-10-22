@@ -17,6 +17,7 @@ const INPUT_MAP: Dictionary[StringName, String] = {
 	&"quantum_z": "handle_gate_z",
 	&"quantum_h": "handle_gate_h",
 	&"quantum_inverse": "handle_inverse",
+	&"restart_level": "handle_death",
 }
 
 @export var state: QuantumState
@@ -166,7 +167,9 @@ func handle_observation() -> void:
 
 ## Ignores observation and directly kills player
 func handle_death() -> void:
-	print("Player died :(")
+	process_mode = Node.PROCESS_MODE_DISABLED
+	# TODO: add death animation and after short delay execute following
+	Transition.reload_scene()
 
 
 func handle_infinity() -> void:
