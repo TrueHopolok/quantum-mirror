@@ -3,32 +3,42 @@
 [ext_resource type="PackedScene" uid="uid://cr0g21safoei6" path="res://scenes/player/pchar/pchar.tscn" id="1_8afob"]
 [ext_resource type="Script" uid="uid://daog10aqlcte1" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Script" uid="uid://o881j2tuos2u" path="res://scenes/player/player_abilities_label.gd" id="3_gmlin"]
+[ext_resource type="PackedScene" uid="uid://bn4s0qo3hp6r4" path="res://scenes/player/spawn_area/spawn_area.tscn" id="4_p47bc"]
 
 [node name="Player" type="Node2D" unique_id=1516222024]
 script = ExtResource("1_dovo2")
 
-[node name="UpperPchar" parent="." unique_id=1334760347 instance=ExtResource("1_8afob")]
-unique_name_in_owner = true
+[node name="Upper" type="Node2D" parent="." unique_id=205619998]
 position = Vector2(0, -24)
 
-[node name="LowerPchar" parent="." unique_id=1746014567 instance=ExtResource("1_8afob")]
+[node name="UpperSpawn" parent="Upper" unique_id=1025865373 node_paths=PackedStringArray("_player_root", "_following_pchar") instance=ExtResource("4_p47bc")]
 unique_name_in_owner = true
-position = Vector2(0, 24)
-up_direction = Vector2(0, 1)
+_player_root = NodePath("../..")
+_following_pchar = NodePath("../../Lower/LowerPchar")
 
-[node name="Sprite2D" parent="LowerPchar" index="0" unique_id=2141593457]
+[node name="UpperPchar" parent="Upper" unique_id=1334760347 instance=ExtResource("1_8afob")]
+unique_name_in_owner = true
+metadata/_edit_lock_ = true
+
+[node name="Lower" type="Node2D" parent="." unique_id=2098240698]
+position = Vector2(0, 24)
+
+[node name="LowerSpawn" parent="Lower" unique_id=454700582 node_paths=PackedStringArray("_player_root", "_following_pchar") instance=ExtResource("4_p47bc")]
+unique_name_in_owner = true
+_player_root = NodePath("../..")
+_following_pchar = NodePath("../../Upper/UpperPchar")
+
+[node name="LowerPchar" parent="Lower" unique_id=1746014567 instance=ExtResource("1_8afob")]
+unique_name_in_owner = true
+up_direction = Vector2(0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" parent="Lower/LowerPchar" index="0" unique_id=2141593457]
 modulate = Color(0, 1, 0, 1)
 flip_v = true
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" parent="LowerPchar" index="1" unique_id=1231837824]
-metadata/_edit_lock_ = true
-
-[node name="SpawnArea" parent="LowerPchar" index="2" unique_id=1174723865]
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" parent="LowerPchar/SpawnArea" index="0" unique_id=960428080]
-position = Vector2(0, 0)
+[node name="CollisionShape2D" parent="Lower/LowerPchar" index="1" unique_id=1231837824]
 metadata/_edit_lock_ = true
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1869521700]
@@ -46,4 +56,4 @@ S = %s"
 vertical_alignment = 2
 script = ExtResource("3_gmlin")
 
-[editable path="LowerPchar"]
+[editable path="Lower/LowerPchar"]

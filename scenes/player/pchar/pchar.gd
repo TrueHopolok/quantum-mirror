@@ -43,8 +43,6 @@ var _jump_buffer_remaining: float = 0  # timer variable instead of node
 var _coyote_buffer_remaining: float = 0  # timer variable instead of node
 var _allow_jump_cutoff: bool = false  # NOTE: assumes that going up only possible via jump
 
-@onready var _spawn_area: SpawnArea = %SpawnArea
-
 
 ## Handles only players jump, since moving horizontally
 ## can be handled inside [method self._physics_process].
@@ -117,22 +115,12 @@ func _handle_vertical(delta: float) -> void:
 		velocity.y = maxf(velocity.y, -MAX_FALLING_SPEED)
 
 
-## Returns whether or not mirror position is not obstructed.
-func can_mirror() -> bool:
-	return !_spawn_area.has_overlapping_bodies()
-
-
-## Returns position where to move second [Pchar].
-func pos_mirror() -> Vector2:
-	return _spawn_area.global_position
-
-
 ## Given [Pchar], copies entire state to itself.[br]
 ## E.g. velocity, looking direction and etc.[br]
 ##
 ## After that enables itself to handle player's input as usual.
-func enable_self(mirror: Pchar) -> void:
-	global_position = mirror.pos_mirror()
+func enable_self(new_global_pos: Vector2, mirror: Pchar) -> void:
+	global_position = new_global_pos
 	velocity = Vector2(mirror.velocity.x, -mirror.velocity.y)  # -y, since up dir -1
 	_jump_buffer_remaining = mirror._jump_buffer_remaining
 	_coyote_buffer_remaining = mirror._coyote_buffer_remaining
@@ -146,3 +134,12 @@ func enable_self(mirror: Pchar) -> void:
 func disable_self() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED  # handles physics as well
 	visible = false
+
+
+## Returns Player
+func get_root() -> Player:
+	## Sorry father, fo I have sinned
+	## This code has no redemtion
+	## But its the only thing keeping this world
+	## From falling down into a pitfall
+	return get_parent().get_parent()

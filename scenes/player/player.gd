@@ -43,9 +43,16 @@ const INPUT_MAP: Dictionary[StringName, String] = {
 
 @onready var _upper_pchar: Pchar = %UpperPchar
 @onready var _lower_pchar: Pchar = %LowerPchar
+@onready var _upper_spawn: SpawnArea = %UpperSpawn
+@onready var _lower_spawn: SpawnArea = %LowerSpawn
 
 
 func _ready() -> void:
+	assert(
+		global_position.y == 0 || global_position.y == 190,
+		"Player._ready(): global_position is bad"
+	)
+
 	if !is_instance_valid(state):
 		printerr("Player._ready(): quantum state is nil")
 		state = QuantumState.new()
@@ -83,17 +90,17 @@ func handle_gate_x() -> void:
 	# From |1> to |0>
 	if state.inverse:
 		# X gate into the wall check
-		if !_lower_pchar.can_mirror():
+		if _upper_spawn.has_overlapping_bodies():
 			return
-		_upper_pchar.enable_self(_lower_pchar)
+		_upper_pchar.enable_self(_upper_spawn.global_position, _lower_pchar)
 		_lower_pchar.disable_self()
 
 	# From |0> to |1>
 	else:
 		# X gate into the wall check
-		if !_upper_pchar.can_mirror():
+		if _lower_spawn.has_overlapping_bodies():
 			return
-		_lower_pchar.enable_self(_upper_pchar)
+		_lower_pchar.enable_self(_lower_spawn.global_position, _upper_pchar)
 		_upper_pchar.disable_self()
 
 	x_gate_uses -= 1
@@ -130,15 +137,15 @@ func handle_gate_h() -> void:
 	else:
 		# From |1> to |->
 		if state.inverse:
-			if !_lower_pchar.can_mirror():
+			if _upper_spawn.has_overlapping_bodies():
 				return
-			_upper_pchar.enable_self(_lower_pchar)
+			_upper_pchar.enable_self(_upper_spawn.global_position, _lower_pchar)
 
 		# From |0> to |+>
 		else:
-			if !_upper_pchar.can_mirror():
+			if _lower_spawn.has_overlapping_bodies():
 				return
-			_lower_pchar.enable_self(_upper_pchar)
+			_lower_pchar.enable_self(_lower_spawn.global_position, _upper_pchar)
 
 	h_gate_uses -= 1
 	state.apply_gate(QuantumState.Gate.H)

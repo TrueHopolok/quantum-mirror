@@ -12,4 +12,4 @@ func _on_body_entered(body: Node2D) -> void:
 	if !is_instance_of(body, Pchar):
 		return
 	set_deferred(&"monitoring", false)
-	collected.emit(body.get_parent())
+	collected.emit((body as Pchar).get_root())
