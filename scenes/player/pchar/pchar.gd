@@ -56,6 +56,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	_handle_horizontal(delta)
 	_handle_vertical(delta)
+	_corner_correction()
 	move_and_slide()
 
 
@@ -113,6 +114,20 @@ func _handle_vertical(delta: float) -> void:
 		velocity.y = minf(velocity.y, MAX_FALLING_SPEED)
 	else:
 		velocity.y = maxf(velocity.y, -MAX_FALLING_SPEED)
+
+
+func _corner_correction() -> void:
+	_cc_veritcal()
+	_cc_horizontal()
+
+
+func _cc_veritcal() -> void:
+	if velocity.y * up_direction.y <= 0:
+		return
+
+
+func _cc_horizontal() -> void:
+	pass
 
 
 ## Given [Pchar], copies entire state to itself.[br]
