@@ -13,10 +13,17 @@ signal interacted
 
 const INPUT_INTERACT: StringName = &"interact"
 
+@export var single_use: bool = false
+
 var _available: bool = false
+var _used: bool = false
 
 
 func _physics_process(_delta: float) -> void:
+	if _used && single_use:
+		_available = false
+		return
+
 	var new_value: bool = false
 	for body: Node2D in get_overlapping_bodies():
 		if body is Pchar:
@@ -32,4 +39,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if !_available || event.is_echo():
 		return
 	if event.is_action_pressed(INPUT_INTERACT):
+		_used = true
 		interacted.emit()
+
+
+func reset_usage() -> void:
+	_used = false

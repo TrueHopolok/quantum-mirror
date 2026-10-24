@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bpv0syredm6ab"]
+
+[ext_resource type="Script" uid="uid://eguti0v4l1yx" path="res://scenes/gate/gate.gd" id="2_v2vuh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jxfr3"]
+size = Vector2(16, 16)
+
+[node name="Gate" type="Area2D" unique_id=1882476321]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("2_v2vuh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=647492223]
+shape = SubResource("RectangleShape2D_jxfr3")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=365334915]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(0, 0, 0, 1)
+
+[node name="ValueLabel" type="Label" parent="ColorRect" unique_id=802871258]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+text = "L"
+horizontal_alignment = 1
+vertical_alignment = 2

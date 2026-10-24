@@ -1,5 +1,5 @@
 class_name CollectableGate
-extends Collectable
+extends Area2D
 
 @export var _value: QuantumState.Gate
 
@@ -7,8 +7,7 @@ extends Collectable
 
 
 func _ready() -> void:
-	super()
-	collected.connect(_on_collected)
+	body_entered.connect(_on_body_entered)
 	var symbol: String = "?"
 	match _value:
 		QuantumState.Gate.X:
@@ -20,6 +19,8 @@ func _ready() -> void:
 	_label.text = symbol
 
 
-func _on_collected(player: Player) -> void:
-	player.collect_gate(_value)
+func _on_body_entered(body: Node2D) -> void:
+	if !is_instance_of(body, Pchar):
+		return
+	(body as Pchar).get_root().collect_gate(_value)
 	queue_free()
