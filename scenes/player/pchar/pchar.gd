@@ -5,7 +5,7 @@ const INPUT_JUMP: StringName = &"move_jump"
 const INPUT_LEFT: StringName = &"move_left"
 const INPUT_RIGHT: StringName = &"move_right"
 
-const DIRECTIONS: Array[int] = [-1, 1]
+const CC_DIRS: Array[int] = [-1, 1]
 
 @export_group("Vertical")
 ## Strength of the jump or initial speed player gains on using jump action.
@@ -26,7 +26,7 @@ const JUMP_BUFFER_DURATION: float = 0.2
 ## Time buffer allowing jumping on air right after stepping from the floor.
 const COYOTE_JUMP_WINDOW: float = 0.2
 ## Max distance for corner correction moving vertically
-const MAX_VERTICAL_CC: int = 3
+const CC_VERTICAL: int = 3
 
 @export_group("Horizontal")
 ## Acceleration of player running
@@ -41,7 +41,7 @@ const FRICTION_FORCE: float = 750
 ## Same as [constant FRICTION_FORCE], but is weaker and works in the air
 const AIR_RESISTANCE: float = 150
 ## Max distance for corner correction moving horizontally
-const MAX_HORIZONTAL_CC: int = 2
+const CC_HORIZONTAL: int = 2
 ## Inverse movement direction duh
 @export var _inverse_movement: bool = false
 
@@ -135,8 +135,8 @@ func _cc_vertical(delta: float) -> void:
 	if !test_move(global_transform, movement):
 		return
 
-	for pos_diff: int in range(1, MAX_VERTICAL_CC + 1, 1):
-		for pos_dir: float in DIRECTIONS:
+	for pos_diff: int in range(1, CC_VERTICAL + 1, 1):
+		for pos_dir: float in CC_DIRS:
 			var pos_delta: Vector2 = Vector2(pos_diff * pos_dir, 0)
 			if !test_move(global_transform.translated(pos_delta), movement):
 				global_position += pos_delta
@@ -163,8 +163,8 @@ func _cc_horizontal(delta: float) -> void:
 	if !test_move(global_transform, movement):
 		return
 
-	for pos_diff: int in range(1, MAX_HORIZONTAL_CC + 1, 1):
-		for pos_dir: float in DIRECTIONS:
+	for pos_diff: int in range(1, CC_HORIZONTAL + 1, 1):
+		for pos_dir: float in CC_DIRS:
 			var pos_delta: Vector2 = Vector2(0, pos_diff * pos_dir)
 			if !test_move(global_transform.translated(pos_delta), movement):
 				global_position += pos_delta
