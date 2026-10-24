@@ -5,6 +5,8 @@ const INPUT_JUMP: StringName = &"move_jump"
 const INPUT_LEFT: StringName = &"move_left"
 const INPUT_RIGHT: StringName = &"move_right"
 
+const DIRECTIONS: Array[int] = [-1, 1]
+
 @export_group("Vertical")
 ## Strength of the jump or initial speed player gains on using jump action.
 const JUMP_FORCE: float = 225
@@ -23,6 +25,8 @@ const JUMP_CUTOFF_MULTIPLIER: float = 0.25
 const JUMP_BUFFER_DURATION: float = 0.2
 ## Time buffer allowing jumping on air right after stepping from the floor.
 const COYOTE_JUMP_WINDOW: float = 0.2
+## Max distance for corner correction moving vertically
+const MAX_VERTICAL_CC: int = 3
 
 @export_group("Horizontal")
 ## Acceleration of player running
@@ -36,6 +40,8 @@ const MAX_RUNNING_SPEED: float = 100
 const FRICTION_FORCE: float = 750
 ## Same as [constant FRICTION_FORCE], but is weaker and works in the air
 const AIR_RESISTANCE: float = 150
+## Max distance for corner correction moving horizontally
+const MAX_HORIZONTAL_CC: int = 2
 ## Inverse movement direction duh
 @export var _inverse_movement: bool = false
 
@@ -56,7 +62,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	_handle_horizontal(delta)
 	_handle_vertical(delta)
-	_corner_correction()
+	_corner_correction(delta)
 	move_and_slide()
 
 
@@ -116,18 +122,53 @@ func _handle_vertical(delta: float) -> void:
 		velocity.y = maxf(velocity.y, -MAX_FALLING_SPEED)
 
 
-func _corner_correction() -> void:
-	_cc_veritcal()
-	_cc_horizontal()
+func _corner_correction(delta: float) -> void:
+	_cc_vertical(delta)
+	_cc_horizontal(delta)
 
 
-func _cc_veritcal() -> void:
+func _cc_vertical(delta: float) -> void:
 	if velocity.y * up_direction.y <= 0:
 		return
 
+	var movement: Vector2 = Vector2(0, velocity.y * delta)
+	if !test_move(global_transform, movement):
+		return
 
-func _cc_horizontal() -> void:
-	pass
+	for pos_diff: int in range(1, MAX_VERTICAL_CC + 1, 1):
+		for pos_dir: float in DIRECTIONS:
+			var pos_delta: Vector2 = Vector2(pos_diff * pos_dir, 0)
+			if !test_move(global_transform.translated(pos_delta), movement):
+				global_position += pos_delta
+				return
+
+
+func _cc_horizontal(delta: float) -> void:
+	if is_on_floor():
+		return
+
+	var input_dir: float = signf(Input.get_axis(INPUT_LEFT, INPUT_RIGHT))
+	if _inverse_movement:
+		input_dir = -input_dir
+	if input_dir == 0 && signf(velocity.x) == 0:
+		return
+
+	var movement: Vector2 = Vector2(
+		maxf(absf(velocity.x * delta), (RUN_ACCELERATION * delta) * delta), 0
+	)
+	if signf(velocity.x) != 0:
+		movement.x *= velocity.x
+	else:
+		movement.x *= input_dir
+	if !test_move(global_transform, movement):
+		return
+
+	for pos_diff: int in range(1, MAX_HORIZONTAL_CC + 1, 1):
+		for pos_dir: float in DIRECTIONS:
+			var pos_delta: Vector2 = Vector2(0, pos_diff * pos_dir)
+			if !test_move(global_transform.translated(pos_delta), movement):
+				global_position += pos_delta
+				return
 
 
 ## Given [Pchar], copies entire state to itself.[br]
