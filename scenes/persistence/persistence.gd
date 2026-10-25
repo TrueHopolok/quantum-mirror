@@ -1,9 +1,21 @@
 extends Node
 
-const SAVE_PATH: String = "user://bestscore.bin"
+const ROW_REACHED: String = "reached"
+const ROW_COMPLETED: String = "completed"
+const ROWS: Array[String] = [
+	ROW_REACHED,
+	ROW_COMPLETED,
+]
 
-var best_score: int = 0
-var current_score: int = 0
+## Quantum Mirror dot Save
+const SAVE_PATH: String = "user://qm.sf"
+
+const START_DATA: Dictionary[String, int] = {
+	ROW_REACHED: 0,
+	ROW_COMPLETED: 0,
+}
+
+var _data: Dictionary[String, int] = START_DATA.duplicate(true)
 
 
 func _init() -> void:
@@ -18,8 +30,14 @@ func _load() -> void:
 		if err != ERR_FILE_NOT_FOUND:
 			printerr("[Persistence]: loading error:", FileAccess.get_open_error())
 		return
-	# NOTE: data = JSON.parse_string(file.get_as_text())
-	best_score = file.get_32()
+	var tmp: Dictionary = JSON.parse_string(file.get_as_text())
+	for row: String in ROWS:
+		var value: Variant = tmp.get(row)
+		if typeof(value) == TYPE_FLOAT or typeof(value) == TYPE_INT:
+			@warning_ignore("unsafe_cast")
+			_data[row] = roundi(tmp[row] as float)
+		else:
+			_data[row] = START_DATA[row]
 	file.close()
 
 
@@ -29,22 +47,22 @@ func _save() -> void:
 	if not file:
 		push_error("[Persistence]: saving error:", FileAccess.get_open_error())
 		return
-	# NOTE: file.store_string(JSON.stringify(data))
-	if not file.store_32(best_score):
+	if not file.store_string(JSON.stringify(_data)):
 		push_error("[Persistence]: saving error:", FileAccess.get_open_error())
 	file.close()
 
 
-## Updates best score if was beaten and saves  into file if it was
-func submit() -> void:
-	if current_score <= best_score:
-		return
-	best_score = current_score
+## Updates a Row in _data with new value if it is higher and saves the file
+## Can be later extended if needed to act differently according to keys
+func submit(row: String, val: int) -> void:
+	assert(ROWS.has(row))
+	match row:
+		_:
+			_data[row] = maxi(_data[row], val)
 	_save()
 
 
-## Resets best score back to 0 both in memory and in file
+## Resets save _data and saves it to save file
 func reset() -> void:
-	best_score = -1
-	current_score = 0
-	submit()
+	_data = START_DATA
+	_save()

@@ -12,7 +12,6 @@ floor_block_on_wall = false
 script = ExtResource("1_b0ynn")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2141593457]
-visible = false
 z_index = 1
 position = Vector2(1.7881393e-07, -3.2782555e-07)
 scale = Vector2(0.017857142, 0.03348214)

@@ -76,6 +76,7 @@ folder_colors={
 "res://assets/fonts/": "orange",
 "res://assets/themes/": "orange",
 "res://build/": "gray",
+"res://levels/": "teal",
 "res://objects/": "green",
 "res://scenes/": "green",
 "res://scripts/": "blue",

@@ -35,6 +35,8 @@ This game implements a **simplified state-based model inspired by single-qubit q
 
 - Entanglement: Although multiple manifestations may appear on screen, they represent a single underlying player entity. When in superposition, player input is applied to all manifestations simultaneously, while their coordinates may differ due to interactions with the environment.
 
+The code for quantum model can be observed [here](/scenes/player/quantum_state/quatum_state.gd).
+
 ### Comparison to Classical Probability Model
 
 - Superposition allows simultaneous exploration and interaction of both level instances.
