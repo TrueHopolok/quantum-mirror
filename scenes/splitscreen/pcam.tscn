@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bma41y20ldrov"]
+
+[ext_resource type="Script" uid="uid://cy2enygs2k2s4" path="res://scenes/splitscreen/pcam.gd" id="1_dh4rq"]
+
+[node name="PCam" type="Camera2D" unique_id=795773777]
+limit_enabled = false
+position_smoothing_enabled = true
+position_smoothing_speed = 2.5
+script = ExtResource("1_dh4rq")

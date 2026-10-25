@@ -49,7 +49,7 @@ const INPUT_MAP: Dictionary[StringName, String] = {
 
 func _ready() -> void:
 	assert(
-		global_position.y == 0 || global_position.y == 190,
+		global_position.y == 0 || global_position.y == 180,
 		"Player._ready(): global_position is bad"
 	)
 
