@@ -26,7 +26,7 @@ const JUMP_BUFFER_DURATION: float = 0.2
 ## Time buffer allowing jumping on air right after stepping from the floor.
 const COYOTE_JUMP_WINDOW: float = 0.2
 ## Max distance for corner correction moving vertically
-const CC_VERTICAL: int = 3
+const CC_VERTICAL: int = 4
 
 @export_group("Horizontal")
 ## Acceleration of player running

@@ -32,7 +32,7 @@ z_gate_uses = 5
 h_gate_infinite = true
 
 [node name="Upper" parent="Player" index="0" unique_id=205619998]
-position = Vector2(105, -24)
+position = Vector2(107, -24)
 
 [node name="Lower" parent="Player" index="1" unique_id=2098240698]
 position = Vector2(120, 24)
@@ -83,10 +83,6 @@ _watch_duration = 1.0
 [node name="Electricity" parent="." unique_id=2134792172 instance=ExtResource("7_wtsjf")]
 z_index = 2
 position = Vector2(-72, -96)
-
-[node name="Gate" parent="." unique_id=1015632753]
-position = Vector2(-48, -32)
-_value = 2
 
 [node name="Exit" parent="." unique_id=2020743013 instance=ExtResource("9_h3xc6")]
 position = Vector2(-136, 0)
