@@ -9,7 +9,7 @@ const CC_DIRS: Array[int] = [-1, 1]
 
 @export_group("Vertical")
 ## Strength of the jump or initial speed player gains on using jump action.
-const JUMP_FORCE: float = 225
+const JUMP_FORCE: float = 275
 ## How fast player character can fall.
 ## The jumping speed is uncapped, since it is set once, while on the ground.
 const MAX_FALLING_SPEED: float = 450

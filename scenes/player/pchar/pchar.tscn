@@ -4,17 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://ptd0sa7mmdpi" path="res://icon.png" id="1_xwedq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwedq"]
-size = Vector2(16, 32)
+size = Vector2(15, 30)
 
 [node name="Pchar" type="CharacterBody2D" unique_id=1334760347]
 collision_layer = 3
+floor_block_on_wall = false
 script = ExtResource("1_b0ynn")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2141593457]
+visible = false
 z_index = 1
-position = Vector2(0, -2.3841858e-07)
-scale = Vector2(0.017857144, 0.035714287)
+position = Vector2(1.7881393e-07, -3.2782555e-07)
+scale = Vector2(0.017857142, 0.03348214)
 texture = ExtResource("1_xwedq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1231837824]
 shape = SubResource("RectangleShape2D_xwedq")
+debug_color = Color(0, 1, 0.48235294, 0.41960785)
