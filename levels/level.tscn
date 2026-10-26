@@ -26,5 +26,11 @@ state = SubResource("Resource_b2cq8")
 position = Vector2(400, 180)
 _next_scene = "uid://dh808cqj70n3l"
 
+[node name="SplitScreenDivider" type="ColorRect" parent="." unique_id=1528509107]
+offset_top = 179.0
+offset_right = 640.0
+offset_bottom = 181.0
+color = Color(0, 0, 1, 1)
+
 [editable path="Player"]
 [editable path="Player/Lower/LowerPchar"]
