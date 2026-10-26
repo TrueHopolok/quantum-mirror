@@ -1,49 +1,49 @@
 [gd_scene format=4 uid="uid://mlfopegdrvw6"]
 
-[ext_resource type="TileSet" uid="uid://dg65kb606u4n8" path="res://assets/tilesets/tmp_tileset.tres" id="1_s36qc"]
-[ext_resource type="PackedScene" uid="uid://mqufp14bsu2u" path="res://scenes/player/player.tscn" id="3_nd71p"]
-[ext_resource type="PackedScene" uid="uid://7g3swqndfeuf" path="res://scenes/power_sources/lever/lever.tscn" id="4_7ddre"]
-[ext_resource type="PackedScene" uid="uid://cs7k41vjpbo6h" path="res://scenes/power_sources/plate/plate.tscn" id="5_qjeyg"]
-[ext_resource type="PackedScene" uid="uid://dejx2tunb02qr" path="res://scenes/power_users/door/door.tscn" id="6_3qnke"]
-[ext_resource type="PackedScene" uid="uid://dfodq44bpfjk6" path="res://scenes/power_users/surveillance/surveillance.tscn" id="6_wtsjf"]
-[ext_resource type="PackedScene" uid="uid://cbb8wv7ns37rn" path="res://scenes/power_users/electricity/electricity.tscn" id="7_wtsjf"]
-[ext_resource type="PackedScene" uid="uid://dqudt7q0ha4d3" path="res://scenes/exit/exit.tscn" id="9_h3xc6"]
-[ext_resource type="PackedScene" uid="uid://bma41y20ldrov" path="res://scenes/splitscreen/pcam.tscn" id="11_6qxox"]
-[ext_resource type="Script" uid="uid://c4dqn0qwqx05a" path="res://scenes/splitscreen/split_screen.gd" id="11_gthg3"]
+[ext_resource type="TileSet" uid="uid://dg65kb606u4n8" path="res://assets/tilesets/tmp_tileset.tres" id="1_vehgu"]
+[ext_resource type="PackedScene" uid="uid://7g3swqndfeuf" path="res://scenes/power_sources/lever/lever.tscn" id="2_1b2a2"]
+[ext_resource type="PackedScene" uid="uid://cs7k41vjpbo6h" path="res://scenes/power_sources/plate/plate.tscn" id="3_6gk0q"]
+[ext_resource type="PackedScene" uid="uid://dejx2tunb02qr" path="res://scenes/power_users/door/door.tscn" id="4_cnwds"]
+[ext_resource type="PackedScene" uid="uid://dfodq44bpfjk6" path="res://scenes/power_users/surveillance/surveillance.tscn" id="5_0o44c"]
+[ext_resource type="PackedScene" uid="uid://cbb8wv7ns37rn" path="res://scenes/power_users/electricity/electricity.tscn" id="6_wn8u6"]
+[ext_resource type="PackedScene" uid="uid://mqufp14bsu2u" path="res://scenes/player/player.tscn" id="7_200ie"]
+[ext_resource type="PackedScene" uid="uid://dqudt7q0ha4d3" path="res://scenes/exit/exit.tscn" id="8_xaem1"]
+[ext_resource type="Script" uid="uid://c4dqn0qwqx05a" path="res://scenes/splitscreen/split_screen.gd" id="9_100t0"]
+[ext_resource type="PackedScene" uid="uid://bma41y20ldrov" path="res://scenes/splitscreen/pcam.tscn" id="10_sqy2y"]
 
 [node name="TestScene" type="Node2D" unique_id=988521978]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2123965210]
 position = Vector2(0, 4)
 tile_map_data = PackedByteArray("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AAAIAAAAAAABAAMAAAAHAAAAAAABAAMAAAAGAAAAAAABAAMAAAAFAAAAAAABAAMAAAAEAAAAAAABAAMAAAADAAAAAAABAAMAAAACAAAAAAABAAMAAAABAAAAAAABAAMAAAABAAoAAAABAAEAAAACAAoAAAABAAEAAAADAAoAAAABAAEAAAAEAAoAAAABAAEAAAAFAAoAAAABAAEAAAAGAAoAAAABAAEAAAAHAAoAAAABAAEAAAAIAAoAAAABAAEAAAAJAAoAAAABAAEAAAAKAAoAAAABAAEAAAALAAoAAAABAAEAAAAMAAoAAAABAAEAAAANAAoAAAABAAEAAAAOAAoAAAABAAEAAAAPAAoAAAABAAEAAAAQAAoAAAABAAEAAAARAAoAAAABAAEAAAASAAoAAAABAAEAAAATAAoAAAABAAEAAAAUAAoAAAABAAEAAAAVAAoAAAABAAEAAAAWAAoAAAABAAEAAAAXAAoAAAABAAEAAAAYAAoAAAABAAEAAAAZAAoAAAABAAEAAAAaAAoAAAABAAEAAAAbAAoAAAABAAEAAAAcAAoAAAABAAEAAAAdAAoAAAABAAEAAAAeAAoAAAABAAEAAAAfAAoAAAABAAEAAAAgAAoAAAABAAEAAAAhAAoAAAABAAEAAAAiAAoAAAABAAEAAAAlAAoAAAABAAEAAAAmAAoAAAABAAEAAAAkAAoAAAABAAEAAAAjAAoAAAABAAEAAAAjAAsAAAABAAEAAAAkAAsAAAABAAEAAAAlAAsAAAABAAEAAAAmAAsAAAABAAEAAAAiAAsAAAABAAEAAAAhAAsAAAABAAEAAAAgAAsAAAABAAEAAAAfAAsAAAABAAEAAAAeAAsAAAABAAEAAAAdAAsAAAABAAEAAAAcAAsAAAABAAEAAAAbAAsAAAABAAEAAAAaAAsAAAABAAEAAAAZAAsAAAABAAEAAAAYAAsAAAABAAEAAAAXAAsAAAABAAEAAAAWAAsAAAABAAEAAAAVAAsAAAABAAEAAAAUAAsAAAABAAEAAAATAAsAAAABAAEAAAASAAsAAAABAAEAAAARAAsAAAABAAEAAAAQAAsAAAABAAEAAAAPAAsAAAABAAEAAAAOAAsAAAABAAEAAAANAAsAAAABAAEAAAAMAAsAAAABAAEAAAALAAsAAAABAAEAAAAKAAsAAAABAAEAAAAJAAsAAAABAAEAAAAIAAsAAAABAAEAAAAHAAsAAAABAAEAAAAGAAsAAAABAAEAAAAFAAsAAAABAAEAAAAEAAsAAAABAAEAAAADAAsAAAABAAEAAAACAAsAAAABAAEAAAABAAsAAAABAAEAAAABABUAAAABAAMAAAACABUAAAABAAMAAAADABUAAAABAAMAAAAEABUAAAABAAMAAAAFABUAAAABAAMAAAAGABUAAAABAAMAAAAHABUAAAABAAMAAAAIABUAAAABAAMAAAAJABUAAAABAAMAAAAKABUAAAABAAMAAAALABUAAAABAAMAAAAMABUAAAABAAMAAAANABUAAAABAAMAAAAOABUAAAABAAMAAAAPABUAAAABAAMAAAAQABUAAAABAAMAAAARABUAAAABAAMAAAASABUAAAABAAMAAAATABUAAAABAAMAAAAUABUAAAABAAMAAAAVABUAAAABAAMAAAAiABUAAAABAAMAAAAjABUAAAABAAMAAAAkABUAAAABAAMAAAAlABUAAAABAAMAAAAmABUAAAABAAMAAAAWABUAAAABAAMAAAAXABUAAAABAAMAAAAYABUAAAABAAMAAAAZABUAAAABAAMAAAAaABUAAAABAAMAAAAbABUAAAABAAMAAAAcABUAAAABAAMAAAAdABUAAAABAAMAAAAeABUAAAABAAMAAAAfABUAAAABAAMAAAAgABUAAAABAAMAAAAhABUAAAABAAMAAAA=")
-tile_set = ExtResource("1_s36qc")
+tile_set = ExtResource("1_vehgu")
 navigation_enabled = false
 
 [node name="Objects" type="Node2D" parent="." unique_id=113088205]
 
-[node name="Lever" parent="Objects" unique_id=395547070 instance=ExtResource("4_7ddre")]
+[node name="Lever" parent="Objects" unique_id=395547070 instance=ExtResource("2_1b2a2")]
 position = Vector2(224, 112)
 
-[node name="Plate" parent="Objects" unique_id=876996449 instance=ExtResource("5_qjeyg")]
+[node name="Plate" parent="Objects" unique_id=876996449 instance=ExtResource("3_6gk0q")]
 position = Vector2(224, 208)
 
-[node name="Door" parent="Objects" unique_id=998366484 node_paths=PackedStringArray("sources") instance=ExtResource("6_3qnke")]
+[node name="Door" parent="Objects" unique_id=998366484 node_paths=PackedStringArray("sources") instance=ExtResource("4_cnwds")]
 position = Vector2(416, 120)
 sources = [NodePath("../Lever"), NodePath("../Plate")]
 
-[node name="Door2" parent="Objects" unique_id=804452148 node_paths=PackedStringArray("sources") instance=ExtResource("6_3qnke")]
+[node name="Door2" parent="Objects" unique_id=804452148 node_paths=PackedStringArray("sources") instance=ExtResource("4_cnwds")]
 position = Vector2(416, 232)
 sources = [NodePath("../Lever"), NodePath("../Plate")]
 
-[node name="Surveillance" parent="Objects" unique_id=1386675124 instance=ExtResource("6_wtsjf")]
+[node name="Surveillance" parent="Objects" unique_id=1386675124 instance=ExtResource("5_0o44c")]
 position = Vector2(288, 96)
 _watch_duration = 1.0
 
-[node name="Electricity" parent="Objects" unique_id=2134792172 instance=ExtResource("7_wtsjf")]
+[node name="Electricity" parent="Objects" unique_id=2134792172 instance=ExtResource("6_wn8u6")]
 z_index = 2
 position = Vector2(32, 72)
 
-[node name="Player" parent="." unique_id=1516222024 instance=ExtResource("3_nd71p")]
+[node name="Player" parent="." unique_id=1516222024 instance=ExtResource("7_200ie")]
 position = Vector2(320, 180)
 
 [node name="Upper" parent="Player" index="0" unique_id=205619998]
@@ -52,7 +52,7 @@ position = Vector2(8, -47)
 [node name="Lower" parent="Player" index="1" unique_id=2098240698]
 position = Vector2(7, 47)
 
-[node name="Exit" parent="." unique_id=2020743013 instance=ExtResource("9_h3xc6")]
+[node name="Exit" parent="." unique_id=2020743013 instance=ExtResource("8_xaem1")]
 position = Vector2(-136, 0)
 _next_scene = "uid://mlfopegdrvw6"
 
@@ -65,7 +65,7 @@ position = Vector2(648, 232)
 [node name="SplitScreen" type="CanvasLayer" parent="." unique_id=1444742778]
 visible = false
 follow_viewport_enabled = true
-script = ExtResource("11_gthg3")
+script = ExtResource("9_100t0")
 
 [node name="UpperSubViewportContainer" type="SubViewportContainer" parent="SplitScreen" unique_id=1686711093]
 offset_right = 640.0
@@ -81,7 +81,7 @@ handle_input_locally = false
 size = Vector2i(640, 178)
 render_target_update_mode = 0
 
-[node name="PCam" parent="SplitScreen/UpperSubViewportContainer/UpperSubViewport" unique_id=795773777 node_paths=PackedStringArray("_pchar", "_spawn_area") instance=ExtResource("11_6qxox")]
+[node name="PCam" parent="SplitScreen/UpperSubViewportContainer/UpperSubViewport" unique_id=795773777 node_paths=PackedStringArray("_pchar", "_spawn_area") instance=ExtResource("10_sqy2y")]
 _pchar = NodePath("../../../../Player/Upper/UpperPchar")
 _spawn_area = NodePath("../../../../Player/Upper/UpperSpawn")
 metadata/_edit_lock_ = true
@@ -110,7 +110,7 @@ handle_input_locally = false
 size = Vector2i(640, 178)
 render_target_update_mode = 0
 
-[node name="PCam" parent="SplitScreen/LowerSubViewportContainer/LowerSubViewport" unique_id=2124779042 node_paths=PackedStringArray("_pchar", "_spawn_area") instance=ExtResource("11_6qxox")]
+[node name="PCam" parent="SplitScreen/LowerSubViewportContainer/LowerSubViewport" unique_id=2124779042 node_paths=PackedStringArray("_pchar", "_spawn_area") instance=ExtResource("10_sqy2y")]
 _pchar = NodePath("../../../../Player/Lower/LowerPchar")
 _spawn_area = NodePath("../../../../Player/Lower/LowerSpawn")
 metadata/_edit_lock_ = true
