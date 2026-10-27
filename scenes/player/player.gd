@@ -20,7 +20,7 @@ const INPUT_MAP: Dictionary[StringName, String] = {
 	&"restart_level": "handle_death",
 }
 
-@export var state: QuantumState
+@export var _starting_state: QuantumState
 
 @export_group("Gate Usages")
 @export_subgroup("X Gate", "x_gate")
@@ -41,6 +41,8 @@ const INPUT_MAP: Dictionary[StringName, String] = {
 ## Allows infinite uses of the X gates, ignoring usage count
 @export var h_gate_infinite: bool = false
 
+var state: QuantumState
+
 @onready var _upper_pchar: Pchar = %UpperPchar
 @onready var _lower_pchar: Pchar = %LowerPchar
 @onready var _upper_spawn: SpawnArea = %UpperSpawn
@@ -53,9 +55,11 @@ func _ready() -> void:
 		"Player._ready(): global_position is bad"
 	)
 
-	if !is_instance_valid(state):
+	if !is_instance_valid(_starting_state):
 		printerr("Player._ready(): quantum state is nil")
 		state = QuantumState.new()
+	else:
+		state = _starting_state.duplicate(true)
 
 	if !state.split:
 		if state.inverse:
