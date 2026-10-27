@@ -39,7 +39,7 @@ position = Vector2(200, 316)
 _starting_state = SubResource("Resource_st5l0")
 
 [node name="Upper" parent="Player" index="0" unique_id=205619998]
-position = Vector2(352, -112)
+position = Vector2(352, -32)
 
 [node name="Lower" parent="Player" index="1" unique_id=2098240698]
 position = Vector2(352, 112)
