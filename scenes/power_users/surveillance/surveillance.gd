@@ -37,5 +37,9 @@ func _physics_process(delta: float) -> void:
 	for body: Node2D in _area.get_overlapping_bodies():
 		if body is Pchar:
 			var player: Player = (body as Pchar).get_root()
+
+			# DEBUG STATEMENT
+			print(body.name)
+
 			player.handle_observation()
 			break

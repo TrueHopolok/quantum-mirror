@@ -182,7 +182,7 @@ func enable_self(new_global_pos: Vector2, mirror: Pchar) -> void:
 	_coyote_buffer_remaining = mirror._coyote_buffer_remaining
 	_allow_jump_cutoff = mirror._allow_jump_cutoff
 
-	process_mode = Node.PROCESS_MODE_INHERIT
+	process_mode = Node.PROCESS_MODE_INHERIT  # BUG: survialance
 	visible = true
 
 
