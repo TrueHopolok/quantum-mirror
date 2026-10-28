@@ -96,7 +96,7 @@ func handle_gate_x() -> void:
 		# X gate into the wall check
 		if _upper_spawn.has_overlapping_bodies():
 			return
-		_upper_pchar.enable_self(_upper_spawn.global_position, _lower_pchar)
+		_upper_pchar.enable_self(_lower_pchar)
 		_lower_pchar.disable_self()
 
 	# From |0> to |1>
@@ -104,7 +104,7 @@ func handle_gate_x() -> void:
 		# X gate into the wall check
 		if _lower_spawn.has_overlapping_bodies():
 			return
-		_lower_pchar.enable_self(_lower_spawn.global_position, _upper_pchar)
+		_lower_pchar.enable_self(_upper_pchar)
 		_upper_pchar.disable_self()
 
 	x_gate_uses -= 1
@@ -143,13 +143,13 @@ func handle_gate_h() -> void:
 		if state.inverse:
 			if _upper_spawn.has_overlapping_bodies():
 				return
-			_upper_pchar.enable_self(_upper_spawn.global_position, _lower_pchar)
+			_upper_pchar.enable_self(_lower_pchar)
 
 		# From |0> to |+>
 		else:
 			if _lower_spawn.has_overlapping_bodies():
 				return
-			_lower_pchar.enable_self(_lower_spawn.global_position, _upper_pchar)
+			_lower_pchar.enable_self(_upper_pchar)
 
 	h_gate_uses -= 1
 	state.apply_gate(QuantumState.Gate.H)

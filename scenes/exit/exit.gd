@@ -10,7 +10,6 @@ enum ExitRequirement {
 @export var _requirement: ExitRequirement = ExitRequirement.BOTH
 @export_file("*.tscn") var _next_scene: String
 @export var _level_num: int = 0  # zero is a test level
-@export var _player: Player
 
 @onready var _upper_door: ExitDoor = %UpperDoor
 @onready var _lower_door: ExitDoor = %LowerDoor
@@ -32,11 +31,13 @@ func _physics_process(_delta: float) -> void:
 	var exiting: bool
 	match _requirement:
 		ExitRequirement.BOTH:
-			exiting = _upper_door.player_is_ready() && _lower_door.player_is_ready()
+			exiting = _upper_door.player_is_ready() != null && _lower_door.player_is_ready() != null
 		ExitRequirement.ONLY_UP:
-			exiting = _upper_door.player_is_ready() && !_player.state.split
+			var player: Player = _upper_door.player_is_ready()
+			exiting = player != null && !player.state.split
 		ExitRequirement.ONLY_LOW:
-			exiting = _lower_door.player_is_ready() && !_player.state.split
+			var player: Player = _lower_door.player_is_ready()
+			exiting = player != null && !player.state.split
 	if exiting:
 		_upper_door.disable_collider()
 		_lower_door.disable_collider()

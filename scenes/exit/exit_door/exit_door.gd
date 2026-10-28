@@ -5,11 +5,11 @@ extends Area2D
 @onready var _sprite: ColorRect = %DoorSprite
 
 
-func player_is_ready() -> bool:
+func player_is_ready() -> Player:
 	for body: Node2D in get_overlapping_bodies():
 		if body is Pchar:
-			return true
-	return false
+			return (body as Pchar).get_root()
+	return null
 
 
 func disable_collider(skip_animation: bool = false) -> void:

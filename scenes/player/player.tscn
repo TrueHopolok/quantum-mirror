@@ -11,10 +11,11 @@ script = ExtResource("1_dovo2")
 [node name="Upper" type="Node2D" parent="." unique_id=205619998]
 position = Vector2(0, -32)
 
-[node name="UpperSpawn" parent="Upper" unique_id=1025865373 node_paths=PackedStringArray("_player_root", "_following_pchar") instance=ExtResource("4_p47bc")]
+[node name="UpperSpawn" parent="Upper" unique_id=1025865373 node_paths=PackedStringArray("_player_root", "_following_pchar", "_spawning_pchar") instance=ExtResource("4_p47bc")]
 unique_name_in_owner = true
 _player_root = NodePath("../..")
 _following_pchar = NodePath("../../Lower/LowerPchar")
+_spawning_pchar = NodePath("../UpperPchar")
 
 [node name="UpperPchar" parent="Upper" unique_id=1334760347 instance=ExtResource("1_8afob")]
 unique_name_in_owner = true
@@ -23,10 +24,11 @@ metadata/_edit_lock_ = true
 [node name="Lower" type="Node2D" parent="." unique_id=2098240698]
 position = Vector2(0, 32)
 
-[node name="LowerSpawn" parent="Lower" unique_id=454700582 node_paths=PackedStringArray("_player_root", "_following_pchar") instance=ExtResource("4_p47bc")]
+[node name="LowerSpawn" parent="Lower" unique_id=454700582 node_paths=PackedStringArray("_player_root", "_following_pchar", "_spawning_pchar") instance=ExtResource("4_p47bc")]
 unique_name_in_owner = true
 _player_root = NodePath("../..")
 _following_pchar = NodePath("../../Upper/UpperPchar")
+_spawning_pchar = NodePath("../LowerPchar")
 
 [node name="LowerPchar" parent="Lower" unique_id=1746014567 instance=ExtResource("1_8afob")]
 unique_name_in_owner = true

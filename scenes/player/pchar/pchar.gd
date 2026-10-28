@@ -175,14 +175,13 @@ func _cc_horizontal(delta: float) -> void:
 ## E.g. velocity, looking direction and etc.[br]
 ##
 ## After that enables itself to handle player's input as usual.
-func enable_self(new_global_pos: Vector2, mirror: Pchar) -> void:
-	global_position = new_global_pos
+func enable_self(mirror: Pchar) -> void:
 	velocity = Vector2(mirror.velocity.x, -mirror.velocity.y)  # -y, since up dir -1
 	_jump_buffer_remaining = mirror._jump_buffer_remaining
 	_coyote_buffer_remaining = mirror._coyote_buffer_remaining
 	_allow_jump_cutoff = mirror._allow_jump_cutoff
 
-	process_mode = Node.PROCESS_MODE_INHERIT  # BUG: survialance
+	process_mode = Node.PROCESS_MODE_INHERIT
 	visible = true
 
 

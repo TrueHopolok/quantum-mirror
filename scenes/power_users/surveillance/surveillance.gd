@@ -34,12 +34,15 @@ func _physics_process(delta: float) -> void:
 	if _rotating_left > 0:
 		return
 
+	print(_area.get_overlapping_bodies())
+
 	for body: Node2D in _area.get_overlapping_bodies():
 		if body is Pchar:
-			var player: Player = (body as Pchar).get_root()
+			var pbody: Pchar = body as Pchar
 
-			# DEBUG STATEMENT
-			print(body.name)
+			var player: Player = pbody.get_root()
+			if !player.state.split:
+				break
 
 			player.handle_observation()
 			break
