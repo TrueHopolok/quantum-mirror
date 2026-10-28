@@ -25,5 +25,6 @@ monitorable = false
 
 [node name="DetectionCollider" type="CollisionShape2D" parent="DetectionArea" unique_id=247555252]
 unique_name_in_owner = true
+scale = Vector2(0.9, 0.9)
 shape = SubResource("RectangleShape2D_of532")
 debug_color = Color(0.61777836, 0.53590983, 0, 0.41960785)
