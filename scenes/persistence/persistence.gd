@@ -39,7 +39,6 @@ func _load() -> void:
 		else:
 			data[row] = START_DATA[row]
 	file.close()
-	print(data)
 
 
 ## Saves best score from memory to file
