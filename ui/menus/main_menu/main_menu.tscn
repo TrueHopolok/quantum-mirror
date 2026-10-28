@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cvah0thg6gaj1" path="res://ui/menus/main_menu/reset_dialog.gd" id="5_j3h1s"]
 [ext_resource type="Script" uid="uid://sjh5mgxlqh08" path="res://ui/menus/main_menu/version_label.gd" id="6_igis3"]
 [ext_resource type="Script" uid="uid://bphx6ff0hrrhx" path="res://ui/menus/main_menu/level_button.gd" id="7_m57jf"]
+[ext_resource type="Script" uid="uid://5alnfe7qf1y3" path="res://ui/menus/main_menu/unlock_all.gd" id="7_uni0y"]
 
 [node name="MainMenu" type="CanvasLayer" unique_id=1082861136]
 
@@ -226,4 +227,14 @@ text = "Level 6"
 script = ExtResource("7_m57jf")
 _level_dir = "res://levels/campaign"
 _level_num = 6
+metadata/_custom_type_script = "uid://2htt7bkeytt7"
+
+[node name="UnlockAll" type="Button" parent="DemoMenu" unique_id=1479820606]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 200.0
+offset_right = 208.0
+offset_bottom = 224.0
+text = "Unlock all"
+script = ExtResource("7_uni0y")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
