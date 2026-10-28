@@ -1,7 +1,7 @@
 class_name Surveillance
 extends Node2D
 
-const ROTATE_DURATION: float = 1
+@export var _rotate_duration: float = 1
 @export var _watch_duration: float = 0
 
 var _rotating_left: float = 0
@@ -15,7 +15,7 @@ var _rotating_left: float = 0
 func _physics_process(delta: float) -> void:
 	if _watch_duration > 0:
 		if _rotating_left > 0:
-			_rotating_left = clampf(_rotating_left - delta, 0, ROTATE_DURATION)
+			_rotating_left = clampf(_rotating_left - delta, 0, _rotate_duration)
 			if _rotating_left <= 0:
 				_watching_left = _watch_duration
 				_collider.position.x = -_collider.position.x
@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			_watching_left = clampf(_watching_left - delta, 0, _watch_duration)
 			if _watching_left <= 0:
-				_rotating_left = ROTATE_DURATION
+				_rotating_left = _rotate_duration
 				_collider.set_deferred(&"disabled", true)
 				_detection_sprite.hide()
 				# TODO: set camera sprite to middle value

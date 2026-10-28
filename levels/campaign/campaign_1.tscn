@@ -45,7 +45,7 @@ _next_scene = "uid://nj2cf86nkhlq"
 _level_num = 1
 
 [node name="UpperDoor" parent="Exit" index="0" unique_id=610854403]
-position = Vector2(-16, -120)
+position = Vector2(32, -216)
 
 [node name="LowerDoor" parent="Exit" index="1" unique_id=2088361115]
 position = Vector2(-16, 120)

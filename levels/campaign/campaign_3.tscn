@@ -113,7 +113,7 @@ _level_num = 3
 position = Vector2(-32, -40)
 
 [node name="LowerDoor" parent="Exit" index="1" unique_id=2088361115]
-position = Vector2(-32, 40)
+position = Vector2(240, 216)
 
 [editable path="Player"]
 [editable path="Player/Lower/LowerPchar"]
