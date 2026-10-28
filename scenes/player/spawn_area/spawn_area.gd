@@ -11,5 +11,5 @@ func _physics_process(_delta: float) -> void:
 		_following_pchar.global_position.x,
 		-_following_pchar.global_position.y + _player_root.global_position.y * 2
 	)
-	if _spawning_pchar.process_mode == Node.PROCESS_MODE_DISABLED:
+	if !_spawning_pchar.can_process():
 		_spawning_pchar.global_position = global_position

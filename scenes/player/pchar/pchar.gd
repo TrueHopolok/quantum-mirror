@@ -49,6 +49,8 @@ var _jump_buffer_remaining: float = 0  # timer variable instead of node
 var _coyote_buffer_remaining: float = 0  # timer variable instead of node
 var _allow_jump_cutoff: bool = false  # NOTE: assumes that going up only possible via jump
 
+@onready var collider: CollisionShape2D = %CollisionShape2D
+
 
 ## Handles only players jump, since moving horizontally
 ## can be handled inside [method self._physics_process].
@@ -181,12 +183,15 @@ func enable_self(mirror: Pchar) -> void:
 	_coyote_buffer_remaining = mirror._coyote_buffer_remaining
 	_allow_jump_cutoff = mirror._allow_jump_cutoff
 
+	force_update_transform()
+	collider.set_deferred(&"disabled", false)
 	process_mode = Node.PROCESS_MODE_INHERIT
 	visible = true
 
 
 ## Disables everything and making it invisible
 func disable_self() -> void:
+	collider.set_deferred(&"disabled", true)
 	process_mode = Node.PROCESS_MODE_DISABLED  # handles physics as well
 	visible = false
 

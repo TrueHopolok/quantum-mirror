@@ -31,18 +31,23 @@ func _physics_process(delta: float) -> void:
 				_detection_sprite.hide()
 				# TODO: set camera sprite to middle value
 
-	if _rotating_left > 0:
+	if _rotating_left > 0 || _collider.disabled:
 		return
 
-	print(_area.get_overlapping_bodies())
-
 	for body: Node2D in _area.get_overlapping_bodies():
-		if body is Pchar:
-			var pbody: Pchar = body as Pchar
+		var pbody: Pchar = body as Pchar
+		if pbody == null or !pbody.can_process() or !_is_really_inside(pbody):
+			continue
 
-			var player: Player = pbody.get_root()
-			if !player.state.split:
-				break
-
+		var player: Player = pbody.get_root()
+		if player.state.split:
 			player.handle_observation()
-			break
+		break
+
+
+func _is_really_inside(pbody: Pchar) -> bool:
+	if pbody.collider.disabled || pbody.collider.shape == null:
+		return false
+	return pbody.collider.shape.collide(
+		pbody.collider.global_transform, _collider.shape, _collider.global_transform
+	)
