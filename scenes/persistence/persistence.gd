@@ -64,5 +64,5 @@ func submit(row: String, val: int) -> void:
 
 ## Resets save data and saves it to save file
 func reset() -> void:
-	data = START_DATA
+	data = START_DATA.duplicate(true)
 	_save()
