@@ -82,6 +82,13 @@ position = Vector2(200, 284)
 [node name="Lever" parent="Objects" parent_id_path=PackedInt32Array(1690140828) index="13" unique_id=395547070 instance=ExtResource("7_grmxi")]
 position = Vector2(416, 140)
 
+[node name="Gate" parent="Objects" parent_id_path=PackedInt32Array(1690140828) index="14" unique_id=1882476321 instance=ExtResource("8_hwnti")]
+position = Vector2(448, 316)
+
+[node name="Electricity2" parent="Objects" parent_id_path=PackedInt32Array(1690140828) index="15" unique_id=1360432740 instance=ExtResource("5_pn5v5")]
+position = Vector2(408.00003, 204)
+scale = Vector2(27, 1)
+
 [node name="Player" parent="." index="2" unique_id=1516222024]
 _starting_state = SubResource("Resource_ykb4e")
 
@@ -93,19 +100,13 @@ position = Vector2(-192, 32)
 
 [node name="Exit" parent="." index="3" unique_id=2020743013]
 _requirement = 1
+_level_num = 5
 
 [node name="UpperDoor" parent="Exit" index="0" unique_id=610854403]
 position = Vector2(208, -40)
 
 [node name="LowerDoor" parent="Exit" index="1" unique_id=2088361115]
 position = Vector2(240, 216)
-
-[node name="Gate" parent="." index="6" unique_id=1882476321 instance=ExtResource("8_hwnti")]
-position = Vector2(448, 316)
-
-[node name="Electricity" parent="." index="7" unique_id=1360432740 instance=ExtResource("5_pn5v5")]
-position = Vector2(408.00003, 204)
-scale = Vector2(27, 1)
 
 [editable path="Player"]
 [editable path="Player/Lower/LowerPchar"]

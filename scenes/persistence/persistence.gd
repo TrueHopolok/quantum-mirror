@@ -15,7 +15,7 @@ const START_DATA: Dictionary[String, int] = {
 	ROW_COMPLETED: 0,
 }
 
-var _data: Dictionary[String, int] = START_DATA.duplicate(true)
+var data: Dictionary[String, int] = START_DATA.duplicate(true)
 
 
 func _init() -> void:
@@ -35,10 +35,11 @@ func _load() -> void:
 		var value: Variant = tmp.get(row)
 		if typeof(value) == TYPE_FLOAT or typeof(value) == TYPE_INT:
 			@warning_ignore("unsafe_cast")
-			_data[row] = roundi(tmp[row] as float)
+			data[row] = roundi(tmp[row] as float)
 		else:
-			_data[row] = START_DATA[row]
+			data[row] = START_DATA[row]
 	file.close()
+	print(data)
 
 
 ## Saves best score from memory to file
@@ -47,22 +48,22 @@ func _save() -> void:
 	if not file:
 		push_error("[Persistence]: saving error:", FileAccess.get_open_error())
 		return
-	if not file.store_string(JSON.stringify(_data)):
+	if not file.store_string(JSON.stringify(data)):
 		push_error("[Persistence]: saving error:", FileAccess.get_open_error())
 	file.close()
 
 
-## Updates a Row in _data with new value if it is higher and saves the file
+## Updates a Row in data with new value if it is higher and saves the file
 ## Can be later extended if needed to act differently according to keys
 func submit(row: String, val: int) -> void:
 	assert(ROWS.has(row))
 	match row:
 		_:
-			_data[row] = maxi(_data[row], val)
+			data[row] = maxi(data[row], val)
 	_save()
 
 
-## Resets save _data and saves it to save file
+## Resets save data and saves it to save file
 func reset() -> void:
-	_data = START_DATA
+	data = START_DATA
 	_save()

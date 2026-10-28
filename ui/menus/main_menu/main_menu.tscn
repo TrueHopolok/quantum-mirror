@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dh808cqj70n3l"]
 
 [ext_resource type="Script" uid="uid://cs2rmwo84yfv0" path="res://ui/menus/main_menu/exit_button.gd" id="3_igis3"]
-[ext_resource type="Script" uid="uid://bltl6imnc8x2t" path="res://ui/menus/main_menu/play_button.gd" id="3_ioe73"]
 [ext_resource type="Script" uid="uid://2htt7bkeytt7" path="res://ui/better_button/better_button.gd" id="3_j3h1s"]
 [ext_resource type="Script" uid="uid://c3kdhco0ibbsu" path="res://ui/menus/main_menu/reset_button.gd" id="4_txwgg"]
 [ext_resource type="Script" uid="uid://cvah0thg6gaj1" path="res://ui/menus/main_menu/reset_dialog.gd" id="5_j3h1s"]
 [ext_resource type="Script" uid="uid://sjh5mgxlqh08" path="res://ui/menus/main_menu/version_label.gd" id="6_igis3"]
+[ext_resource type="Script" uid="uid://bphx6ff0hrrhx" path="res://ui/menus/main_menu/level_button.gd" id="7_m57jf"]
 
 [node name="MainMenu" type="CanvasLayer" unique_id=1082861136]
 
@@ -52,36 +52,51 @@ text = "irror"
 justification_flags = 162
 metadata/_edit_lock_ = true
 
-[node name="PlayButton" type="Button" parent="." unique_id=1330982424]
+[node name="MVPMenu" type="Control" parent="." unique_id=720831990]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayButton" type="Button" parent="MVPMenu" unique_id=1330982424]
+visible = false
+layout_mode = 0
 offset_left = 48.0
 offset_top = 96.0
 offset_right = 136.0
 offset_bottom = 120.0
 disabled = true
 text = "Start"
-script = ExtResource("3_ioe73")
+script = ExtResource("3_j3h1s")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
 
-[node name="ContinueButton" type="Button" parent="." unique_id=968128234]
+[node name="ContinueButton" type="Button" parent="MVPMenu" unique_id=968128234]
+visible = false
+layout_mode = 0
 offset_left = 48.0
 offset_top = 136.0
 offset_right = 136.0
 offset_bottom = 160.0
 disabled = true
 text = "Continue"
-script = ExtResource("3_ioe73")
+script = ExtResource("3_j3h1s")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
 
-[node name="LevelsButton" type="Button" parent="." unique_id=1444052129]
+[node name="LevelsButton" type="Button" parent="MVPMenu" unique_id=1444052129]
+visible = false
+layout_mode = 0
 offset_left = 48.0
 offset_top = 176.0
 offset_right = 136.0
 offset_bottom = 200.0
+disabled = true
 text = "Levels"
 script = ExtResource("3_j3h1s")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
 
-[node name="OptionsButton" type="Button" parent="." unique_id=200434981]
+[node name="OptionsButton" type="Button" parent="MVPMenu" unique_id=200434981]
+visible = false
+layout_mode = 0
 offset_left = 48.0
 offset_top = 216.0
 offset_right = 136.0
@@ -91,7 +106,9 @@ text = "Options"
 script = ExtResource("3_j3h1s")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
 
-[node name="ExtrasButton" type="Button" parent="." unique_id=530488836]
+[node name="ExtrasButton" type="Button" parent="MVPMenu" unique_id=530488836]
+visible = false
+layout_mode = 0
 offset_left = 48.0
 offset_top = 256.0
 offset_right = 136.0
@@ -101,7 +118,8 @@ text = "Extras"
 script = ExtResource("3_j3h1s")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
 
-[node name="ExitButton" type="Button" parent="." unique_id=1714792241]
+[node name="ExitButton" type="Button" parent="MVPMenu" unique_id=1714792241]
+layout_mode = 0
 offset_left = 48.0
 offset_top = 296.0
 offset_right = 136.0
@@ -115,7 +133,6 @@ offset_left = 536.0
 offset_top = 328.0
 offset_right = 624.0
 offset_bottom = 352.0
-disabled = true
 text = "Reset progress"
 script = ExtResource("4_txwgg")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
@@ -136,3 +153,77 @@ theme_override_font_sizes/bold_font_size = 6
 bbcode_enabled = true
 text = "[b]v[/b] 1.0.0"
 script = ExtResource("6_igis3")
+
+[node name="DemoMenu" type="Control" parent="." unique_id=346424296]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 48.0
+offset_top = 96.0
+offset_right = 88.0
+offset_bottom = 136.0
+
+[node name="Level1" type="Button" parent="DemoMenu" unique_id=1359939305]
+layout_mode = 0
+offset_right = 88.0
+offset_bottom = 24.0
+text = "Level 1"
+script = ExtResource("7_m57jf")
+_level_dir = "res://levels/campaign"
+metadata/_custom_type_script = "uid://2htt7bkeytt7"
+
+[node name="Level2" type="Button" parent="DemoMenu" unique_id=1420727950]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 88.0
+offset_bottom = 64.0
+text = "Level 2"
+script = ExtResource("7_m57jf")
+_level_dir = "res://levels/campaign"
+_level_num = 2
+metadata/_custom_type_script = "uid://2htt7bkeytt7"
+
+[node name="Level3" type="Button" parent="DemoMenu" unique_id=844690580]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 88.0
+offset_bottom = 104.0
+text = "Level 3"
+script = ExtResource("7_m57jf")
+_level_dir = "res://levels/campaign"
+_level_num = 3
+metadata/_custom_type_script = "uid://2htt7bkeytt7"
+
+[node name="Level4" type="Button" parent="DemoMenu" unique_id=666453046]
+layout_mode = 0
+offset_left = 120.0
+offset_right = 208.0
+offset_bottom = 24.0
+text = "Level 4"
+script = ExtResource("7_m57jf")
+_level_dir = "res://levels/campaign"
+_level_num = 4
+metadata/_custom_type_script = "uid://2htt7bkeytt7"
+
+[node name="Level5" type="Button" parent="DemoMenu" unique_id=1707036210]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 40.0
+offset_right = 208.0
+offset_bottom = 64.0
+text = "Level 5"
+script = ExtResource("7_m57jf")
+_level_dir = "res://levels/campaign"
+_level_num = 5
+metadata/_custom_type_script = "uid://2htt7bkeytt7"
+
+[node name="Level6" type="Button" parent="DemoMenu" unique_id=197172381]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 80.0
+offset_right = 208.0
+offset_bottom = 104.0
+text = "Level 6"
+script = ExtResource("7_m57jf")
+_level_dir = "res://levels/campaign"
+_level_num = 6
+metadata/_custom_type_script = "uid://2htt7bkeytt7"
