@@ -9,7 +9,7 @@ The screen is split into two near-identical versions of each level, and the play
 
 You collect limited-use quantum gates scattered through the level. H splits you into superposition and merges you back. Z flips your phase, which changes which level you exit into. X swaps you between levels when you’re not in superposition. Observers like surveillance cameras measure you and collapse you randomly into one level. Everything else is deterministic.
 
-To win, you reach the exit. If both levels have an exit, both copies must reach it. If only one does, you must collapse into the right phase first. Dying (for example on spikes) or getting stuck restarts the level.
+To win, you reach the exit. If both levels have an exit, both copies must reach it. If only one does, you must collapse into the right phase first. Dying (for example on electric blocks) or getting stuck restarts the level.
 
 ## About the Game
 
