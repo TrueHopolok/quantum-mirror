@@ -5,19 +5,19 @@ signal collected_gate(op: QuantumState.Gate)
 
 ## Same input map as [constant INPUT_MAP],
 ## but contains a debug inputs.
-const DEBUG_INPUT_MAP: Dictionary[StringName, String] = {
-	&"debug_quantum_observation": "handle_observation",
-	&"debug_quantum_infinity": "handle_infinity",
+const DEBUG_INPUT_MAP: Dictionary[StringName, StringName] = {
+	&"debug_quantum_observation": &"handle_observation",
+	&"debug_quantum_infinity": &"handle_infinity",
 }
 
 ## Input map that for each input action
 ## stores a method name, which will be executed on such input.
-const INPUT_MAP: Dictionary[StringName, String] = {
-	&"quantum_x": "handle_gate_x",
-	&"quantum_z": "handle_gate_z",
-	&"quantum_h": "handle_gate_h",
-	&"quantum_inverse": "handle_inverse",
-	&"restart_level": "handle_death",
+const INPUT_MAP: Dictionary[StringName, StringName] = {
+	&"quantum_x": &"handle_gate_x",
+	&"quantum_z": &"handle_gate_z",
+	&"quantum_h": &"handle_gate_h",
+	&"quantum_inverse": &"handle_inverse",
+	&"restart_level": &"handle_death",
 }
 
 @export var _starting_state: QuantumState
