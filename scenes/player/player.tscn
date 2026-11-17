@@ -17,8 +17,18 @@ _player_root = NodePath("../..")
 _following_pchar = NodePath("../../Lower/LowerPchar")
 _spawning_pchar = NodePath("../UpperPchar")
 
+[node name="CollisionShape2D" parent="Upper/UpperSpawn" index="0" unique_id=705706353]
+position = Vector2(0, 4)
+
 [node name="UpperPchar" parent="Upper" unique_id=1334760347 instance=ExtResource("1_8afob")]
 unique_name_in_owner = true
+metadata/_edit_lock_ = true
+
+[node name="PlayerSprite" parent="Upper/UpperPchar" index="0" unique_id=373448904]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" parent="Upper/UpperPchar" index="1" unique_id=1231837824]
+position = Vector2(0, 4)
 metadata/_edit_lock_ = true
 
 [node name="Lower" type="Node2D" parent="." unique_id=2098240698]
@@ -30,17 +40,20 @@ _player_root = NodePath("../..")
 _following_pchar = NodePath("../../Upper/UpperPchar")
 _spawning_pchar = NodePath("../LowerPchar")
 
+[node name="CollisionShape2D" parent="Lower/LowerSpawn" index="0" unique_id=705706353]
+position = Vector2(0, -4)
+
 [node name="LowerPchar" parent="Lower" unique_id=1746014567 instance=ExtResource("1_8afob")]
 unique_name_in_owner = true
 up_direction = Vector2(0, 1)
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D" parent="Lower/LowerPchar" index="0" unique_id=2141593457]
-modulate = Color(0, 1, 0, 1)
+[node name="PlayerSprite" parent="Lower/LowerPchar" index="0" unique_id=373448904]
 flip_v = true
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" parent="Lower/LowerPchar" index="1" unique_id=1231837824]
+position = Vector2(0, -4)
 metadata/_edit_lock_ = true
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1869521700]
@@ -58,4 +71,7 @@ S = %s"
 vertical_alignment = 2
 script = ExtResource("3_gmlin")
 
+[editable path="Upper/UpperSpawn"]
+[editable path="Upper/UpperPchar"]
+[editable path="Lower/LowerSpawn"]
 [editable path="Lower/LowerPchar"]

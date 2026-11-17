@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cwlqtu4w4r8ql" path="res://scenes/player/spawn_area/spawn_area.gd" id="1_db737"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p47bc"]
-size = Vector2(14.8, 29.8)
+size = Vector2(8.8, 23.8)
 
 [node name="LowerSpawn" type="Area2D" unique_id=1025865373]
 collision_layer = 0
@@ -11,7 +11,6 @@ script = ExtResource("1_db737")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=705706353]
-position = Vector2(0, -9.536743e-07)
 shape = SubResource("RectangleShape2D_p47bc")
 debug_color = Color(0, 0.69803923, 0.6, 0.41960785)
 metadata/_edit_lock_ = true

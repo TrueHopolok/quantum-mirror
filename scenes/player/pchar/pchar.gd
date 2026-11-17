@@ -50,6 +50,7 @@ var _coyote_buffer_remaining: float = 0  # timer variable instead of node
 var _allow_jump_cutoff: bool = false  # NOTE: assumes that going up only possible via jump
 
 @onready var collider: CollisionShape2D = %CollisionShape2D
+@onready var _sprite: AnimatedSprite2D = %PlayerSprite
 
 
 ## Handles only players jump, since moving horizontally
@@ -65,6 +66,7 @@ func _physics_process(delta: float) -> void:
 	_handle_horizontal(delta)
 	_handle_vertical(delta)
 	_corner_correction(delta)
+	_update_animation()
 	move_and_slide()
 
 
@@ -171,6 +173,21 @@ func _cc_horizontal(delta: float) -> void:
 			if !test_move(global_transform.translated(pos_delta), movement):
 				global_position += pos_delta
 				return
+
+
+func _update_animation() -> void:
+	var anim: StringName = &"idle"
+
+	if abs(velocity.x) > 0.0:
+		anim = &"run"
+		_sprite.flip_h = velocity.x < 0.0
+		# todo: add speed_scale map between velocity and this
+
+	if abs(velocity.y) > 0.0:
+		anim = &"air"
+		# todo: mb change sprite / squish depending on the speed
+
+	_sprite.play(anim)
 
 
 ## Given [Pchar], copies entire state to itself.[br]

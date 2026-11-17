@@ -1,23 +1,53 @@
 [gd_scene format=3 uid="uid://cr0g21safoei6"]
 
 [ext_resource type="Script" uid="uid://om3tmka17v0a" path="res://scenes/player/pchar/pchar.gd" id="1_b0ynn"]
-[ext_resource type="Texture2D" uid="uid://ptd0sa7mmdpi" path="res://icon.png" id="1_xwedq"]
+[ext_resource type="Texture2D" uid="uid://efi4eqshqiu7" path="res://assets/art/mc/mc_idle_v1.png" id="2_b0ynn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_of532"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b0ynn")
+}],
+"loop": 1,
+"name": &"air",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b0ynn")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b0ynn")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwedq"]
-size = Vector2(15, 30)
+size = Vector2(9, 24)
 
 [node name="Pchar" type="CharacterBody2D" unique_id=1334760347]
 collision_layer = 3
 floor_block_on_wall = false
 script = ExtResource("1_b0ynn")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2141593457]
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=373448904]
+unique_name_in_owner = true
 z_index = 1
 position = Vector2(1.7881393e-07, -3.2782555e-07)
-scale = Vector2(0.017857142, 0.03348214)
-texture = ExtResource("1_xwedq")
+sprite_frames = SubResource("SpriteFrames_of532")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1231837824]
 unique_name_in_owner = true
+z_index = 1
 shape = SubResource("RectangleShape2D_xwedq")
 debug_color = Color(0, 1, 0.48235294, 0.41960785)
