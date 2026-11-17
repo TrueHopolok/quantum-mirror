@@ -2,21 +2,40 @@
 
 [ext_resource type="PackedScene" uid="uid://dofmuja2jqgfk" path="res://scenes/interactables/interactable.tscn" id="1_rexya"]
 [ext_resource type="Script" uid="uid://cq5ucocfmty5p" path="res://scenes/power_sources/lever/lever.gd" id="1_t7hrb"]
+[ext_resource type="Texture2D" uid="uid://ys205s4fln6n" path="res://assets/art/lever/lever.png" id="2_dehnw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dehnw"]
+atlas = ExtResource("2_dehnw")
+region = Rect2(0, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fejmw"]
+atlas = ExtResource("2_dehnw")
+region = Rect2(16, 0, 16, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3u1ag"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dehnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fejmw")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3qnke"]
 radius = 8.0
-height = 32.0
+height = 16.0
 
 [node name="Lever" type="Node2D" unique_id=395547070]
 script = ExtResource("1_t7hrb")
 
-[node name="LeverSprite" type="ColorRect" parent="." unique_id=2097745153]
+[node name="LeverSprite" type="AnimatedSprite2D" parent="." unique_id=338680013]
 unique_name_in_owner = true
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-color = Color(0.5019608, 0.5019608, 0, 1)
+sprite_frames = SubResource("SpriteFrames_3u1ag")
 
 [node name="Interactable" parent="." unique_id=1275449058 instance=ExtResource("1_rexya")]
 unique_name_in_owner = true
