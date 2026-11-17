@@ -9,6 +9,7 @@ var _rotating_left: float = 0
 @onready var _watching_left: float = _watch_duration
 @onready var _area: Area2D = %DetectionArea
 @onready var _collider: CollisionShape2D = %DetectionCollider
+@onready var _head_sprite: AnimatedSprite2D = %HeadSprite
 @onready var _detection_sprite: ColorRect = %DetectionSprite
 
 
@@ -21,7 +22,8 @@ func _physics_process(delta: float) -> void:
 				_collider.position.x = -_collider.position.x
 				_collider.set_deferred(&"disabled", false)
 				_detection_sprite.show()
-				# TODO: set camera sprite to side value with flip_h if needed
+				_head_sprite.frame = 0
+				_head_sprite.flip_h = !_head_sprite.flip_h
 				return  # skip this monitoring frame
 		else:
 			_watching_left = clampf(_watching_left - delta, 0, _watch_duration)
@@ -29,7 +31,7 @@ func _physics_process(delta: float) -> void:
 				_rotating_left = _rotate_duration
 				_collider.set_deferred(&"disabled", true)
 				_detection_sprite.hide()
-				# TODO: set camera sprite to middle value
+				_head_sprite.frame = 1
 
 	if _rotating_left > 0 || _collider.disabled:
 		return

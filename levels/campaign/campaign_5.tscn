@@ -94,10 +94,10 @@ scale = Vector2(27, 1)
 _starting_state = SubResource("Resource_ykb4e")
 
 [node name="Upper" parent="Player" index="0" unique_id=205619998]
-position = Vector2(-192, -32)
+position = Vector2(328, -32)
 
 [node name="Lower" parent="Player" index="1" unique_id=2098240698]
-position = Vector2(-192, 32)
+position = Vector2(256, 112)
 
 [node name="Exit" parent="." index="3" unique_id=2020743013]
 _requirement = 1
