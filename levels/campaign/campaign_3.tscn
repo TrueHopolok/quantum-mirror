@@ -43,6 +43,7 @@ cost = 1
 
 [node name="Plate2" parent="Objects" parent_id_path=PackedInt32Array(1690140828) index="5" unique_id=1872667530 instance=ExtResource("2_pwhke")]
 position = Vector2(272, 196)
+scale = Vector2(1, -1)
 
 [node name="Plate3" parent="Objects" parent_id_path=PackedInt32Array(1690140828) index="6" unique_id=1314508929 instance=ExtResource("2_pwhke")]
 position = Vector2(272, 164)
@@ -90,6 +91,7 @@ _value = 1
 
 [node name="Plate4" parent="Objects" parent_id_path=PackedInt32Array(1690140828) index="16" unique_id=1354113607 instance=ExtResource("2_pwhke")]
 position = Vector2(496, 276)
+scale = Vector2(1, -1)
 
 [node name="Plate5" parent="Objects" parent_id_path=PackedInt32Array(1690140828) index="17" unique_id=1541925284 instance=ExtResource("2_pwhke")]
 position = Vector2(344, 84)
@@ -116,5 +118,8 @@ position = Vector2(-32, -40)
 position = Vector2(240, 216)
 
 [editable path="Player"]
+[editable path="Player/Upper/UpperSpawn"]
+[editable path="Player/Upper/UpperPchar"]
+[editable path="Player/Lower/LowerSpawn"]
 [editable path="Player/Lower/LowerPchar"]
 [editable path="Exit"]

@@ -2,7 +2,7 @@ class_name Plate
 extends PowerSource
 
 @onready var _detection_area: Area2D = %DetectionArea
-@onready var _sprite: ColorRect = %PlateSprite
+@onready var _sprite: AnimatedSprite2D = %PlateSprite
 
 
 func _physics_process(_delta: float) -> void:
@@ -13,6 +13,4 @@ func _physics_process(_delta: float) -> void:
 			break
 	if new_value != powered:
 		toggle_power()
-	# TODO: add different sprite for being toggled
-	_sprite.color.r = 1.0 if powered else 0.5
-	_sprite.color.g = 1.0 if powered else 0.5
+	_sprite.frame = 1 if powered else 0
