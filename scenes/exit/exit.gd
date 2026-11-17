@@ -34,10 +34,10 @@ func _physics_process(_delta: float) -> void:
 			exiting = _upper_door.player_is_ready() != null && _lower_door.player_is_ready() != null
 		ExitRequirement.ONLY_UP:
 			var player: Player = _upper_door.player_is_ready()
-			exiting = player != null && !player.state.split
+			exiting = player != null && !player.state.split && !player.state.inverse
 		ExitRequirement.ONLY_LOW:
 			var player: Player = _lower_door.player_is_ready()
-			exiting = player != null && !player.state.split
+			exiting = player != null && !player.state.split && player.state.inverse
 	if exiting:
 		_upper_door.disable_collider()
 		_lower_door.disable_collider()
