@@ -38,5 +38,6 @@ shape = SubResource("RectangleShape2D_hwnti")
 
 [node name="DoorSprite" type="AnimatedSprite2D" parent="." unique_id=1435006808]
 unique_name_in_owner = true
+z_index = -1
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_of532")
