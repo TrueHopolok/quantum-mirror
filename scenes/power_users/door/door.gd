@@ -4,9 +4,11 @@ extends PowerUser
 @export var _single_use: bool = false
 
 var _used: bool = false
+var _tween: Tween
 
 @onready var _collider: CollisionShape2D = %StaticCollider
-@onready var _sprite: ColorRect = %DoorSprite
+@onready var _sprite: AnimatedSprite2D = %DoorSprite
+@onready var _label: Label = %DoorLabel
 
 
 func _ready() -> void:
@@ -21,14 +23,15 @@ func _update_state(open: bool, skip_animation: bool = false) -> void:
 		return
 	_used = open
 	_collider.set_deferred(&"disabled", open)
+	_label.text = str(absi(cost - charge))
+	if _tween:
+		_tween.kill()
 	if skip_animation:
 		# TODO: add different sprite for being toggled
-		_sprite.color.b = 1.0 if !open else 0.5
-		_sprite.color.g = 1.0 if !open else 0.5
+		_sprite.visible = !open
 	else:
 		# TODO: add different sprite for being toggled
-		_sprite.color.b = 1.0 if !open else 0.5
-		_sprite.color.g = 1.0 if !open else 0.5
+		_sprite.visible = !open
 
 
 func reset_usage() -> void:

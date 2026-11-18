@@ -12,6 +12,7 @@ extends PowerSource
 func _ready() -> void:
 	_interactable.single_use = _single_use
 	_interactable.interacted.connect(_on_interacted)
+	_sprite.frame = 1 if powered else 0
 
 
 func _on_interacted() -> void:

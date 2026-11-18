@@ -2,7 +2,7 @@ class_name ExitDoor
 extends Area2D
 
 @onready var _collider: CollisionShape2D = %DetectionCollider
-@onready var _sprite: ColorRect = %DoorSprite
+@onready var _sprite: AnimatedSprite2D = %DoorSprite
 
 
 func player_is_ready() -> Player:

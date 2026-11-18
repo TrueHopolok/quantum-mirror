@@ -43,7 +43,7 @@ _requirement = 1
 _level_num = 6
 
 [node name="UpperDoor" parent="Exit" index="0" unique_id=610854403]
-position = Vector2(-144, -40)
+position = Vector2(-144, -38)
 
 [node name="LowerDoor" parent="Exit" index="1" unique_id=2088361115]
 position = Vector2(240, 216)

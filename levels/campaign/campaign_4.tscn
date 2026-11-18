@@ -56,10 +56,10 @@ _next_scene = "uid://bebdsubnsq581"
 _level_num = 4
 
 [node name="UpperDoor" parent="Exit" index="0" unique_id=610854403]
-position = Vector2(-352, -40)
+position = Vector2(-352, -38)
 
 [node name="LowerDoor" parent="Exit" index="1" unique_id=2088361115]
-position = Vector2(-352, 40)
+position = Vector2(-352, 38)
 
 [editable path="Player"]
 [editable path="Player/Upper/UpperSpawn"]

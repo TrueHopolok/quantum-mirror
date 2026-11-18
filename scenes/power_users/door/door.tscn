@@ -1,20 +1,46 @@
 [gd_scene format=3 uid="uid://dejx2tunb02qr"]
 
 [ext_resource type="Script" uid="uid://ddugguucgjpx6" path="res://scenes/power_users/door/door.gd" id="1_nyr28"]
+[ext_resource type="Texture2D" uid="uid://b5fv1avn8nm28" path="res://assets/art/door/door.png" id="2_8jioh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_of532"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8jioh")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_of532"]
-size = Vector2(16, 48)
+size = Vector2(16, 32)
 
 [node name="Door" type="Node2D" unique_id=998366484]
 script = ExtResource("1_nyr28")
 
-[node name="DoorSprite" type="ColorRect" parent="." unique_id=1314994195]
+[node name="DoorSprite" type="AnimatedSprite2D" parent="." unique_id=2130892676]
 unique_name_in_owner = true
-offset_left = -8.0
-offset_top = -24.0
-offset_right = 8.0
-offset_bottom = 24.0
-color = Color(0, 1, 1, 1)
+sprite_frames = SubResource("SpriteFrames_of532")
+
+[node name="DoorLabel" type="Label" parent="DoorSprite" unique_id=1687179909]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -19.0
+offset_right = -4.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 4
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1800417426]
 unique_name_in_owner = true

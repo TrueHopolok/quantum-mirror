@@ -1,22 +1,31 @@
 [gd_scene format=3 uid="uid://dobxml1lfripg"]
 
 [ext_resource type="Script" uid="uid://4rukcp5216xi" path="res://scenes/exit/exit_door/exit_door.gd" id="1_7nnig"]
+[ext_resource type="Texture2D" uid="uid://6rkv3h4sruu3" path="res://assets/art/exit/exit.png" id="2_qdcwr"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_of532"]
-radius = 16.0
-height = 48.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwnti"]
+size = Vector2(30, 41)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_of532"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qdcwr")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="ExitDoor" type="Area2D" unique_id=610854403]
 script = ExtResource("1_7nnig")
 
-[node name="DoorSprite" type="ColorRect" parent="." unique_id=190717931]
-unique_name_in_owner = true
-offset_left = -16.0
-offset_top = -24.0
-offset_right = 16.0
-offset_bottom = 24.0
-color = Color(0, 1, 0, 0.5019608)
-
 [node name="DetectionCollider" type="CollisionShape2D" parent="." unique_id=711924451]
 unique_name_in_owner = true
-shape = SubResource("CapsuleShape2D_of532")
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_hwnti")
+
+[node name="DoorSprite" type="AnimatedSprite2D" parent="." unique_id=1435006808]
+unique_name_in_owner = true
+position = Vector2(0, -5)
+sprite_frames = SubResource("SpriteFrames_of532")
