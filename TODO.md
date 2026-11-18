@@ -1,0 +1,30 @@
+## ART:
+
+- Camera cone of view
+- Tilemap
+- Electricity + animations
+- Player
+  - the mirror position sprite
+  - the mirror warning sprite
+  - walking and running animation
+  - jumping and falling animation
+  - falling squish?
+  - observed effect
+  - death effect
+- HUD
+  - clock that shows state and effects
+  - mb smt that shows a current lvl
+- Hints
+- UI like menus
+- Mb later:
+  - Background
+  - BG objects
+  - Shaders
+
+## SFX & MUSIC:
+
+later
+
+## MECHANICS AND LEVELS:
+
+later

@@ -1,9 +1,39 @@
 [gd_scene format=3 uid="uid://bpv0syredm6ab"]
 
+[ext_resource type="Texture2D" uid="uid://yqyuwyjnoj3t" path="res://assets/art/gate/gate.png" id="2_316ya"]
 [ext_resource type="Script" uid="uid://eguti0v4l1yx" path="res://scenes/gate/gate.gd" id="2_v2vuh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jxfr3"]
 size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pidu"]
+atlas = ExtResource("2_316ya")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w32ao"]
+atlas = ExtResource("2_316ya")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ql2p"]
+atlas = ExtResource("2_316ya")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_of532"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pidu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w32ao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ql2p")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Gate" type="Area2D" unique_id=1882476321]
 collision_layer = 0
@@ -14,18 +44,7 @@ script = ExtResource("2_v2vuh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=647492223]
 shape = SubResource("RectangleShape2D_jxfr3")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=365334915]
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
-color = Color(0, 0, 0, 1)
-
-[node name="ValueLabel" type="Label" parent="ColorRect" unique_id=802871258]
+[node name="GateSprite" type="AnimatedSprite2D" parent="." unique_id=1840948546]
 unique_name_in_owner = true
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-text = "L"
-horizontal_alignment = 1
-vertical_alignment = 2
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_of532")
