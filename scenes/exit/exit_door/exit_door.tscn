@@ -2,17 +2,18 @@
 
 [ext_resource type="Script" uid="uid://4rukcp5216xi" path="res://scenes/exit/exit_door/exit_door.gd" id="1_7nnig"]
 [ext_resource type="Texture2D" uid="uid://6rkv3h4sruu3" path="res://assets/art/exit/exit.png" id="2_qdcwr"]
+[ext_resource type="Texture2D" uid="uid://ci1rfhvhrp8ji" path="res://assets/art/exit/exit_sign.png" id="3_om2ct"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hwnti"]
 size = Vector2(30, 41)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qdcwr"]
 atlas = ExtResource("2_qdcwr")
-region = Rect2(0, 0, 31, 52)
+region = Rect2(0, 0, 31, 41)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_om2ct"]
 atlas = ExtResource("2_qdcwr")
-region = Rect2(31, 0, 31, 52)
+region = Rect2(31, 0, 31, 41)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_of532"]
 animations = [{
@@ -39,5 +40,9 @@ shape = SubResource("RectangleShape2D_hwnti")
 [node name="DoorSprite" type="AnimatedSprite2D" parent="." unique_id=1435006808]
 unique_name_in_owner = true
 z_index = -1
-position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_of532")
+
+[node name="ExitSign" type="Sprite2D" parent="DoorSprite" unique_id=111637881]
+z_index = 1
+position = Vector2(0, -27)
+texture = ExtResource("3_om2ct")
