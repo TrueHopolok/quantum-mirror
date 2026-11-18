@@ -1,6 +1,5 @@
 ## ART:
 
-- Camera cone of view
 - Tilemap
 - Electricity + animations
 - Player

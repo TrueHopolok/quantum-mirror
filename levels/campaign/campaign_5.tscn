@@ -31,7 +31,7 @@ _rotate_duration = 1.5
 _watch_duration = 1.5
 
 [node name="Surveillance3" parent="Objects" parent_id_path=PackedInt32Array(1690140828) index="2" unique_id=1170296880 instance=ExtResource("3_cr53h")]
-position = Vector2(248, 340)
+position = Vector2(248, 339)
 scale = Vector2(1, -1)
 _rotate_duration = 3.0
 _watch_duration = 3.0

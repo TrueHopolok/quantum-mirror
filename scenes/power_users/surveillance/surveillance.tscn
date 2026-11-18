@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dt1qby5tgyqq8" path="res://scenes/power_users/surveillance/surveillance.gd" id="1_n1yx2"]
 [ext_resource type="Texture2D" uid="uid://bygp7skg43lbg" path="res://assets/art/camera/camera.png" id="2_e0ul5"]
+[ext_resource type="Texture2D" uid="uid://cifyy8jxplrfr" path="res://assets/art/camera/cam_cone.png" id="3_lqsfr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lqsfr"]
 atlas = ExtResource("2_e0ul5")
@@ -25,8 +26,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqnoy"]
-size = Vector2(24, 24)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_of532"]
+points = PackedVector2Array(12, 3, 50, 48, 9, 48)
 
 [node name="Surveillance" type="Node2D" unique_id=458764811]
 script = ExtResource("1_n1yx2")
@@ -42,24 +43,12 @@ collision_layer = 0
 collision_mask = 2
 monitorable = false
 
-[node name="DetectionCollider" type="CollisionShape2D" parent="DetectionArea" unique_id=1281597379]
+[node name="DetectionSprite" type="Sprite2D" parent="DetectionArea" unique_id=531177461]
 unique_name_in_owner = true
-position = Vector2(20, 12)
-shape = SubResource("RectangleShape2D_vqnoy")
+position = Vector2(25, 23)
+texture = ExtResource("3_lqsfr")
 
-[node name="DetectionSprite" type="ColorRect" parent="DetectionArea/DetectionCollider" unique_id=406940125]
+[node name="DetectionCollider" type="CollisionShape2D" parent="DetectionArea" unique_id=2068544217]
 unique_name_in_owner = true
-modulate = Color(0.6119702, 0.32928175, 1.92523e-07, 0.5019608)
-show_behind_parent = true
-z_index = 2
-anchors_preset = -1
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -12.0
-offset_top = -12.0
-offset_right = 12.0
-offset_bottom = 12.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+shape = SubResource("ConvexPolygonShape2D_of532")
+debug_color = Color(0.92483014, 0.27452117, 0, 0.41960785)
