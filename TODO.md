@@ -1,6 +1,5 @@
 ## ART:
 
-- Tilemap
 - Electricity + animations
 - Player
   - the mirror position sprite
