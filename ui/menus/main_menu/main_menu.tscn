@@ -238,3 +238,14 @@ offset_bottom = 224.0
 text = "Unlock all"
 script = ExtResource("7_uni0y")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
+
+[node name="ControlsLabel" type="RichTextLabel" parent="DemoMenu" unique_id=108001597]
+layout_mode = 0
+offset_left = 400.0
+offset_right = 560.0
+offset_bottom = 80.0
+bbcode_enabled = true
+text = "[center]-- Controls --[/center]
+Move: [WASD] or [Arrows]
+Gate:  [X, Z, H] or [Z, X, C] or [J, H]"
+vertical_alignment = 1
