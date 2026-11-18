@@ -14,6 +14,7 @@
 - HUD
   - clock that shows state and effects
   - mb smt that shows a current lvl
+  - screen split
 - Hints
 - UI like menus
 - Mb later:
