@@ -12,9 +12,6 @@ func player_is_ready() -> Player:
 	return null
 
 
-func disable_collider(skip_animation: bool = false) -> void:
+func disable_collider() -> void:
 	_collider.set_deferred(&"disabled", true)
-	if skip_animation:
-		_sprite.hide()
-	else:
-		_sprite.hide()  # TODO: start animation
+	_sprite.frame = 1

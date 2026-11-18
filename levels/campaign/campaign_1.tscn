@@ -35,10 +35,10 @@ scale = Vector2(1, -1)
 _starting_state = SubResource("Resource_uiv27")
 
 [node name="Upper" parent="Player" index="0" unique_id=205619998]
-position = Vector2(-200, -32)
+position = Vector2(22, -84)
 
 [node name="Lower" parent="Player" index="1" unique_id=2098240698]
-position = Vector2(-200, 32)
+position = Vector2(21, 82)
 
 [node name="Exit" parent="." index="3" unique_id=2020743013]
 position = Vector2(608, 180)
