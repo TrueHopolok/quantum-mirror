@@ -243,10 +243,11 @@ metadata/_custom_type_script = "uid://2htt7bkeytt7"
 layout_mode = 0
 offset_left = 368.0
 offset_right = 560.0
-offset_bottom = 104.0
+offset_bottom = 136.0
 bbcode_enabled = true
 text = "[center]-- Controls --[/center]
-Move: [right][WASD] or [Arrows][/right]
+Move: [right][W, A, D] or [Arrows][/right]
 Gate: [right][X, Z, H] or [Z, X, C] or [J, H][/right]
+Show clock: [right][S] or [K][/right]
 Restart: [right][R][/right]"
 vertical_alignment = 1

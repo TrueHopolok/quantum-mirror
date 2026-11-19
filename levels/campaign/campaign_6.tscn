@@ -55,6 +55,12 @@ position = Vector2(368, -32)
 [node name="Lower" parent="Player" index="1" unique_id=2098240698]
 position = Vector2(64, 80)
 
+[node name="PlayerAbilitiesLabel" parent="Player/UI" parent_id_path=PackedInt32Array(1516222024, 1869521700) index="1" unique_id=1028777212]
+offset_left = 0.0
+offset_top = 295.0
+offset_right = 29.0
+offset_bottom = 360.0
+
 [node name="Exit" parent="." index="3" unique_id=2020743013]
 _requirement = 1
 _level_num = 6
