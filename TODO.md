@@ -10,7 +10,6 @@
   - observed effect
   - death effect
 - HUD
-  - mb smt that shows a current lvl
   - screen split
 - Hints
 - UI like menus

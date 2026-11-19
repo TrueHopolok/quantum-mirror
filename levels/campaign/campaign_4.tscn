@@ -61,6 +61,10 @@ position = Vector2(-352, -37)
 [node name="LowerDoor" parent="Exit" index="1" unique_id=2088361115]
 position = Vector2(-352, 37)
 
+[node name="LevelName" parent="." index="7" unique_id=602530414]
+text = "[center]-- Level 4 --[br]Fourth[/center]
+"
+
 [editable path="Player"]
 [editable path="Player/Upper/UpperSpawn"]
 [editable path="Player/Upper/UpperPchar"]
