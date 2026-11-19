@@ -15,7 +15,6 @@
 - UI like menus
 - Mb later:
   - Fix Tileset alt cells being upside down in lower version
-  - Background
   - BG objects
   - Shaders
 
