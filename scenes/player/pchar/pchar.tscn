@@ -1,118 +1,6 @@
 [gd_scene format=3 uid="uid://cr0g21safoei6"]
 
 [ext_resource type="Script" uid="uid://om3tmka17v0a" path="res://scenes/player/pchar/pchar.gd" id="1_b0ynn"]
-[ext_resource type="Texture2D" uid="uid://bav61ecc8f6q3" path="res://assets/art/mc/regular_jumping.png" id="2_2x5gt"]
-[ext_resource type="Texture2D" uid="uid://bexclbesml5na" path="res://assets/art/mc/regular_idle.png" id="3_wnf01"]
-[ext_resource type="Texture2D" uid="uid://bryb1knpkcqvv" path="res://assets/art/mc/regular_running.png" id="4_2x5gt"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ihydt"]
-atlas = ExtResource("2_2x5gt")
-region = Rect2(0, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mwnh0"]
-atlas = ExtResource("2_2x5gt")
-region = Rect2(16, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vh2rb"]
-atlas = ExtResource("2_2x5gt")
-region = Rect2(32, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_as7wj"]
-atlas = ExtResource("2_2x5gt")
-region = Rect2(48, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_voleg"]
-atlas = ExtResource("2_2x5gt")
-region = Rect2(64, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2x5gt"]
-atlas = ExtResource("3_wnf01")
-region = Rect2(0, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ax33"]
-atlas = ExtResource("3_wnf01")
-region = Rect2(16, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ldvry"]
-atlas = ExtResource("3_wnf01")
-region = Rect2(32, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_om3c5"]
-atlas = ExtResource("4_2x5gt")
-region = Rect2(0, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8chri"]
-atlas = ExtResource("4_2x5gt")
-region = Rect2(16, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_geho2"]
-atlas = ExtResource("4_2x5gt")
-region = Rect2(32, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lyabj"]
-atlas = ExtResource("4_2x5gt")
-region = Rect2(48, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0fi6t"]
-atlas = ExtResource("4_2x5gt")
-region = Rect2(64, 0, 16, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_of532"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ihydt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mwnh0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vh2rb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_as7wj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_voleg")
-}],
-"loop": 1,
-"name": &"air",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 3.0,
-"texture": SubResource("AtlasTexture_2x5gt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1ax33")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ldvry")
-}],
-"loop": 1,
-"name": &"idle",
-"speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_om3c5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8chri")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_geho2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lyabj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0fi6t")
-}],
-"loop": 1,
-"name": &"run",
-"speed": 9.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwedq"]
 size = Vector2(9, 24)
@@ -126,13 +14,20 @@ script = ExtResource("1_b0ynn")
 unique_name_in_owner = true
 z_index = 1
 position = Vector2(1.7881393e-07, -3.2782555e-07)
-sprite_frames = SubResource("SpriteFrames_of532")
 animation = &"run"
 autoplay = "idle"
-frame_progress = 0.65702516
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1231837824]
 unique_name_in_owner = true
 z_index = 1
 shape = SubResource("RectangleShape2D_xwedq")
 debug_color = Color(0, 1, 0.48235294, 0.41960785)
+
+[node name="AnimDebugLabel" type="Label" parent="." unique_id=1687325713]
+unique_name_in_owner = true
+offset_left = -20.0
+offset_top = -27.0
+offset_right = 20.0
+offset_bottom = -13.0
+horizontal_alignment = 1
+vertical_alignment = 1

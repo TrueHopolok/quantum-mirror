@@ -33,6 +33,10 @@ const CC_VERTICAL: int = 4
 const RUN_ACCELERATION: float = 1500
 ## Max running speed character can reach
 const MAX_RUNNING_SPEED: float = 100
+## Small extra speed added on side ways jump
+const GLYDE_BOOST: float = 10
+## Same as max running speed, but whilst in the air
+const MAX_GLYDE_SPEED: float = 110
 ## Decelaration that is applied when player is on the ground
 ## and one of the following conditions are met:[br]
 ## - Player changed direction of movement[br]
@@ -66,8 +70,8 @@ func _physics_process(delta: float) -> void:
 	_handle_horizontal(delta)
 	_handle_vertical(delta)
 	_corner_correction(delta)
-	_update_animation()
 	move_and_slide()
+	_update_animation()
 
 
 func _handle_horizontal(delta: float) -> void:
@@ -88,7 +92,8 @@ func _handle_horizontal(delta: float) -> void:
 	if input_dir != 0:
 		velocity.x += input_dir * RUN_ACCELERATION * delta
 
-	velocity.x = clampf(velocity.x, -MAX_RUNNING_SPEED, MAX_RUNNING_SPEED)
+	var max_speed: float = MAX_RUNNING_SPEED if is_on_floor() else MAX_GLYDE_SPEED
+	velocity.x = clampf(velocity.x, -max_speed, max_speed)
 
 
 func _handle_vertical(delta: float) -> void:
@@ -108,9 +113,16 @@ func _handle_vertical(delta: float) -> void:
 			velocity.y -= up_direction.y * UP_GRAVITY * delta
 
 	if _coyote_buffer_remaining > 0 && _jump_buffer_remaining > 0:
-		velocity.y = up_direction.y * JUMP_FORCE
+		# Small horizontal boost on jump, called glyde boost
+		var input_dir: float = signf(Input.get_axis(INPUT_LEFT, INPUT_RIGHT))
+		if _inverse_movement:
+			input_dir = -input_dir
+		if input_dir != 0:
+			velocity.x += input_dir * GLYDE_BOOST
 		_coyote_buffer_remaining = 0
 		_jump_buffer_remaining = 0
+
+		velocity.y = up_direction.y * JUMP_FORCE
 		_allow_jump_cutoff = Input.is_action_pressed(INPUT_JUMP)
 		# If already is not pressing jump button
 		# Then force cutoff
@@ -178,14 +190,16 @@ func _cc_horizontal(delta: float) -> void:
 func _update_animation() -> void:
 	var anim: StringName = &"idle"
 
-	if abs(velocity.x) > 0.0:
+	if !is_zero_approx(velocity.x):
 		anim = &"run"
 		_sprite.flip_h = velocity.x < 0.0
-		# todo: add speed_scale map between velocity and this
 
-	if abs(velocity.y) > 0.0:
-		anim = &"air"
-		# todo: mb change sprite / squish depending on the speed
+	if !is_on_floor():
+		if velocity.y * up_direction.y > 0.0:
+			anim = &"jump"
+			# NOTE: mb change sprite / squish depending on the speed
+		else:
+			anim = &"fall"
 
 	_sprite.play(anim)
 

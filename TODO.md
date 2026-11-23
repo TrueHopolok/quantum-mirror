@@ -4,9 +4,6 @@
 - Player
   - the mirror position sprite
   - the mirror warning sprite
-  - walking and running animation
-  - jumping and falling animation
-  - falling squish?
   - observed effect
   - death effect
 - HUD
