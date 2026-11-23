@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cr0g21safoei6" path="res://scenes/player/pchar/pchar.tscn" id="1_8afob"]
 [ext_resource type="Script" uid="uid://daog10aqlcte1" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="Shader" uid="uid://cud2874kcuxly" path="res://scenes/player/outline.gdshader" id="4_fm80t"]
 [ext_resource type="PackedScene" uid="uid://bn4s0qo3hp6r4" path="res://scenes/player/spawn_area/spawn_area.tscn" id="4_p47bc"]
 [ext_resource type="Texture2D" uid="uid://brchjupigsfry" path="res://assets/art/clock/clock_bg.png" id="5_75vfm"]
 [ext_resource type="SpriteFrames" uid="uid://d2babuk151535" path="res://scenes/player/pchar/mirror_animation.tres" id="5_fm80t"]
@@ -11,6 +12,13 @@
 [ext_resource type="Script" uid="uid://b8yysh1o0my2y" path="res://scenes/player/hud/state_sprite.gd" id="7_qek5x"]
 [ext_resource type="Texture2D" uid="uid://dqhyqu3x1u4d" path="res://assets/art/clock/nums.png" id="8_5gtgg"]
 [ext_resource type="Script" uid="uid://d4gr7w1n8il8l" path="res://scenes/player/hud/gate_sprite.gd" id="9_h17s1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fm80t"]
+shader = ExtResource("4_fm80t")
+shader_parameter/onoff = true
+shader_parameter/color = Color(0.5882353, 0.5019608, 1, 0.7058824)
+shader_parameter/pixels_to_check = 1
+shader_parameter/center_distance_cap = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lgqa7"]
 atlas = ExtResource("6_qek5x")
@@ -262,6 +270,7 @@ up_direction = Vector2(0, 1)
 metadata/_edit_lock_ = true
 
 [node name="PlayerSprite" parent="Lower/LowerPchar" index="0" unique_id=373448904]
+material = SubResource("ShaderMaterial_fm80t")
 sprite_frames = ExtResource("5_fm80t")
 flip_v = true
 metadata/_edit_lock_ = true

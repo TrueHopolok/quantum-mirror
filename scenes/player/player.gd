@@ -67,6 +67,8 @@ func _ready() -> void:
 		else:
 			_lower_pchar.disable_self()
 
+	_update_outline_shader()
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_echo():
@@ -82,6 +84,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		if !event.is_action_pressed(input):
 			continue
 		Callable(self, INPUT_MAP[input]).call()
+
+
+func _update_outline_shader() -> void:
+	(_upper_pchar._sprite.material as ShaderMaterial).set_shader_parameter("onoff", !state.inverse)
+	(_lower_pchar._sprite.material as ShaderMaterial).set_shader_parameter("onoff", state.inverse)
 
 
 func handle_gate_x() -> void:
@@ -109,6 +116,7 @@ func handle_gate_x() -> void:
 
 	x_gate_uses -= 1
 	state.apply_gate(QuantumState.Gate.X)
+	_update_outline_shader()
 
 
 func handle_gate_z() -> void:
@@ -120,6 +128,7 @@ func handle_gate_z() -> void:
 
 	z_gate_uses -= 1
 	state.apply_gate(QuantumState.Gate.Z)
+	_update_outline_shader()
 
 
 func handle_gate_h() -> void:
@@ -174,6 +183,8 @@ func handle_observation() -> void:
 	# From |-> or |+> to |0>
 	else:
 		_lower_pchar.disable_self()
+
+	_update_outline_shader()
 
 
 ## Ignores observation and directly kills player
