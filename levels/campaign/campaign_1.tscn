@@ -37,14 +37,8 @@ _starting_state = SubResource("Resource_uiv27")
 [node name="Upper" parent="Player" index="0" unique_id=205619998]
 position = Vector2(-208, -32)
 
-[node name="PlayerSprite" parent="Player/Upper/UpperPchar" parent_id_path=PackedInt32Array(1516222024, 1334760347) index="0" unique_id=373448904]
-animation = &"run"
-
 [node name="Lower" parent="Player" index="1" unique_id=2098240698]
 position = Vector2(-208, 32)
-
-[node name="PlayerSprite" parent="Player/Lower/LowerPchar" parent_id_path=PackedInt32Array(1516222024, 1746014567) index="0" unique_id=373448904]
-animation = &"run"
 
 [node name="AnimDebugLabel" parent="Player/Lower/LowerPchar" parent_id_path=PackedInt32Array(1516222024, 1746014567) index="2" unique_id=1687325713]
 offset_top = 27.0

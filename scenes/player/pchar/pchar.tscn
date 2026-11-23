@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cr0g21safoei6"]
 
 [ext_resource type="Script" uid="uid://om3tmka17v0a" path="res://scenes/player/pchar/pchar.gd" id="1_b0ynn"]
+[ext_resource type="SpriteFrames" uid="uid://bqgnd177e124e" path="res://scenes/player/pchar/regular_animation.tres" id="2_b0ynn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwedq"]
 size = Vector2(9, 24)
@@ -14,7 +15,8 @@ script = ExtResource("1_b0ynn")
 unique_name_in_owner = true
 z_index = 1
 position = Vector2(1.7881393e-07, -3.2782555e-07)
-animation = &"run"
+sprite_frames = ExtResource("2_b0ynn")
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1231837824]
