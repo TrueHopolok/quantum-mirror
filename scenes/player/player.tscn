@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cr0g21safoei6" path="res://scenes/player/pchar/pchar.tscn" id="1_8afob"]
 [ext_resource type="Script" uid="uid://daog10aqlcte1" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="Texture2D" uid="uid://bs8icjm5yd1gf" path="res://assets/art/mc/death.png" id="2_gx1jg"]
+[ext_resource type="Script" uid="uid://dm0ai28j3png4" path="res://scenes/player/death_sprite.gd" id="3_ugbui"]
 [ext_resource type="Shader" uid="uid://cud2874kcuxly" path="res://scenes/player/outline.gdshader" id="4_fm80t"]
 [ext_resource type="PackedScene" uid="uid://bn4s0qo3hp6r4" path="res://scenes/player/spawn_area/spawn_area.tscn" id="4_p47bc"]
 [ext_resource type="Texture2D" uid="uid://brchjupigsfry" path="res://assets/art/clock/clock_bg.png" id="5_75vfm"]
@@ -12,6 +14,56 @@
 [ext_resource type="Script" uid="uid://b8yysh1o0my2y" path="res://scenes/player/hud/state_sprite.gd" id="7_qek5x"]
 [ext_resource type="Texture2D" uid="uid://dqhyqu3x1u4d" path="res://assets/art/clock/nums.png" id="8_5gtgg"]
 [ext_resource type="Script" uid="uid://d4gr7w1n8il8l" path="res://scenes/player/hud/gate_sprite.gd" id="9_h17s1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ax33"]
+atlas = ExtResource("2_gx1jg")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldvry"]
+atlas = ExtResource("2_gx1jg")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_om3c5"]
+atlas = ExtResource("2_gx1jg")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8chri"]
+atlas = ExtResource("2_gx1jg")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_geho2"]
+atlas = ExtResource("2_gx1jg")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyabj"]
+atlas = ExtResource("2_gx1jg")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ugbui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ax33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldvry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_om3c5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8chri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_geho2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyabj")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fm80t"]
 shader = ExtResource("4_fm80t")
@@ -232,8 +284,18 @@ script = ExtResource("1_dovo2")
 [node name="Upper" type="Node2D" parent="." unique_id=205619998]
 position = Vector2(0, -32)
 
+[node name="UpperDeathSprite" type="AnimatedSprite2D" parent="Upper" unique_id=1802374219]
+process_mode = 1
+visible = false
+z_index = 4
+position = Vector2(0, 32)
+sprite_frames = SubResource("SpriteFrames_ugbui")
+script = ExtResource("3_ugbui")
+
 [node name="UpperSpawn" parent="Upper" unique_id=1025865373 node_paths=PackedStringArray("_player_root", "_following_pchar", "_spawning_pchar") instance=ExtResource("4_p47bc")]
 unique_name_in_owner = true
+process_priority = -1
+process_physics_priority = -1
 _player_root = NodePath("../..")
 _following_pchar = NodePath("../../Lower/LowerPchar")
 _spawning_pchar = NodePath("../UpperPchar")
@@ -244,8 +306,9 @@ position = Vector2(0, 4)
 [node name="WarningSprite" parent="Upper/UpperSpawn" index="1" unique_id=1811572260]
 position = Vector2(0, 4)
 
-[node name="UpperPchar" parent="Upper" unique_id=1334760347 instance=ExtResource("1_8afob")]
+[node name="UpperPchar" parent="Upper" unique_id=1334760347 node_paths=PackedStringArray("_death_sprite") instance=ExtResource("1_8afob")]
 unique_name_in_owner = true
+_death_sprite = NodePath("../UpperDeathSprite")
 metadata/_edit_lock_ = true
 
 [node name="PlayerSprite" parent="Upper/UpperPchar" index="0" unique_id=373448904]
@@ -258,8 +321,18 @@ metadata/_edit_lock_ = true
 [node name="Lower" type="Node2D" parent="." unique_id=2098240698]
 position = Vector2(0, 32)
 
+[node name="LowerDeathSprite" type="AnimatedSprite2D" parent="Lower" unique_id=763879718]
+process_mode = 1
+visible = false
+z_index = 4
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_ugbui")
+script = ExtResource("3_ugbui")
+
 [node name="LowerSpawn" parent="Lower" unique_id=454700582 node_paths=PackedStringArray("_player_root", "_following_pchar", "_spawning_pchar") instance=ExtResource("4_p47bc")]
 unique_name_in_owner = true
+process_priority = -1
+process_physics_priority = -1
 _player_root = NodePath("../..")
 _following_pchar = NodePath("../../Upper/UpperPchar")
 _spawning_pchar = NodePath("../LowerPchar")
@@ -271,9 +344,10 @@ position = Vector2(0, -4)
 position = Vector2(0, -4)
 flip_h = true
 
-[node name="LowerPchar" parent="Lower" unique_id=1746014567 instance=ExtResource("1_8afob")]
+[node name="LowerPchar" parent="Lower" unique_id=1746014567 node_paths=PackedStringArray("_death_sprite") instance=ExtResource("1_8afob")]
 unique_name_in_owner = true
 up_direction = Vector2(0, 1)
+_death_sprite = NodePath("../LowerDeathSprite")
 metadata/_edit_lock_ = true
 
 [node name="PlayerSprite" parent="Lower/LowerPchar" index="0" unique_id=373448904]

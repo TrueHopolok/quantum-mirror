@@ -41,6 +41,11 @@ const INPUT_MAP: Dictionary[StringName, StringName] = {
 ## Allows infinite uses of the X gates, ignoring usage count
 @export var h_gate_infinite: bool = false
 
+@export_group("Death Colors")
+@export var _swap_color: Color = Color.PURPLE
+@export var _observed_color: Color = Color.ORANGE
+@export var _death_color: Color = Color.RED
+
 var state: QuantumState
 
 @onready var _upper_pchar: Pchar = %UpperPchar
@@ -63,9 +68,9 @@ func _ready() -> void:
 
 	if !state.split:
 		if state.inverse:
-			_upper_pchar.disable_self()
+			_upper_pchar.disable_self(Color(0, 0, 0, 0))
 		else:
-			_lower_pchar.disable_self()
+			_lower_pchar.disable_self(Color(0, 0, 0, 0))
 
 	_update_outline_shader()
 
@@ -87,8 +92,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _update_outline_shader() -> void:
-	(_upper_pchar._sprite.material as ShaderMaterial).set_shader_parameter("onoff", !state.inverse)
-	(_lower_pchar._sprite.material as ShaderMaterial).set_shader_parameter("onoff", state.inverse)
+	(_upper_pchar.sprite.material as ShaderMaterial).set_shader_parameter("onoff", !state.inverse)
+	(_lower_pchar.sprite.material as ShaderMaterial).set_shader_parameter("onoff", state.inverse)
 
 
 func handle_gate_x() -> void:
@@ -104,7 +109,7 @@ func handle_gate_x() -> void:
 		if _upper_spawn.has_overlapping_bodies():
 			return
 		_upper_pchar.enable_self(_lower_pchar)
-		_lower_pchar.disable_self()
+		_lower_pchar.disable_self(_swap_color)
 
 	# From |0> to |1>
 	else:
@@ -112,7 +117,7 @@ func handle_gate_x() -> void:
 		if _lower_spawn.has_overlapping_bodies():
 			return
 		_lower_pchar.enable_self(_upper_pchar)
-		_upper_pchar.disable_self()
+		_upper_pchar.disable_self(_swap_color)
 
 	x_gate_uses -= 1
 	state.apply_gate(QuantumState.Gate.X)
@@ -141,11 +146,11 @@ func handle_gate_h() -> void:
 	if state.split:
 		# From |-> to |1>
 		if state.inverse:
-			_upper_pchar.disable_self()
+			_upper_pchar.disable_self(_swap_color)
 
 		# From |+> to |0>
 		else:
-			_lower_pchar.disable_self()
+			_lower_pchar.disable_self(_swap_color)
 
 	else:
 		# From |1> to |->
@@ -178,19 +183,28 @@ func handle_observation() -> void:
 
 	# From |-> or |+> to |1>
 	if state.inverse:
-		_upper_pchar.disable_self()
+		_upper_pchar.disable_self(_observed_color)
 
 	# From |-> or |+> to |0>
 	else:
-		_lower_pchar.disable_self()
+		_lower_pchar.disable_self(_observed_color)
 
 	_update_outline_shader()
 
 
 ## Ignores observation and directly kills player
 func handle_death() -> void:
+	_upper_spawn.hide()
+	_lower_spawn.hide()
+	(_upper_pchar.sprite.material as ShaderMaterial).set_shader_parameter("onoff", false)
+	(_lower_pchar.sprite.material as ShaderMaterial).set_shader_parameter("onoff", false)
+	if state.inverse:
+		_upper_pchar.hide()
+		_lower_pchar.disable_self(_death_color)
+	else:
+		_lower_pchar.hide()
+		_upper_pchar.disable_self(_death_color)
 	process_mode = Node.PROCESS_MODE_DISABLED
-	# TODO: add death animation and after short delay execute following
 	Transition.reload_scene()
 
 

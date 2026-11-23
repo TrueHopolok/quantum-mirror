@@ -1,9 +1,6 @@
 ## ART:
 
 - Electricity + animations
-- Player
-  - observed effect
-  - death effect
 - HUD
   - screen split
 - Hints

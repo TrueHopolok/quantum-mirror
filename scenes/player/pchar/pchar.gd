@@ -49,12 +49,20 @@ const CC_HORIZONTAL: int = 2
 ## Inverse movement direction duh
 @export var _inverse_movement: bool = false
 
+@export_group("Misc")
+@export var _death_sprite: AnimatedSprite2D
+
 var _jump_buffer_remaining: float = 0  # timer variable instead of node
 var _coyote_buffer_remaining: float = 0  # timer variable instead of node
 var _allow_jump_cutoff: bool = false  # NOTE: assumes that going up only possible via jump
 
 @onready var collider: CollisionShape2D = %CollisionShape2D
-@onready var _sprite: AnimatedSprite2D = %PlayerSprite
+@onready var sprite: AnimatedSprite2D = %PlayerSprite
+
+
+func _ready() -> void:
+	if !is_instance_valid(_death_sprite):
+		printerr("Player._ready(): death sprite is nil")
 
 
 ## Handles only players jump, since moving horizontally
@@ -192,7 +200,7 @@ func _update_animation() -> void:
 
 	if !is_zero_approx(velocity.x):
 		anim = &"run"
-		_sprite.flip_h = velocity.x < 0.0
+		sprite.flip_h = velocity.x < 0.0
 
 	if !is_on_floor():
 		if velocity.y * up_direction.y > 0.0:
@@ -201,7 +209,7 @@ func _update_animation() -> void:
 		else:
 			anim = &"fall"
 
-	_sprite.play(anim)
+	sprite.play(anim)
 
 
 ## Given [Pchar], copies entire state to itself.[br]
@@ -217,14 +225,19 @@ func enable_self(mirror: Pchar) -> void:
 	force_update_transform()
 	collider.set_deferred(&"disabled", false)
 	process_mode = Node.PROCESS_MODE_INHERIT
-	visible = true
+	sprite.self_modulate.a = 1
 
 
 ## Disables everything and making it invisible
-func disable_self() -> void:
+func disable_self(color: Color = Color.RED) -> void:
+	if is_instance_valid(_death_sprite):
+		_death_sprite.global_position = global_position
+		_death_sprite.self_modulate = color
+		_death_sprite.show()
+		_death_sprite.play(&"default")
 	collider.set_deferred(&"disabled", true)
 	process_mode = Node.PROCESS_MODE_DISABLED  # handles physics as well
-	visible = false
+	sprite.self_modulate.a = 0
 
 
 ## Returns Player

@@ -15,7 +15,6 @@ func _physics_process(_delta: float) -> void:
 	)
 	if !_spawning_pchar.can_process():
 		_spawning_pchar.global_position = global_position
-		_sprite.show()
-		_sprite.modulate = Color.RED if has_overlapping_bodies() else Color.WHITE
+		_sprite.self_modulate = Color.RED if has_overlapping_bodies() else Color.WHITE
 	else:
-		_sprite.hide()
+		_sprite.self_modulate = Color(0, 0, 0, 0)
