@@ -1,9 +1,46 @@
 [gd_scene format=3 uid="uid://bn4s0qo3hp6r4"]
 
 [ext_resource type="Script" uid="uid://cwlqtu4w4r8ql" path="res://scenes/player/spawn_area/spawn_area.gd" id="1_db737"]
+[ext_resource type="Texture2D" uid="uid://ct4133bmocxa7" path="res://assets/art/mc/warning.png" id="2_f8f6b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p47bc"]
 size = Vector2(8.8, 23.8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8f6b"]
+atlas = ExtResource("2_f8f6b")
+region = Rect2(0, 0, 11, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6alby"]
+atlas = ExtResource("2_f8f6b")
+region = Rect2(11, 0, 11, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3o5g2"]
+atlas = ExtResource("2_f8f6b")
+region = Rect2(22, 0, 11, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26kal"]
+atlas = ExtResource("2_f8f6b")
+region = Rect2(33, 0, 11, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_of532"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8f6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6alby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3o5g2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26kal")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="LowerSpawn" type="Area2D" unique_id=1025865373]
 collision_layer = 0
@@ -13,4 +50,11 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=705706353]
 shape = SubResource("RectangleShape2D_p47bc")
 debug_color = Color(0, 0.69803923, 0.6, 0.41960785)
+metadata/_edit_lock_ = true
+
+[node name="WarningSprite" type="AnimatedSprite2D" parent="." unique_id=1811572260]
+unique_name_in_owner = true
+z_index = 5
+sprite_frames = SubResource("SpriteFrames_of532")
+autoplay = "default"
 metadata/_edit_lock_ = true

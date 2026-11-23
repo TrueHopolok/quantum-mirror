@@ -241,6 +241,9 @@ _spawning_pchar = NodePath("../UpperPchar")
 [node name="CollisionShape2D" parent="Upper/UpperSpawn" index="0" unique_id=705706353]
 position = Vector2(0, 4)
 
+[node name="WarningSprite" parent="Upper/UpperSpawn" index="1" unique_id=1811572260]
+position = Vector2(0, 4)
+
 [node name="UpperPchar" parent="Upper" unique_id=1334760347 instance=ExtResource("1_8afob")]
 unique_name_in_owner = true
 metadata/_edit_lock_ = true
@@ -263,6 +266,10 @@ _spawning_pchar = NodePath("../LowerPchar")
 
 [node name="CollisionShape2D" parent="Lower/LowerSpawn" index="0" unique_id=705706353]
 position = Vector2(0, -4)
+
+[node name="WarningSprite" parent="Lower/LowerSpawn" index="1" unique_id=1811572260]
+position = Vector2(0, -4)
+flip_h = true
 
 [node name="LowerPchar" parent="Lower" unique_id=1746014567 instance=ExtResource("1_8afob")]
 unique_name_in_owner = true

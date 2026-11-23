@@ -2,8 +2,6 @@
 
 - Electricity + animations
 - Player
-  - the mirror position sprite
-  - the mirror warning sprite
   - observed effect
   - death effect
 - HUD
