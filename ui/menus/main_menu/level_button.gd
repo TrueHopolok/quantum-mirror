@@ -8,6 +8,8 @@ extends BetterButton
 func _ready() -> void:
 	super()
 	disabled = _level_num > 1 && _level_num > Persistence.data[Persistence.ROW_REACHED]
+	if _level_num == 1:
+		grab_focus()
 
 
 func _on_press() -> void:

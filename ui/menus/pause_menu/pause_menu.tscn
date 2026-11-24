@@ -6,22 +6,31 @@
 [ext_resource type="Script" uid="uid://xgtpha4h67hg" path="res://ui/menus/pause_menu/return_button.gd" id="4_cid4m"]
 [ext_resource type="Script" uid="uid://b1k4yojg5i17i" path="res://ui/menus/pause_menu/return_dialog.gd" id="5_yio2i"]
 
-[node name="PauseMenu" type="CanvasLayer" unique_id=840180984]
+[node name="PauseMenu" type="Control" unique_id=492303541]
 process_mode = 3
-layer = 2
+custom_minimum_size = Vector2(640, 360)
+propagate_maximum_size = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_bom27")
 
 [node name="BG" type="ColorRect" parent="." unique_id=409281967]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 0.27450982)
+color = Color(0, 0, 0, 0.5882353)
 metadata/_edit_lock_ = true
 
 [node name="Title" type="Label" parent="." unique_id=1397348034]
+layout_mode = 0
 offset_left = 192.0
 offset_top = 64.0
 offset_right = 448.0
@@ -32,12 +41,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AudioSettings" parent="." unique_id=560887263 instance=ExtResource("1_57ky2")]
+layout_mode = 1
 offset_left = 192.0
 offset_top = 256.0
 offset_right = -192.0
 offset_bottom = -1.0
 
 [node name="ContinueButton" type="Button" parent="." unique_id=78623454]
+unique_name_in_owner = true
+layout_mode = 0
 offset_left = 256.0
 offset_top = 152.0
 offset_right = 384.0
@@ -47,6 +59,7 @@ script = ExtResource("3_2gx4h")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
 
 [node name="ReturnButton" type="Button" parent="." unique_id=1724090446]
+layout_mode = 0
 offset_left = 256.0
 offset_top = 200.0
 offset_right = 384.0
@@ -56,7 +69,12 @@ script = ExtResource("4_cid4m")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
 
 [node name="ReturnDialog" type="ConfirmationDialog" parent="ReturnButton" unique_id=2080949241]
+title = ""
 initial_position = 1
+unresizable = true
+always_on_top = true
+min_size = Vector2i(200, 100)
+max_size = Vector2i(200, 100)
 dialog_text = "Return to main menu?
 All current progress would be lost."
 script = ExtResource("5_yio2i")

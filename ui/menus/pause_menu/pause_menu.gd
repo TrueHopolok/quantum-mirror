@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 @onready var bg: ColorRect = $BG
 
@@ -14,3 +14,4 @@ func _unhandled_input(event: InputEvent) -> void:
 			if is_instance_of(child, AudioStreamPlayer):
 				(child as AudioStreamPlayer).play()
 		get_tree().paused = !get_tree().paused
+		(%ContinueButton as BetterButton).grab_focus()

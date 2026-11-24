@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://om3tmka17v0a" path="res://scenes/player/pchar/pchar.gd" id="1_b0ynn"]
 [ext_resource type="SpriteFrames" uid="uid://bqgnd177e124e" path="res://scenes/player/pchar/regular_animation.tres" id="2_b0ynn"]
-[ext_resource type="Shader" uid="uid://cud2874kcuxly" path="res://scenes/player/outline.gdshader" id="2_wnf01"]
+[ext_resource type="Shader" uid="uid://cud2874kcuxly" path="res://scenes/player/pchar/outline.gdshader" id="2_wnf01"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2x5gt"]
 shader = ExtResource("2_wnf01")

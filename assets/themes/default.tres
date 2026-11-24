@@ -1,7 +1,117 @@
 [gd_resource type="Theme" format=3 uid="uid://b8ecc687tvf12"]
 
 [ext_resource type="FontFile" uid="uid://b72dpbyv1r7a0" path="res://assets/fonts/Minecraftia-Regular.ttf" id="1_6tjce"]
+[ext_resource type="Texture2D" uid="uid://i4lsxka3uitk" path="res://assets/art/ui/button_disabled.png" id="1_oa4jb"]
+[ext_resource type="Texture2D" uid="uid://m64l08qcet6l" path="res://assets/art/ui/button_hover.png" id="2_0ecif"]
+[ext_resource type="Texture2D" uid="uid://cp1k08duq4nlw" path="res://assets/art/ui/button_focus.png" id="2_qf2id"]
+[ext_resource type="Texture2D" uid="uid://r6wp0y52s3pl" path="res://assets/art/ui/button_normal.png" id="4_4bmj0"]
+[ext_resource type="Texture2D" uid="uid://w2j1a66wqdh3" path="res://assets/art/ui/button_pressed.png" id="5_exttd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4bmj0"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("2_qf2id")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+draw_center = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c8sri"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("4_4bmj0")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pp72"]
+bg_color = Color(0.47806978, 0.55598384, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+shadow_size = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mwo4r"]
+texture = ExtResource("1_oa4jb")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qyfqg"]
+texture = ExtResource("2_qf2id")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qf2id"]
+texture = ExtResource("2_0ecif")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_exttd"]
+texture = ExtResource("4_4bmj0")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n83um"]
+texture = ExtResource("5_exttd")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 32, 32)
 
 [resource]
 default_font = ExtResource("1_6tjce")
 default_font_size = 8
+AcceptDialog/constants/buttons_min_height = 25
+AcceptDialog/constants/buttons_min_width = 50
+AcceptDialog/styles/embedded_border = SubResource("StyleBoxTexture_4bmj0")
+AcceptDialog/styles/embedded_unfocused_border = SubResource("StyleBoxTexture_c8sri")
+AcceptDialog/styles/panel = SubResource("StyleBoxFlat_3pp72")
+Button/styles/disabled = SubResource("StyleBoxTexture_mwo4r")
+Button/styles/focus = SubResource("StyleBoxTexture_qyfqg")
+Button/styles/hover = SubResource("StyleBoxTexture_qf2id")
+Button/styles/normal = SubResource("StyleBoxTexture_exttd")
+Button/styles/pressed = SubResource("StyleBoxTexture_n83um")

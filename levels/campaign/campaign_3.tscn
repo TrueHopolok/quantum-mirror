@@ -119,6 +119,10 @@ position = Vector2(-32, -37)
 [node name="LowerDoor" parent="Exit" index="1" unique_id=2088361115]
 position = Vector2(240, 216)
 
+[node name="PauseMenu" parent="." index="7" unique_id=840180984]
+offset_right = 640.0
+offset_bottom = 360.0
+
 [node name="LevelName" parent="." index="8" unique_id=602530414]
 text = "[center]-- Level 3 --[br]Third[/center]
 "

@@ -40,11 +40,6 @@ position = Vector2(-208, -32)
 [node name="Lower" parent="Player" index="1" unique_id=2098240698]
 position = Vector2(-208, 32)
 
-[node name="AnimDebugLabel" parent="Player/Lower/LowerPchar" parent_id_path=PackedInt32Array(1516222024, 1746014567) index="2" unique_id=1687325713]
-offset_top = 27.0
-offset_bottom = 41.0
-scale = Vector2(1, -1)
-
 [node name="Exit" parent="." index="4" unique_id=2020743013]
 position = Vector2(608, 180)
 _requirement = 2
@@ -56,6 +51,10 @@ position = Vector2(32, -216)
 
 [node name="LowerDoor" parent="Exit" index="1" unique_id=2088361115]
 position = Vector2(-16, 117)
+
+[node name="PauseMenu" parent="." index="7" unique_id=840180984]
+offset_right = 640.0
+offset_bottom = 360.0
 
 [node name="LevelName" parent="." index="8" unique_id=602530414]
 text = "[center]-- Level 1 --[br]First[/center]
