@@ -29,10 +29,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 0.5882353)
+color = Color(0, 0, 0, 0.39215687)
+metadata/_edit_lock_ = true
+
+[node name="BG2" type="ColorRect" parent="." unique_id=354126719]
+z_index = 10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.39215687)
 metadata/_edit_lock_ = true
 
 [node name="Title" type="Label" parent="." unique_id=1397348034]
+z_index = 10
 layout_mode = 0
 offset_left = 40.0
 offset_top = 64.0
