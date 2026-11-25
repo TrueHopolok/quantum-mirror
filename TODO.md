@@ -1,17 +1,60 @@
+## LEVELS:
+
+1. X-gate introduction
+   - Movement
+   - X-gate
+   - Lever
+   - Door
+   - Exit (1/3)
+
+2. X-gate challenge
+   - Electricity (1/2)
+   - Electricity (2/2)
+
+3. H-gate introduction
+   - H-gate (1/2)
+   - Exit (2/3)
+
+4. H-gate challenge
+   - H-gate (2/2)
+   - Pressure plate
+   - Exit (3/3)
+
+5. Observation as tool
+   - Observation (1/2)
+
+6. Observation as obstacle
+   - Observation (2/2)
+
+7. Z-gate introduction
+   - Z-gate
+
+8. Prbly some challenge, though observations and Z-gates focus
+
+9. Core
+   - If added, then quantum interference and movement inverse
+
 ## ART:
 
-1. Electricity + animations + screen split electric thingy
-2. Hints
+- Hints (prbly with levels)
 
 - Mb later:
+  - Split screen electic line (highest priority)
   - Fix Tileset alt cells being upside down in lower version
+  - Normal electricity
   - BG objects
   - Shaders and Lighting
 
 ## SFX & MUSIC:
 
-later
+After levels and hints are finished, since in theory no sounds games are fine
 
-## MECHANICS AND LEVELS:
+## MECHIANCS 2.0:
 
-later
+- Normal splitscreen (highest priority)
+- Quantum Interference (gates activate periodically)
+- Gravity manipulation (gate to go upside down and back)
+- Monsters (basically moving hazard)
+- Movement mechanic would be cool, though no idea for now
+- Quantum Uncertancity (objects also change their state depending on the gates activated, though this would need quite a lot of work since all objects are determined in single level version)
+- Likely no, but MB portals???
