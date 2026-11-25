@@ -15,7 +15,11 @@ func _ready() -> void:
 
 func _update_state(electro_current: bool) -> void:
 	_collider.set_deferred(&"disabled", !electro_current)
-	_sprite.play(&"default" if electro_current else &"turnoff")
+	if electro_current:
+		_sprite.play(&"default")
+		_sprite.frame = randi_range(1, _sprite.sprite_frames.get_frame_count(&"default")) - 1
+	else:
+		_sprite.play(&"turnoff")
 
 
 func _physics_process(_delta: float) -> void:
