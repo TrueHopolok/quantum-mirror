@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://xgtpha4h67hg" path="res://ui/menus/pause_menu/return_button.gd" id="4_cid4m"]
 [ext_resource type="Script" uid="uid://b1k4yojg5i17i" path="res://ui/menus/pause_menu/return_dialog.gd" id="5_yio2i"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_yio2i"]
+font_size = 24
+
 [node name="PauseMenu" type="Control" unique_id=492303541]
 process_mode = 3
 custom_minimum_size = Vector2(640, 360)
@@ -31,44 +34,56 @@ metadata/_edit_lock_ = true
 
 [node name="Title" type="Label" parent="." unique_id=1397348034]
 layout_mode = 0
-offset_left = 192.0
+offset_left = 40.0
 offset_top = 64.0
-offset_right = 448.0
-offset_bottom = 160.0
-theme_override_font_sizes/font_size = 36
+offset_right = 168.0
+offset_bottom = 120.0
 text = "Paused"
+label_settings = SubResource("LabelSettings_yio2i")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioSettings" parent="." unique_id=560887263 instance=ExtResource("1_57ky2")]
-layout_mode = 1
-offset_left = 192.0
-offset_top = 256.0
-offset_right = -192.0
-offset_bottom = -1.0
-
-[node name="ContinueButton" type="Button" parent="." unique_id=78623454]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1048940704]
+z_index = 10
 layout_mode = 0
-offset_left = 256.0
-offset_top = 152.0
-offset_right = 384.0
-offset_bottom = 192.0
+offset_left = 88.0
+offset_top = 128.0
+offset_right = 280.0
+offset_bottom = 223.0
+
+[node name="ContinueButton" type="Button" parent="VBoxContainer" unique_id=78623454]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../ReturnButton")
 text = "Continue"
+alignment = 0
 script = ExtResource("3_2gx4h")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
 
-[node name="ReturnButton" type="Button" parent="." unique_id=1724090446]
-layout_mode = 0
-offset_left = 256.0
-offset_top = 200.0
-offset_right = 384.0
-offset_bottom = 240.0
+[node name="AudioSettings" parent="VBoxContainer" unique_id=560887263 instance=ExtResource("1_57ky2")]
+layout_mode = 2
+alignment = 1
+
+[node name="GeneralLabel" parent="VBoxContainer/AudioSettings/GeneralContainer" parent_id_path=PackedInt32Array(560887263, 1320508822) index="0" unique_id=1137571967]
+horizontal_alignment = 0
+
+[node name="MusicLabel" parent="VBoxContainer/AudioSettings/MusicContainer" parent_id_path=PackedInt32Array(560887263, 272183807) index="0" unique_id=1500169486]
+text = "Music"
+horizontal_alignment = 0
+
+[node name="SFXLabel" parent="VBoxContainer/AudioSettings/SFXContainer" parent_id_path=PackedInt32Array(560887263, 854781885) index="0" unique_id=1508474762]
+text = "SFX"
+horizontal_alignment = 0
+
+[node name="ReturnButton" type="Button" parent="VBoxContainer" unique_id=1724090446]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../ContinueButton")
 text = "Return to main menu"
+alignment = 0
 script = ExtResource("4_cid4m")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
 
-[node name="ReturnDialog" type="ConfirmationDialog" parent="ReturnButton" unique_id=2080949241]
+[node name="ReturnDialog" type="ConfirmationDialog" parent="VBoxContainer/ReturnButton" unique_id=2080949241]
 title = ""
 initial_position = 1
 unresizable = true
@@ -78,3 +93,5 @@ max_size = Vector2i(200, 100)
 dialog_text = "Return to main menu?
 All current progress would be lost."
 script = ExtResource("5_yio2i")
+
+[editable path="VBoxContainer/AudioSettings"]

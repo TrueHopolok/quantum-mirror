@@ -159,7 +159,7 @@ offset_top = 112.0
 offset_right = 132.0
 offset_bottom = 234.0
 
-[node name="Label" type="Label" parent="MVPMenu/LevelSelectionMenu" unique_id=1132895039]
+[node name="LevelSelectionTitle" type="Label" parent="MVPMenu/LevelSelectionMenu" unique_id=1132895039]
 layout_mode = 2
 text = "Level Selection:"
 
@@ -223,7 +223,7 @@ offset_top = 112.0
 offset_right = 192.0
 offset_bottom = 204.0
 
-[node name="Label" type="Label" parent="MVPMenu/SettingsMenu" unique_id=1188975476]
+[node name="SettingsTitle" type="Label" parent="MVPMenu/SettingsMenu" unique_id=1188975476]
 layout_mode = 2
 text = "Settings:"
 horizontal_alignment = 1
