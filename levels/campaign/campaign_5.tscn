@@ -96,6 +96,7 @@ position = Vector2(-248, 208)
 
 [node name="Exit" parent="." index="4" unique_id=2020743013]
 _requirement = 1
+_next_scene = "uid://bv6xxx6lcpcxu"
 _level_num = 5
 
 [node name="UpperDoor" parent="Exit" index="0" unique_id=610854403]
@@ -105,8 +106,6 @@ position = Vector2(-368, -100)
 position = Vector2(240, 216)
 
 [node name="LevelName" parent="." index="8" unique_id=602530414]
-theme_override_colors/default_color = Color(1, 1, 0.74509805, 1)
-theme_override_constants/outline_size = 3
 text = "[center]-- Level 5 --[br]Observed[/center]
 "
 
