@@ -2,6 +2,9 @@ extends CanvasLayer
 
 const DURATION: float = 0.5
 
+const LEVEL_DIR: String = "res://levels/campaign"
+const LEVEL_PREFIX: String = "campaign_"
+
 
 func fade_in() -> void:
 	var bg: ColorRect = $ColorRect
