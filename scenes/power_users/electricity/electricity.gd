@@ -3,7 +3,7 @@ extends PowerUser
 
 @onready var _area: Area2D = %DetectionArea
 @onready var _collider: CollisionShape2D = %DetectionCollider
-@onready var _sprite: ColorRect = %ElectricitySprite
+@onready var _sprite: AnimatedSprite2D = %ElectricitySprite
 
 
 func _ready() -> void:
@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func _update_state(electro_current: bool) -> void:
 	_collider.set_deferred(&"disabled", !electro_current)
-	_sprite.visible = electro_current
+	_sprite.play(&"default" if electro_current else &"turnoff")
 
 
 func _physics_process(_delta: float) -> void:

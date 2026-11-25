@@ -1,6 +1,62 @@
 [gd_scene format=3 uid="uid://cbb8wv7ns37rn"]
 
 [ext_resource type="Script" uid="uid://bu5ylyhgsd04r" path="res://scenes/power_users/electricity/electricity.gd" id="1_eb78k"]
+[ext_resource type="Texture2D" uid="uid://cnmvrc3redqwx" path="res://assets/art/electricity/electricity.png" id="2_m3hhe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfie4"]
+atlas = ExtResource("2_m3hhe")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mun7x"]
+atlas = ExtResource("2_m3hhe")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_625qk"]
+atlas = ExtResource("2_m3hhe")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2u6u6"]
+atlas = ExtResource("2_m3hhe")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyhd6"]
+atlas = ExtResource("2_m3hhe")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3hhe"]
+atlas = ExtResource("2_m3hhe")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_of532"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfie4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mun7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_625qk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2u6u6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyhd6")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3hhe")
+}],
+"loop": 1,
+"name": &"turnoff",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_of532"]
 size = Vector2(16, 16)
@@ -9,13 +65,9 @@ size = Vector2(16, 16)
 script = ExtResource("1_eb78k")
 cost = 0
 
-[node name="ElectricitySprite" type="ColorRect" parent="." unique_id=226706215]
+[node name="ElectricitySprite" type="AnimatedSprite2D" parent="." unique_id=1822849839]
 unique_name_in_owner = true
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
-color = Color(1, 0.56078434, 0, 1)
+sprite_frames = SubResource("SpriteFrames_of532")
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=1939908872]
 unique_name_in_owner = true
