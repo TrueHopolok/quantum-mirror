@@ -27,8 +27,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3qnke"]
-radius = 8.0
-height = 16.0
+radius = 16.0
+height = 32.0
 
 [node name="Lever" type="Node2D" unique_id=395547070]
 script = ExtResource("1_t7hrb")

@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://y0payekw83ho" path="res://levels/level_name.gd" id="5_safpt"]
 
 [node name="Level" type="Node2D" unique_id=1143756053]
+metadata/_edit_lock_ = true
 
 [node name="BG" parent="." unique_id=972349948 instance=ExtResource("1_gjl0y")]
 visible = false
@@ -69,6 +70,7 @@ metadata/_edit_lock_ = true
 offset_top = 24.0
 offset_right = 640.0
 offset_bottom = 64.0
+theme_override_constants/outline_size = 2
 bbcode_enabled = true
 text = "[center]-- Level N --[br]Undefined[/center]
 "
