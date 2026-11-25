@@ -8,6 +8,7 @@ var _timer: float = 0.0
 
 
 func _ready() -> void:
+	show()
 	if !_sprites.has_animation(_animation):
 		return
 	texture = _sprites.get_frame_texture(_animation, 0)

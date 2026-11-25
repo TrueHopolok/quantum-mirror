@@ -1,5 +1,17 @@
 ## LEVELS:
 
+Verification:
+
+- Player's starting state
+- Exit setup
+  - Level number
+  - Next scene
+  - Exit type
+- Level Name
+- Main menu
+
+Levels:
+
 1. X-gate introduction
    - Movement
    - X-gate

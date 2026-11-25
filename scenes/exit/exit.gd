@@ -23,8 +23,10 @@ func _ready() -> void:
 		Persistence.submit(Persistence.ROW_REACHED, _level_num)
 	if _requirement == ExitRequirement.ONLY_LOW:
 		_upper_door.disable_collider()
+		_upper_door.hide()
 	elif _requirement == ExitRequirement.ONLY_UP:
 		_lower_door.disable_collider()
+		_lower_door.hide()
 
 
 func _physics_process(_delta: float) -> void:

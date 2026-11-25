@@ -291,6 +291,7 @@ z_index = 4
 position = Vector2(0, 32)
 sprite_frames = SubResource("SpriteFrames_ugbui")
 script = ExtResource("3_ugbui")
+metadata/_edit_lock_ = true
 
 [node name="UpperSpawn" parent="Upper" unique_id=1025865373 node_paths=PackedStringArray("_player_root", "_following_pchar", "_spawning_pchar") instance=ExtResource("4_p47bc")]
 unique_name_in_owner = true
@@ -328,6 +329,7 @@ z_index = 4
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_ugbui")
 script = ExtResource("3_ugbui")
+metadata/_edit_lock_ = true
 
 [node name="LowerSpawn" parent="Lower" unique_id=454700582 node_paths=PackedStringArray("_player_root", "_following_pchar", "_spawning_pchar") instance=ExtResource("4_p47bc")]
 unique_name_in_owner = true
@@ -367,6 +369,7 @@ unique_name_in_owner = true
 position = Vector2(-5, 180)
 texture = ExtResource("5_75vfm")
 script = ExtResource("5_je7p5")
+metadata/_edit_lock_ = true
 
 [node name="StateSprite" type="AnimatedSprite2D" parent="UI/Clock" unique_id=464234775]
 sprite_frames = SubResource("SpriteFrames_vqnoy")
@@ -377,18 +380,21 @@ metadata/_edit_lock_ = true
 position = Vector2(12, -1.5)
 sprite_frames = SubResource("SpriteFrames_of532")
 script = ExtResource("9_h17s1")
+metadata/_edit_lock_ = true
 
 [node name="ZGateSprite" type="AnimatedSprite2D" parent="UI/Clock" unique_id=691798821]
 position = Vector2(12, 6.5)
 sprite_frames = SubResource("SpriteFrames_of532")
 script = ExtResource("9_h17s1")
 _type = 2
+metadata/_edit_lock_ = true
 
 [node name="HGateSprite" type="AnimatedSprite2D" parent="UI/Clock" unique_id=89715176]
 position = Vector2(12, 14.5)
 sprite_frames = SubResource("SpriteFrames_of532")
 script = ExtResource("9_h17s1")
 _type = 1
+metadata/_edit_lock_ = true
 
 [node name="GlitchSprite" type="AnimatedSprite2D" parent="UI/Clock" unique_id=35406513]
 sprite_frames = SubResource("SpriteFrames_qv8nh")

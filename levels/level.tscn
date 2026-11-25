@@ -10,6 +10,8 @@
 [node name="Level" type="Node2D" unique_id=1143756053]
 
 [node name="BG" parent="." unique_id=972349948 instance=ExtResource("1_gjl0y")]
+visible = false
+metadata/_edit_lock_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1761627538]
 position = Vector2(0, 4)
@@ -24,10 +26,22 @@ metadata/_edit_lock_ = true
 position = Vector2(240, 180)
 metadata/_edit_lock_ = true
 
+[node name="Upper" parent="Player" index="0" unique_id=205619998]
+position = Vector2(-192, -32)
+
+[node name="Lower" parent="Player" index="1" unique_id=2098240698]
+position = Vector2(-192, 32)
+
 [node name="Exit" parent="." unique_id=2020743013 instance=ExtResource("4_vnv7o")]
 position = Vector2(400, 180)
 _next_scene = "uid://dh808cqj70n3l"
 metadata/_edit_lock_ = true
+
+[node name="UpperDoor" parent="Exit" index="0" unique_id=610854403]
+position = Vector2(200, -36)
+
+[node name="LowerDoor" parent="Exit" index="1" unique_id=2088361115]
+position = Vector2(200, 37)
 
 [node name="SplitScreenDivider" type="ColorRect" parent="." unique_id=1528509107]
 offset_top = 179.0
@@ -49,6 +63,7 @@ offset_right = 640.0
 offset_bottom = 360.0
 grow_horizontal = 1
 grow_vertical = 1
+metadata/_edit_lock_ = true
 
 [node name="LevelName" type="RichTextLabel" parent="." unique_id=602530414]
 offset_top = 24.0
