@@ -125,6 +125,7 @@ script = ExtResource("3_gpubi")
 _parent_menu = NodePath("..")
 _target_menu = NodePath("../../LevelSelectionMenu")
 _first_focus = NodePath("../../LevelSelectionMenu/Level1")
+_block_first_playthrough = true
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
 
 [node name="SettingsSelectionButton" type="Button" parent="MVPMenu/MainMenu" unique_id=200434981 node_paths=PackedStringArray("_parent_menu", "_target_menu", "_first_focus")]

@@ -1,7 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://blv1ck8h88wx"]
 
-[ext_resource type="Texture2D" uid="uid://cp1k08duq4nlw" path="res://assets/art/ui/button_focus.png" id="1_4h28v"]
-[ext_resource type="Texture2D" uid="uid://r6wp0y52s3pl" path="res://assets/art/ui/button_normal.png" id="2_fy8pc"]
+[ext_resource type="Texture2D" uid="uid://w2j1a66wqdh3" path="res://assets/art/ui/button_pressed.png" id="5_j08r7"]
 [ext_resource type="FontFile" uid="uid://b72dpbyv1r7a0" path="res://assets/fonts/Minecraftia-Regular.ttf" id="6_0eejt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4bmj0"]
@@ -9,7 +8,7 @@ content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
-texture = ExtResource("1_4h28v")
+texture = ExtResource("5_j08r7")
 texture_margin_left = 3.0
 texture_margin_top = 3.0
 texture_margin_right = 3.0
@@ -27,7 +26,7 @@ content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
-texture = ExtResource("2_fy8pc")
+texture = ExtResource("5_j08r7")
 texture_margin_left = 3.0
 texture_margin_top = 3.0
 texture_margin_right = 3.0
@@ -41,11 +40,12 @@ axis_stretch_vertical = 1
 draw_center = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pp72"]
-bg_color = Color(0.47806978, 0.55598384, 1, 1)
+bg_color = Color(0.039215688, 0.039215688, 0.039215688, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
+border_color = Color(0.2738727, 0.27387276, 0.27387258, 1)
 border_blend = true
 shadow_size = 2
 

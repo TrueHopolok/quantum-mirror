@@ -2,6 +2,7 @@ extends BetterButton
 
 
 func _ready() -> void:
+	super()
 	if !OS.is_debug_build():
 		hide()
 		disabled = true
