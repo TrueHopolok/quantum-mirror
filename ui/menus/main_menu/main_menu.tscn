@@ -220,6 +220,13 @@ script = ExtResource("7_m57jf")
 _level_num = 8
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
 
+[node name="Level9" type="Button" parent="MVPMenu/LevelSelectionMenu" unique_id=1057222265]
+layout_mode = 2
+text = "Level 9"
+script = ExtResource("7_m57jf")
+_level_num = 9
+metadata/_custom_type_script = "uid://2htt7bkeytt7"
+
 [node name="MainMenuButton" type="Button" parent="MVPMenu/LevelSelectionMenu" unique_id=666634734 node_paths=PackedStringArray("_parent_menu", "_target_menu", "_first_focus")]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Level1")

@@ -1,3 +1,10 @@
+## TODO:
+
+Finish final level yo
+Add thx for playing screen
+Add tutorials
+Add SFX and music
+
 ## LEVELS:
 
 Verification:
