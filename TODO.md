@@ -64,6 +64,7 @@ After levels and hints are finished, since in theory no sounds games are fine
 ## MECHIANCS 2.0:
 
 - Normal splitscreen (highest priority)
+- Not Xor logic (toggle like lever, opens one door but closes another)
 - Quantum Interference (gates activate periodically)
 - Gravity manipulation (gate to go upside down and back)
 - Monsters (basically moving hazard)
