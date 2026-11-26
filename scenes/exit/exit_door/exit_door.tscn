@@ -34,7 +34,6 @@ script = ExtResource("1_7nnig")
 
 [node name="DetectionCollider" type="CollisionShape2D" parent="." unique_id=711924451]
 unique_name_in_owner = true
-position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_hwnti")
 
 [node name="DoorSprite" type="AnimatedSprite2D" parent="." unique_id=1435006808]
