@@ -34,9 +34,12 @@ const RUN_ACCELERATION: float = 1500
 ## Max running speed character can reach
 const MAX_RUNNING_SPEED: float = 100
 ## Small extra speed added on side ways jump
+## Applied only if MIN_GLYDE_SPEED is reached
 const GLYDE_BOOST: float = 10
 ## Same as max running speed, but whilst in the air
 const MAX_GLYDE_SPEED: float = 110
+## Guard against in place long sideways jumps
+const MIN_GLYDE_SPEED: float = 75
 ## Decelaration that is applied when player is on the ground
 ## and one of the following conditions are met:[br]
 ## - Player changed direction of movement[br]
@@ -125,7 +128,8 @@ func _handle_vertical(delta: float) -> void:
 		var input_dir: float = signf(Input.get_axis(INPUT_LEFT, INPUT_RIGHT))
 		if _inverse_movement:
 			input_dir = -input_dir
-		if input_dir != 0:
+		if input_dir != 0 && abs(velocity.x) >= MIN_GLYDE_SPEED:
+			# gives speed propocionally to max speed
 			velocity.x += input_dir * GLYDE_BOOST
 		_coyote_buffer_remaining = 0
 		_jump_buffer_remaining = 0

@@ -12,6 +12,8 @@ func _ready() -> void:
 	)
 	if disabled:
 		focus_mode = Control.FOCUS_NONE
+	else:
+		text = "Level %d" % _level_num
 
 
 func _on_press() -> void:
