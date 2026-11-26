@@ -1,15 +1,28 @@
 [gd_scene format=3 uid="uid://dh6df48ipv1nk"]
 
 [ext_resource type="Shader" uid="uid://tnt2wy5rr0pk" path="res://scenes/core/core.gdshader" id="1_3swme"]
+[ext_resource type="Script" uid="uid://7u2hyqdnwylq" path="res://scenes/core/core.gd" id="1_ef3yq"]
 [ext_resource type="Texture2D" uid="uid://c71hj80doshmy" path="res://assets/art/bg/bg.png" id="2_5kgel"]
-[ext_resource type="Script" uid="uid://4gerd41g66he" path="res://scenes/core/core.gd" id="3_jjme7"]
+[ext_resource type="Script" uid="uid://drcchytnicrjq" path="res://scenes/core/core_sprite.gd" id="3_jjme7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_of532"]
+size = Vector2(767.99994, 64.00001)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3swme"]
 shader = ExtResource("1_3swme")
 shader_parameter/strength = 0.57
 shader_parameter/black_radius = 0.65
 
-[node name="Core" type="Sprite2D" unique_id=1392654968]
+[node name="Core" type="Area2D" unique_id=2011770499]
+script = ExtResource("1_ef3yq")
+_next_scene = "uid://dh808cqj70n3l"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1108252577]
+scale = Vector2(0.08333334, 0.99999994)
+shape = SubResource("RectangleShape2D_of532")
+
+[node name="CoreSprite" type="Sprite2D" parent="." unique_id=1392654968]
+z_index = 3
 material = SubResource("ShaderMaterial_3swme")
 position = Vector2(0, 1.1920929e-06)
 scale = Vector2(0.08333334, 0.99999994)

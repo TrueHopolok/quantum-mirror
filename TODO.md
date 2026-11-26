@@ -1,9 +1,8 @@
 ## TODO:
 
-Finish final level yo
-Add thx for playing screen
 Add tutorials
 Add SFX and music
+Add art to main menu and win menu
 
 ## LEVELS:
 

@@ -43,8 +43,6 @@ func _glow() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if !is_instance_of(body, Pchar):
-		return
 	if _tween:
 		_tween.finished.disconnect(_glow)
 		_tween.kill()
