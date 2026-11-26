@@ -298,20 +298,12 @@ bbcode_enabled = true
 text = "[b]v[/b] 1.0.0"
 script = ExtResource("6_igis3")
 
-[node name="DemoMenu" type="Control" parent="." unique_id=346424296]
-visible = false
-anchors_preset = 0
-offset_left = 48.0
-offset_top = 96.0
-offset_right = 88.0
-offset_bottom = 136.0
-metadata/_edit_lock_ = true
-
-[node name="ControlsLabel" type="RichTextLabel" parent="DemoMenu" unique_id=108001597]
+[node name="ControlsLabel" type="RichTextLabel" parent="." unique_id=108001597]
 layout_mode = 0
 offset_left = 368.0
+offset_top = 88.0
 offset_right = 560.0
-offset_bottom = 136.0
+offset_bottom = 224.0
 focus_mode = 0
 bbcode_enabled = true
 text = "[center]-- Controls --[/center]
