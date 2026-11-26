@@ -152,6 +152,7 @@ position = Vector2(-248, 208)
 
 [node name="Exit" parent="." index="4" unique_id=2020743013]
 _requirement = 1
+_next_scene = "uid://bomyjcnfgevwh"
 _level_num = 6
 
 [node name="UpperDoor" parent="Exit" index="0" unique_id=610854403]

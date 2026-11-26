@@ -14,9 +14,11 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	match _value:
 		QuantumState.Gate.X:
+			_sprite.frame = 0
 			_color = Color.RED
 			_glow_length = 3.0
 		QuantumState.Gate.Z:
+			_sprite.frame = 1
 			_color = Color.BLUE
 			_glow_length = 5.0
 		QuantumState.Gate.H:
