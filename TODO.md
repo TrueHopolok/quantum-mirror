@@ -2,8 +2,13 @@
 
 Add tutorials
 Add input scheme selection instead of all inputs at once
+
+- Classic Scheme: Arrows to move, Z, X, (H/C), Space
+- Modern Scheme: WASD to move, J, J, H, Space
+
 Add SFX and music
 Add indicators to using gates
+Change electricity sprite
 Add art to main menu and win menu
 
 ## LEVELS:
