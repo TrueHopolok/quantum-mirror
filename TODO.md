@@ -1,7 +1,6 @@
 ## TODO:
 
 Fix CC horizontal (or remove it entirely)
-Fix Transition loadings (quick restart on fade out)
 Fix LVL 9 being INSANELY cheesable
 
 Add tutorials
