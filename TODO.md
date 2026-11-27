@@ -1,7 +1,6 @@
 ## TODO:
 
 Fix CC horizontal (or remove it entirely)
-Fix LVL 9 being INSANELY cheesable
 
 Add tutorials
 Add input scheme selection instead of all inputs at once
