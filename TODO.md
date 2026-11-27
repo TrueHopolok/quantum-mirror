@@ -1,7 +1,13 @@
 ## TODO:
 
+Fix CC horizontal (or remove it entirely)
+Fix Transition loadings (quick restart on fade out)
+Fix LVL 9 being INSANELY cheesable
+
 Add tutorials
+Add input scheme selection instead of all inputs at once
 Add SFX and music
+Add indicators to using gates
 Add art to main menu and win menu
 
 ## LEVELS:
