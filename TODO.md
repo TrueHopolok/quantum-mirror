@@ -1,7 +1,5 @@
 ## TODO:
 
-Fix CC horizontal (or remove it entirely)
-
 Add tutorials
 Add input scheme selection instead of all inputs at once
 Add SFX and music

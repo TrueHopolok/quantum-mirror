@@ -26,7 +26,7 @@ const JUMP_BUFFER_DURATION: float = 0.2
 ## Time buffer allowing jumping on air right after stepping from the floor.
 const COYOTE_JUMP_WINDOW: float = 0.2
 ## Max distance for corner correction moving vertically
-const CC_VERTICAL: int = 4
+const CC_VERTICAL: int = 3
 
 @export_group("Horizontal")
 ## Acceleration of player running
@@ -48,7 +48,7 @@ const FRICTION_FORCE: float = 800
 ## Same as [constant FRICTION_FORCE], but is weaker and works in the air
 const AIR_RESISTANCE: float = 500
 ## Max distance for corner correction moving horizontally
-const CC_HORIZONTAL: int = 0  # TODO: fix CC_horizontal causing floaty behaviour
+const CC_HORIZONTAL: int = 2
 ## Inverse movement direction duh
 @export var _inverse_movement: bool = false
 
@@ -185,7 +185,7 @@ func _cc_horizontal(delta: float) -> void:
 		maxf(absf(velocity.x * delta), (RUN_ACCELERATION * delta) * delta), 0
 	)
 	if signf(velocity.x) != 0:
-		movement.x *= velocity.x
+		movement.x *= signf(velocity.x)
 	else:
 		movement.x *= input_dir
 	if !test_move(global_transform, movement):
