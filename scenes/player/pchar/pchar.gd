@@ -30,7 +30,7 @@ const CC_VERTICAL: int = 4
 
 @export_group("Horizontal")
 ## Acceleration of player running
-const RUN_ACCELERATION: float = 1500
+const RUN_ACCELERATION: float = 1200
 ## Max running speed character can reach
 const MAX_RUNNING_SPEED: float = 100
 ## Small extra speed added on side ways jump
@@ -39,16 +39,16 @@ const GLYDE_BOOST: float = 10
 ## Same as max running speed, but whilst in the air
 const MAX_GLYDE_SPEED: float = 110
 ## Guard against in place long sideways jumps
-const MIN_GLYDE_SPEED: float = 75
+const MIN_GLYDE_SPEED: float = 100
 ## Decelaration that is applied when player is on the ground
 ## and one of the following conditions are met:[br]
 ## - Player changed direction of movement[br]
 ## - Player stoped moving
-const FRICTION_FORCE: float = 750
+const FRICTION_FORCE: float = 800
 ## Same as [constant FRICTION_FORCE], but is weaker and works in the air
-const AIR_RESISTANCE: float = 150
+const AIR_RESISTANCE: float = 500
 ## Max distance for corner correction moving horizontally
-const CC_HORIZONTAL: int = 2
+const CC_HORIZONTAL: int = 0  # TODO: fix CC_horizontal causing floaty behaviour
 ## Inverse movement direction duh
 @export var _inverse_movement: bool = false
 

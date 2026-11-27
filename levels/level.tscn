@@ -64,7 +64,6 @@ offset_right = 640.0
 offset_bottom = 360.0
 grow_horizontal = 1
 grow_vertical = 1
-metadata/_edit_lock_ = true
 
 [node name="LevelName" type="RichTextLabel" parent="." unique_id=602530414]
 offset_top = 24.0
