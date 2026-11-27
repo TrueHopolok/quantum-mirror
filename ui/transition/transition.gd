@@ -6,21 +6,24 @@ const LEVEL_DIR: String = "res://levels/campaign"
 const LEVEL_PREFIX: String = "campaign_"
 
 var _in_transition: bool = false
+var _tween: Tween
 
 
 func fade_in() -> void:
 	var bg: ColorRect = $ColorRect
 	bg.show()
-	var tween: Tween = create_tween()
-	tween.tween_property(bg, "color", Color(0, 0, 0, 1), DURATION)
-	await tween.finished
+	if _tween:
+		_tween.kill()
+	_tween = create_tween()
+	_tween.tween_property(bg, "color", Color(0, 0, 0, 1), DURATION)
+	await _tween.finished
 
 
 func fade_out() -> void:
 	var bg: ColorRect = $ColorRect
-	var tween: Tween = create_tween()
-	tween.tween_property(bg, "color", Color(0, 0, 0, 0), DURATION)
-	await tween.finished
+	_tween = create_tween()
+	_tween.tween_property(bg, "color", Color(0, 0, 0, 0), DURATION)
+	await _tween.finished
 	bg.hide()
 
 
