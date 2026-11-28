@@ -1,72 +1,22 @@
 ## TODO:
 
-Add tutorials
-Add input scheme selection instead of all inputs at once
+- Add input scheme selection instead of all inputs at once
+  - Classic Scheme: Arrows to move, Z, X, (H/C), Space
+  - Modern Scheme: WASD to move, J, J, H, Space
 
-- Classic Scheme: Arrows to move, Z, X, (H/C), Space
-- Modern Scheme: WASD to move, J, J, H, Space
-
-Add SFX and music
-Add indicators to using gates
-Change electricity sprite
-Add art to main menu and win menu
-
-## LEVELS:
-
-Verification:
-
-- Level Name
-- Player's starting state
-- Exit setup
-  - Level number
-  - Next scene
-  - Exit type
-- Main menu
-
-Levels:
-
-1. X-gate introduction
-   - Movement
-   - X-gate
-   - Lever
-   - Door
-   - Exit (1/3)
-
-2. X-gate challenge
-   - Electricity (1/2)
-   - Electricity (2/2)
-
-3. H-gate introduction
-   - H-gate (1/2)
-   - Exit (2/3)
-
-4. H-gate challenge
-   - H-gate (2/2)
-   - Pressure plate
-   - Exit (3/3)
-
-5. Observation as tool
-   - Observation (1/2)
-
-6. Observation as obstacle
-   - Observation (2/2)
-
-7. Z-gate introduction
-   - Z-gate
-
-8. Prbly some challenge, though observations and Z-gates focus
-
-9. Core
-   - If added, then quantum interference and movement inverse
+- Add tutorials
 
 ## ART:
 
-- Hints (prbly with levels)
+- Hints
+
+- Add indicators to using gates
+
+- Add art to main menu and win menu
 
 - Mb later:
   - Split screen electic line (highest priority)
-  - Fix Tileset alt cells being upside down in lower version
-  - Normal electricity
+  - Normal electricity sprite
   - BG objects
   - Shaders and Lighting
 
